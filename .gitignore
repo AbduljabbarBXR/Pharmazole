@@ -5,3 +5,5 @@ dist/
 *.log
 .wrangler/
 worker/.dev.vars
+__pycache__/
+*.pyc
