@@ -4,12 +4,12 @@ import { site } from '../data/catalog.mjs';
 const BASE = import.meta.env.BASE_URL;
 ---
 
-<Base title={`Page not found — ${site.brand}`} description="The page you are looking for does not exist.">
+<Base title={`Page not found | ${site.brand}`} description="The page you are looking for does not exist.">
   <div class="container center" style="max-width:520px;padding:60px 16px">
     <div style="font-size:60px;font-weight:800;color:var(--green-soft)">404</div>
     <h1 style="margin:10px 0">Page not found</h1>
     <p class="muted" style="margin:0 0 22px">The page you're looking for doesn't exist or has moved.</p>
     <a class="btn" href={BASE}>Back to the pharmacy</a>
-    <p style="margin-top:14px" class="muted">Or ask us on WhatsApp — <b>{site.whatsappDisplay}</b></p>
+    <p style="margin-top:14px" class="muted">Or ask us on WhatsApp: <b>{site.whatsappDisplay}</b></p>
   </div>
 </Base>

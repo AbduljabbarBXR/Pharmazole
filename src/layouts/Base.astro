@@ -2,7 +2,7 @@
 import { site, cartIndex } from '../data/catalog.mjs';
 const BASE = import.meta.env.BASE_URL;
 const cartIndexData = cartIndex();
-const title = site.brand + ' — ' + site.tagline;
+const title = site.brand + ' | ' + site.tagline;
 const desc = 'Order medicines online in Nairobi with fast delivery. Lowest everyday prices, M-Pesa till payment, and genuine products from a PPB-licensed pharmacy. South C, South B, Nairobi West KES 100 delivery; rest of Nairobi KES 300.';
 interface Props {
   title?: string;
@@ -55,6 +55,16 @@ const fullUrl = SITE + path;
     <script type="application/json" id="pz-base" set:html={JSON.stringify(BASE)}></script>
     <script src={BASE + 'scripts/store.js'}></script>
 
+    <div class="topbar">
+      <div class="container topbar-inner">
+        <span>Same-day delivery across Nairobi</span>
+        <span class="dot" aria-hidden="true">&bull;</span>
+        <span>Orders before 5PM delivered today</span>
+        <span class="dot" aria-hidden="true">&bull;</span>
+        <span>Lowest everyday prices</span>
+      </div>
+    </div>
+
     <header class="site-header">
       <div class="header-inner container">
         <a class="logo" href={BASE}>
@@ -82,6 +92,14 @@ const fullUrl = SITE + path;
           <input type="search" name="q" placeholder="Search medicines, vitamins, care products…" aria-label="Search products" autocomplete="off" />
         </form>
         <div class="header-actions">
+          <label class="zone-pill" title="Choose your delivery area">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            <select id="zone-select" aria-label="Choose delivery area">
+              {site.delivery.zones.map((z) => (
+                <option value={z.id}>{z.id === 'south' ? 'South C area' : 'Nairobi'}</option>
+              ))}
+            </select>
+          </label>
           <a class="icon-btn" href={'https://wa.me/' + site.whatsapp} target="_blank" rel="noopener" title="Chat on WhatsApp" aria-label="Chat on WhatsApp">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.5A9.9 9.9 0 1 0 12.04 2Zm5.8 14.06c-.24.68-1.4 1.3-1.93 1.35-.52.05-1.17.24-3.95-.82-3.34-1.3-5.44-4.66-5.6-4.88-.16-.22-1.34-1.79-1.34-3.41 0-1.63.85-2.43 1.15-2.76.3-.33.66-.41.88-.41h.63c.2 0 .48-.08.75.57.27.66.93 2.28 1.01 2.45.08.16.14.36.03.58-.11.22-.17.35-.33.54-.16.19-.35.43-.5.57-.16.16-.33.34-.14.66.19.33.85 1.4 1.82 2.27 1.25 1.12 2.3 1.47 2.63 1.63.33.16.52.14.71-.08.19-.22.82-.95 1.04-1.28.22-.33.44-.27.74-.16.3.11 1.9.9 2.23 1.06.33.16.54.24.62.38.08.13.08.79-.16 1.47Z"/></svg>
           </a>
@@ -121,6 +139,12 @@ const fullUrl = SITE + path;
           <p style="margin:0 0 8px"><a href={BASE + 'privacy'}>Privacy</a></p>
           <p style="margin:0 0 8px"><a href={BASE + 'terms'}>Terms</a></p>
         </div>
+        <div>
+          <h4>Contact</h4>
+          <p style="margin:0 0 8px"><b style="color:#fff">WhatsApp:</b> {site.whatsappDisplay}</p>
+          <p style="margin:0 0 8px"><b style="color:#fff">Hours:</b> Mon to Sat, 8am to 7pm</p>
+          <p style="margin:0"><b style="color:#fff">Pay:</b> M-Pesa till {site.tillNumber} ({site.tillName})</p>
+        </div>
       </div>
       <div class="container footer-legal">
         {site.legal.ppbDisclaimer}
@@ -146,5 +170,21 @@ const fullUrl = SITE + path;
         <a class="btn btn-lg" id="drawer-checkout" href={BASE + 'checkout'}>Checkout</a>
       </div>
     </aside>
+
+    <script>
+      (function () {
+        const sel = document.getElementById('zone-select');
+        if (!sel) return;
+        const cur = PZ.zone();
+        if (cur) sel.value = cur.id;
+        sel.addEventListener('change', () => {
+          const z = (PZ.SITE.delivery.zones || []).find((x) => x.id === sel.value);
+          if (z) {
+            PZ.saveZone({ id: z.id, fee: z.fee });
+            PZ.toast('Delivery area set to ' + z.label);
+          }
+        });
+      })();
+    </script>
   </body>
 </html>

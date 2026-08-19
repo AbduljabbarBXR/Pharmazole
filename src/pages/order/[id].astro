@@ -7,7 +7,7 @@ export function getStaticPaths() {
 }
 ---
 
-<Base title={`Order — ${site.brand}`} description="Track your Pharmazole order and pay with M-Pesa till.">
+<Base title={`Order | ${site.brand}`} description="Track your Pharmazole order and pay with M-Pesa till.">
   <div class="container" style="max-width:760px">
     <h1 class="page-head" style="font-size:26px">Order</h1>
 
@@ -45,7 +45,7 @@ export function getStaticPaths() {
           <input class="input mono" id="code" placeholder="e.g. SJD7XK2W1Q" maxlength="20" />
           <span class="hint">We confirm payment from your M-Pesa message before dispatching.</span>
         </div>
-        <button class="btn btn-lg" id="submit-code">I've paid — confirm my order</button>
+        <button class="btn btn-lg" id="submit-code">I've paid, confirm my order</button>
       </div>
 
       <div class="panel">
@@ -67,7 +67,7 @@ export function getStaticPaths() {
 
     function waSendHref() {
       const items = (order.items || []).map((i) => `${i.qty} × ${i.name}`).join(', ');
-      const msg = `New order ${order.id} — KES ${order.total}\nItems: ${items}\nCustomer: ${order.customer.name} (${order.customer.phone})\nDeliver to: ${order.customer.address}\nTrack: ${location.origin}${location.pathname}?phone=${order.customer.phone}`;
+      const msg = `New order ${order.id} | KES ${order.total}\nItems: ${items}\nCustomer: ${order.customer.name} (${order.customer.phone})\nDeliver to: ${order.customer.address}\nTrack: ${location.origin}${location.pathname}?phone=${order.customer.phone}`;
       return 'https://wa.me/' + PZ.SITE.whatsapp + '?text=' + encodeURIComponent(msg);
     }
 
@@ -108,14 +108,14 @@ export function getStaticPaths() {
         <div class="summary-row total"><span>Total</span><span>${PZ.fmt(order.total)}</span></div>`;
       document.getElementById('delivery-info').textContent = `${order.customer.name} · ${order.customer.phone} · ${order.customer.address}`;
       document.getElementById('pay-amount').textContent = PZ.fmt(order.total);
-      document.getElementById('till').textContent = PZ.SITE.tillNumber || '—';
+      document.getElementById('till').textContent = PZ.SITE.tillNumber || '-';
       document.getElementById('till-name').textContent = PZ.SITE.tillName || '';
       document.getElementById('wa-send').href = waSendHref();
 
       const payPanel = document.getElementById('pay-panel');
       const done = ['confirmed', 'dispatched', 'delivered'].includes(order.status);
       payPanel.classList.toggle('hide', done);
-      if (done) payPanel.innerHTML = '<p style="margin:0"><b>Payment confirmed — thank you!</b></p>';
+      if (done) payPanel.innerHTML = '<p style="margin:0"><b>Payment confirmed. Thank you!</b></p>';
     }
 
     document.getElementById('submit-code').addEventListener('click', async () => {
@@ -125,11 +125,11 @@ export function getStaticPaths() {
       btn.disabled = true; btn.textContent = 'Submitting…';
       try {
         await PZ.api('/order/' + id + '/payment', { method: 'POST', body: JSON.stringify({ phone, code }) });
-        PZ.toast('Payment code received — we\'ll confirm shortly');
-        btn.disabled = false; btn.textContent = 'I\'ve paid — confirm my order';
+        PZ.toast('Payment code received. We\'ll confirm shortly');
+        btn.disabled = false; btn.textContent = 'I\'ve paid, confirm my order';
         setTimeout(load, 1500);
       } catch (e) {
-        btn.disabled = false; btn.textContent = 'I\'ve paid — confirm my order';
+        btn.disabled = false; btn.textContent = 'I\'ve paid, confirm my order';
         PZ.toast(e.message, true);
       }
     });

@@ -9,40 +9,103 @@ const catReps = cats.map((c) => {
   const rep = products.find((p) => p.category === c.name);
   return { ...c, image: rep ? rep.image : '' };
 });
-const heroImgs = ['panadol-advance-500mg-tablets-20s', 'coartem-20120mg-tablets-24s', 'symbicort-inhaler-160mcg45mcg-120doses'];
-const heroUrl = (slug) => BASE + 'images/products/' + slug + '.webp';
+const popular = products.filter((p) => !p.prescription && p.inStock !== false).slice(0, 8);
+const coldflu = products.filter((p) => ['Cold & Flu', 'Cough & Throat'].includes(p.category) && p.inStock !== false).slice(0, 8);
+const chronic = products.filter((p) => ['Diabetes', 'Blood Pressure', 'Blood & Heart'].includes(p.category)).slice(0, 8);
+const img = (name) => BASE + 'images/banners/' + name;
 ---
 
 <Base>
   <section class="container">
-    <div class="hero">
-      <div class="hero-copy">
-        <span class="hero-eyebrow">Nairobi's neighbourhood pharmacy</span>
-        <h1>{site.heroTitle}</h1>
-        <p>{site.tagline} Pay with M-Pesa till, then get it delivered — {site.delivery.zones[0].label} for KES {site.delivery.zones[0].fee}, rest of Nairobi KES {site.delivery.zones[1].fee}.</p>
-        <div class="hero-cta">
-          <a class="btn hero-btn btn-lg" href="#catalog">Browse products</a>
-          <a class="btn btn-whatsapp btn-lg" href={'https://wa.me/' + site.whatsapp} target="_blank" rel="noopener">Order on WhatsApp</a>
-        </div>
-        <div class="hero-badges">
-          <span class="hero-badge">Same-day delivery</span>
-          <span class="hero-badge">Lowest everyday prices</span>
-          <span class="hero-badge">M-Pesa till payment</span>
-          <span class="hero-badge">PPB-licensed</span>
+    <div class="hero" id="hero">
+      <div class="hero-slide active" style={`background-image:url('${img('hero-prices.webp')}')`}>
+        <div class="hero-scrim" aria-hidden="true"></div>
+        <div class="hero-copy">
+          <span class="hero-eyebrow">Lowest everyday prices</span>
+          <h1>{site.heroTitle}</h1>
+          <p>{site.tagline} Pay with M-Pesa till, then get it delivered to {site.delivery.zones[0].label} for KES {site.delivery.zones[0].fee}, or anywhere else in Nairobi for KES {site.delivery.zones[1].fee}.</p>
+          <div class="hero-cta">
+            <a class="btn hero-btn btn-lg" href="#catalog">Browse products</a>
+            <a class="btn btn-whatsapp btn-lg" href={'https://wa.me/' + site.whatsapp} target="_blank" rel="noopener">Order on WhatsApp</a>
+          </div>
+          <div class="hero-badges">
+            <span class="hero-badge">Same-day delivery</span>
+            <span class="hero-badge">Genuine medicines</span>
+            <span class="hero-badge">M-Pesa till payment</span>
+          </div>
         </div>
       </div>
-      <div class="hero-visual" aria-hidden="true">
-        <div class="hero-img main"><img src={heroUrl(heroImgs[0])} alt="" loading="eager" /></div>
-        <div class="hero-img t1"><img src={heroUrl(heroImgs[1])} alt="" loading="eager" /></div>
-        <div class="hero-img t2"><img src={heroUrl(heroImgs[2])} alt="" loading="eager" /></div>
-        <div class="float-card fc1">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 4 5v6c0 5.05 3.4 9.8 8 11 4.6-1.2 8-5.95 8-11V5l-8-3Z"/></svg>
-          PPB-licensed pharmacy
+
+      <div class="hero-slide" style={`background-image:url('${img('hero-rx.webp')}')`}>
+        <div class="hero-scrim" aria-hidden="true"></div>
+        <div class="hero-copy">
+          <span class="hero-eyebrow">Prescription medicines</span>
+          <h1>Verified by a pharmacist, delivered to your door</h1>
+          <p>Upload a photo of your prescription at checkout. Our pharmacist verifies it, then we pack and dispatch the same day.</p>
+          <div class="hero-cta">
+            <a class="btn hero-btn btn-lg" href={BASE + 'prescriptions'}>How it works</a>
+            <a class="btn btn-outline btn-lg" href="#catalog" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.6)">Browse Rx medicines</a>
+          </div>
+          <div class="hero-badges">
+            <span class="hero-badge">Pharmacist verified</span>
+            <span class="hero-badge">Upload at checkout</span>
+          </div>
         </div>
-        <div class="float-card fc2">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3.1 6.3 7 1-5 4.9 1.2 6.9-6.3-3.3L5.7 21l1.2-6.9-5-4.9 7-1L12 2Z"/></svg>
-          Lowest price promise
+      </div>
+
+      <div class="hero-slide" style={`background-image:url('${img('hero-delivery.webp')}')`}>
+        <div class="hero-scrim" aria-hidden="true"></div>
+        <div class="hero-copy">
+          <span class="hero-eyebrow">Same-day delivery</span>
+          <h1>Order before 5PM, get it today</h1>
+          <p>Flat delivery fees: {site.delivery.zones[0].label} for KES {site.delivery.zones[0].fee}, rest of Nairobi for KES {site.delivery.zones[1].fee}. Your zone is remembered at checkout.</p>
+          <div class="hero-cta">
+            <a class="btn hero-btn btn-lg" href="#catalog">Shop now</a>
+            <a class="btn btn-outline btn-lg" href={BASE + 'delivery'} style="background:transparent;color:#fff;border-color:rgba(255,255,255,.6)">Delivery &amp; fees</a>
+          </div>
+          <div class="hero-badges">
+            <span class="hero-badge">Orders before 5PM</span>
+            <span class="hero-badge">Track your order</span>
+          </div>
         </div>
+      </div>
+
+      <button class="hero-arrow prev" id="hero-prev" aria-label="Previous slide">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+      </button>
+      <button class="hero-arrow next" id="hero-next" aria-label="Next slide">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+      </button>
+      <div class="hero-dots" id="hero-dots" role="tablist" aria-label="Promo slides"></div>
+    </div>
+
+    <div class="steps-band">
+      <div class="step">
+        <span class="step-n">1</span>
+        <span class="step-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="9" cy="21" r="1.6" fill="currentColor" stroke="none"/><circle cx="19" cy="21" r="1.6" fill="currentColor" stroke="none"/><path d="M2 3h3l2.6 12.4a2 2 0 0 0 2 1.6h8.8a2 2 0 0 0 2-1.6L22 7H6"/></svg>
+        </span>
+        <span><b>Browse and add to cart</b><span class="muted" style="font-size:13px">Pick what you need from our catalog</span></span>
+      </div>
+      <div class="step-arrow" aria-hidden="true">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </div>
+      <div class="step">
+        <span class="step-n">2</span>
+        <span class="step-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg>
+        </span>
+        <span><b>Pay with M-Pesa till</b><span class="muted" style="font-size:13px">Send the amount and confirm with your code</span></span>
+      </div>
+      <div class="step-arrow" aria-hidden="true">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </div>
+      <div class="step">
+        <span class="step-n">3</span>
+        <span class="step-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 17h16V8H8L4 17Z"/><circle cx="8" cy="20" r="1.8"/><circle cx="17" cy="20" r="1.8"/></svg>
+        </span>
+        <span><b>Delivered the same day</b><span class="muted" style="font-size:13px">Before 5PM, anywhere in Nairobi</span></span>
       </div>
     </div>
 
@@ -76,11 +139,62 @@ const heroUrl = (slug) => BASE + 'images/products/' + slug + '.webp';
     <h2 class="section-title" id="categories">Shop by category</h2>
     <div class="cat-grid">
       {catReps.map((c) => (
-        <a class="cat-tile" href={'#catalog'} data-cat-link={c.name}>
+        <a class="cat-tile" href="#catalog" data-cat-link={c.name}>
           <img src={BASE + c.image} alt="" loading="lazy" onerror={`this.onerror=null;this.src='${BASE}images/fallback-product.png'`} />
           <span><b>{c.name}</b><span>{c.count} products</span></span>
         </a>
       ))}
+    </div>
+
+    <div class="carousel-head">
+      <h2 class="section-title" style="margin:0">Popular right now</h2>
+      <div class="carousel-nav">
+        <button class="carousel-btn" data-track="car-popular" data-dir="-1" aria-label="Scroll left">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+        </button>
+        <button class="carousel-btn" data-track="car-popular" data-dir="1" aria-label="Scroll right">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="carousel">
+      <div class="carousel-track" id="car-popular">
+        {popular.map((p) => <ProductCard product={p} />)}
+      </div>
+    </div>
+
+    <div class="carousel-head">
+      <h2 class="section-title" style="margin:0">Cold, cough and flu essentials</h2>
+      <div class="carousel-nav">
+        <button class="carousel-btn" data-track="car-coldflu" data-dir="-1" aria-label="Scroll left">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+        </button>
+        <button class="carousel-btn" data-track="car-coldflu" data-dir="1" aria-label="Scroll right">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="carousel">
+      <div class="carousel-track" id="car-coldflu">
+        {coldflu.map((p) => <ProductCard product={p} />)}
+      </div>
+    </div>
+
+    <div class="carousel-head">
+      <h2 class="section-title" style="margin:0">Chronic care essentials</h2>
+      <div class="carousel-nav">
+        <button class="carousel-btn" data-track="car-chronic" data-dir="-1" aria-label="Scroll left">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+        </button>
+        <button class="carousel-btn" data-track="car-chronic" data-dir="1" aria-label="Scroll right">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="carousel">
+      <div class="carousel-track" id="car-chronic">
+        {chronic.map((p) => <ProductCard product={p} />)}
+      </div>
     </div>
 
     <div class="toolbar" id="catalog">
@@ -108,7 +222,7 @@ const heroUrl = (slug) => BASE + 'images/products/' + slug + '.webp';
     <div class="rx-banner">
       <div>
         <h3>Need a prescription medicine?</h3>
-        <p>Products marked <span class="badge badge-rx">Prescription</span> need a valid prescription. Upload a photo at checkout — our pharmacist verifies it before dispatch, then we deliver the same day.</p>
+        <p>Products marked <span class="badge badge-rx">Prescription</span> need a valid prescription. Upload a photo at checkout, and our pharmacist verifies it before dispatch, then we deliver the same day.</p>
       </div>
       <a class="btn btn-lg" href={BASE + 'prescriptions'} style="min-width:220px">How it works</a>
     </div>
@@ -125,6 +239,50 @@ const heroUrl = (slug) => BASE + 'images/products/' + slug + '.webp';
     const searchInput = document.querySelector('.header-search input');
     if (searchInput) searchInput.value = qq;
 
+    /* ---------- hero carousel ---------- */
+    const slides = Array.from(document.querySelectorAll('.hero-slide'));
+    const dotsWrap = document.getElementById('hero-dots');
+    let cur = 0, timer = null;
+    slides.forEach((_, i) => {
+      const d = document.createElement('button');
+      d.className = 'hero-dot' + (i === 0 ? ' active' : '');
+      d.setAttribute('role', 'tab');
+      d.setAttribute('aria-label', 'Slide ' + (i + 1));
+      d.addEventListener('click', () => go(i));
+      dotsWrap.appendChild(d);
+    });
+    const dots = Array.from(dotsWrap.children);
+    function go(i) {
+      slides[cur].classList.remove('active');
+      dots[cur].classList.remove('active');
+      cur = (i + slides.length) % slides.length;
+      slides[cur].classList.add('active');
+      dots[cur].classList.add('active');
+      restart();
+    }
+    function restart() {
+      clearInterval(timer);
+      timer = setInterval(() => go(cur + 1), 6500);
+    }
+    document.getElementById('hero-prev').addEventListener('click', () => go(cur - 1));
+    document.getElementById('hero-next').addEventListener('click', () => go(cur + 1));
+    const hero = document.getElementById('hero');
+    hero.addEventListener('mouseenter', () => clearInterval(timer));
+    hero.addEventListener('mouseleave', restart);
+    restart();
+
+    /* ---------- product carousels ---------- */
+    document.querySelectorAll('.carousel-btn').forEach((b) => b.addEventListener('click', () => {
+      const track = document.getElementById(b.dataset.track);
+      if (track) track.scrollBy({ left: Number(b.dataset.dir) * track.clientWidth * 0.8, behavior: 'smooth' });
+    }));
+    document.querySelectorAll('.carousel-track').forEach((t) => {
+      t.querySelectorAll('[data-add]').forEach((b) =>
+        b.addEventListener('click', () => { PZ.addToCart(b.dataset.add, 1); PZ.toast('Added to cart'); b.classList.add('added'); setTimeout(() => b.classList.remove('added'), 600); })
+      );
+    });
+
+    /* ---------- catalog grid ---------- */
     function cardHtml(p) {
       const fallback = PZ.BASE_URL + 'images/fallback-product.png';
       const img = (PZ.BASE_URL + (p.image || 'images/fallback-product.png')).replace(/([^:])\/\//g, '$1/');

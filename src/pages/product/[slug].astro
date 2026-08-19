@@ -13,7 +13,7 @@ const related = products.filter((x) => x.category === p.category && x.id !== p.i
 const fullUrl = SITE + BASE + 'product/' + p.slug;
 ---
 
-<Base title={`${p.name} — ${site.brand}`} description={p.description && p.description.slice(0, 160)}>
+<Base title={`${p.name} | ${site.brand}`} description={p.description && p.description.slice(0, 160)}>
   <script type="application/ld+json" set:html={JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'Product',
@@ -59,7 +59,7 @@ const fullUrl = SITE + BASE + 'product/' + p.slug;
         {p.prescription && (
           <div class="rx-alert">
             <b>Prescription required</b>
-            <span>This medicine needs a valid prescription. Attach it at checkout — we verify it and send it to our pharmacist via WhatsApp before dispatch.</span>
+            <span>This medicine needs a valid prescription. Attach it at checkout, and our pharmacist verifies it before dispatch.</span>
           </div>
         )}
 

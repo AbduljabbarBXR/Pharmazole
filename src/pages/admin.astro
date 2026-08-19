@@ -4,7 +4,7 @@ import { site } from '../data/catalog.mjs';
 const BASE = import.meta.env.BASE_URL;
 ---
 
-<Base title={`Admin — ${site.brand}`} description="">
+<Base title={`Admin | ${site.brand}`} description="">
   <div class="admin-layout">
     <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
       <h1 style="margin:0;font-size:26px">Pharmazole admin</h1>
@@ -56,10 +56,10 @@ const BASE = import.meta.env.BASE_URL;
           <div class="field"><label>Till store name</label><input class="input" id="s-tillname"></div>
           <div class="field"><label>WhatsApp number (international, e.g. 2547XX…)</label><input class="input" id="s-whatsapp"></div>
           <div class="field"><label>WhatsApp display</label><input class="input" id="s-whatsappdisp"></div>
-          <div class="field"><label>Delivery zone 1 — label</label><input class="input" id="s-z1-label"></div>
-          <div class="field"><label>Delivery zone 1 — fee (KES)</label><input class="input" id="s-z1-fee" type="number"></div>
-          <div class="field"><label>Delivery zone 2 — label</label><input class="input" id="s-z2-label"></div>
-          <div class="field"><label>Delivery zone 2 — fee (KES)</label><input class="input" id="s-z2-fee" type="number"></div>
+          <div class="field"><label>Delivery zone 1 label</label><input class="input" id="s-z1-label"></div>
+          <div class="field"><label>Delivery zone 1 fee (KES)</label><input class="input" id="s-z1-fee" type="number"></div>
+          <div class="field"><label>Delivery zone 2 label</label><input class="input" id="s-z2-label"></div>
+          <div class="field"><label>Delivery zone 2 fee (KES)</label><input class="input" id="s-z2-fee" type="number"></div>
           <div class="field"><label>PPB license number</label><input class="input" id="s-ppb" placeholder="e.g. PPB (K) 2026/12345"></div>
           <div class="field"><label>Pharmacist in charge</label><input class="input" id="s-pharmacist" placeholder="Full name"></div>
           <button class="btn" id="s-save">Save settings</button>
@@ -124,7 +124,7 @@ const BASE = import.meta.env.BASE_URL;
             <td>${PZ.esc(o.customer)}<br><span class="mono" style="font-size:12px">${PZ.esc(o.phone)}</span></td>
             <td>${o.itemCount} item${o.itemCount === 1 ? '' : 's'}${o.hasRx ? ' <span class="badge badge-rx">Rx</span>' : ''}</td>
             <td><b>${PZ.fmt(o.total)}</b></td>
-            <td>${o.paymentCode ? '<span class="mono">' + PZ.esc(o.paymentCode) + '</span>' : '<span class="muted">—</span>'}</td>
+            <td>${o.paymentCode ? '<span class="mono">' + PZ.esc(o.paymentCode) + '</span>' : '<span class="muted">-</span>'}</td>
             <td>${statusSelect(o)}</td>
             <td><button class="btn btn-outline btn-sm" data-view="${o.id}">View</button></td>
           </tr>`).join('')}
@@ -164,7 +164,7 @@ const BASE = import.meta.env.BASE_URL;
           </div>
           ${o.paymentCode ? `<p style="margin:10px 0 0"><b>M-Pesa code:</b> <span class="mono">${PZ.esc(o.paymentCode)}</span></p>` : ''}
           ${rxHtml}
-          <a class="btn btn-whatsapp btn-sm" style="margin-top:14px" target="_blank" href="https://wa.me/${PZ.SITE.whatsapp}?text=${encodeURIComponent('Order ' + o.id + ' for ' + o.customer.name + ' — KES ' + o.total + ' — ' + o.customer.address)}">Reach customer on WhatsApp</a>
+          <a class="btn btn-whatsapp btn-sm" style="margin-top:14px" target="_blank" href="https://wa.me/${PZ.SITE.whatsapp}?text=${encodeURIComponent('Order ' + o.id + ' for ' + o.customer.name + ' | KES ' + o.total + ' | ' + o.customer.address)}">Reach customer on WhatsApp</a>
         </div>`;
         document.body.appendChild(div);
         div.querySelector('#rx-close').addEventListener('click', () => div.remove());
@@ -244,7 +244,7 @@ const BASE = import.meta.env.BASE_URL;
           p.image = res.path;
           dirty.add(p.id);
           renderProducts();
-          PZ.toast('Image uploaded — save changes to apply');
+          PZ.toast('Image uploaded. Save changes to apply');
         } catch (e) { PZ.toast(e.message, true); }
       }));
     }
@@ -293,7 +293,7 @@ const BASE = import.meta.env.BASE_URL;
       try {
         await PZ.api('/admin/products', { method: 'PUT', body: JSON.stringify({ products }) });
         dirty.clear();
-        PZ.toast('Catalog saved — site rebuilds automatically');
+        PZ.toast('Catalog saved. Site rebuilds automatically');
       } catch (e) { PZ.toast(e.message, true); }
       btn.disabled = false; btn.textContent = 'Save all changes';
     });
@@ -334,7 +334,7 @@ const BASE = import.meta.env.BASE_URL;
       };
       try {
         await PZ.api('/admin/site', { method: 'PUT', body: JSON.stringify({ site }) });
-        PZ.toast('Settings saved — site rebuilds automatically');
+        PZ.toast('Settings saved. Site rebuilds automatically');
       } catch (e) { PZ.toast(e.message, true); }
       btn.disabled = false; btn.textContent = 'Save settings';
     });
