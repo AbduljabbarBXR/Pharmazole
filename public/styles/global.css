@@ -165,7 +165,7 @@ input, select, textarea { font-family: inherit; font-size: 16px; }
   display: flex; align-items: center; justify-content: center; padding: 0 4px;
 }
 @media (min-width: 1024px) {
-  .main-nav { order: 0; width: auto; margin-right: 4px; }
+  .main-nav { order: 0; width: auto; margin-right: 4px; overflow: visible; }
   .header-search { max-width: 460px; margin-left: auto; }
 }
 .hide { display: none !important; }
