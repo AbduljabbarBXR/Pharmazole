@@ -11,16 +11,14 @@ const disabled = p.inStock === false;
 
 <article class="card">
   <a class="card-img-wrap" href={href}>
+    {p.prescription
+      ? <span class="card-badge badge badge-rx">Prescription</span>
+      : disabled && <span class="card-badge badge badge-out">Out of stock</span>}
     <img src={img.url(p)} alt={p.name} loading="lazy" width="400" height="400" onerror={`this.onerror=null;this.src='${img.fallback()}'`} />
   </a>
   <div class="card-body">
+    <span class="card-brand">{p.brand}</span>
     <a class="card-name" href={href}>{p.name}</a>
-    <div style="display:flex;justify-content:space-between;align-items:center;gap:8px">
-      <span class="card-brand">{p.brand}</span>
-      {p.prescription
-        ? <span class="badge badge-rx">Prescription</span>
-        : disabled ? <span class="badge badge-out">Out of stock</span> : <span class="badge badge-otc">OTC</span>}
-    </div>
     <div class="card-bottom">
       <span class="price">KES {p.price.toLocaleString('en-KE')}</span>
       <button type="button" class="add-btn" data-add={p.id} disabled={disabled} aria-label="Add to cart">+</button>

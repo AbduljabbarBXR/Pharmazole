@@ -14,51 +14,57 @@ const BASE = import.meta.env.BASE_URL;
     </div>
 
     <div id="checkout-form" class="hide">
-      <div class="panel">
-        <h3>Your order</h3>
-        <div id="items" style="display:grid;gap:10px"></div>
-        <div id="summary" style="margin-top:14px;border-top:1px dashed var(--line);padding-top:12px;display:grid;gap:6px"></div>
-      </div>
+      <div class="checkout-grid">
+        <div>
+          <div class="panel">
+            <h3>Your order</h3>
+            <div id="items" style="display:grid;gap:12px"></div>
+            <div id="summary" style="margin-top:14px;border-top:1px dashed var(--line);padding-top:12px;display:grid;gap:6px"></div>
+          </div>
 
-      <div class="panel">
-        <h3>Delivery</h3>
-        <div id="zones"></div>
-        <div class="field">
-          <label for="address">Delivery address <span class="hint">(estate, street/building, house number)</span></label>
-          <input class="input" id="address" name="address" placeholder="e.g. South C, Ole Sangale Rd, Gate 14, House 22" autocomplete="street-address" />
+          <div class="panel" id="rx-panel">
+            <h3>Prescription upload</h3>
+            <div class="rx-alert" id="rx-alert">
+              <b>One or more items need a prescription</b>
+              <span>Take a clear photo of the prescription and attach it below. Our pharmacist reviews it and confirms via WhatsApp before dispatch.</span>
+            </div>
+            <div style="margin-top:12px">
+              <label class="upload-box" id="upload-box">
+                <input type="file" id="rx-file" accept="image/jpeg,image/png,image/webp" />
+                <span id="rx-label">Tap to attach prescription (photo or scan)</span>
+              </label>
+              <p class="hint muted" style="margin:8px 0 0">JPEG / PNG / WebP, max 5MB. Files are stored privately and only seen by {site.brand} staff.</p>
+            </div>
+          </div>
         </div>
-        <div class="field">
-          <label for="phone">Mobile number (M-Pesa)</label>
-          <input class="input" id="phone" name="phone" inputmode="tel" placeholder="07XX XXX XXX" autocomplete="tel" />
-          <span class="hint">You will receive an M-Pesa prompt-free payment — send to our till below.</span>
-        </div>
-        <div class="field">
-          <label for="name">Full name</label>
-          <input class="input" id="name" name="name" placeholder="Jane Wanjiku" autocomplete="name" />
-        </div>
-        <div class="field">
-          <label for="note">Order note (optional)</label>
-          <textarea class="textarea" id="note" rows="2" placeholder="Anything we should know?"></textarea>
+
+        <div>
+          <div class="panel">
+            <h3>Delivery</h3>
+            <div id="zones"></div>
+            <div class="field">
+              <label for="address">Delivery address <span class="hint">(estate, street/building, house number)</span></label>
+              <input class="input" id="address" name="address" placeholder="e.g. South C, Ole Sangale Rd, Gate 14, House 22" autocomplete="street-address" />
+            </div>
+            <div class="field">
+              <label for="phone">Mobile number (M-Pesa)</label>
+              <input class="input" id="phone" name="phone" inputmode="tel" placeholder="07XX XXX XXX" autocomplete="tel" />
+              <span class="hint">You will receive an M-Pesa prompt-free payment — send to our till below.</span>
+            </div>
+            <div class="field">
+              <label for="name">Full name</label>
+              <input class="input" id="name" name="name" placeholder="Jane Wanjiku" autocomplete="name" />
+            </div>
+            <div class="field">
+              <label for="note">Order note (optional)</label>
+              <textarea class="textarea" id="note" rows="2" placeholder="Anything we should know?"></textarea>
+            </div>
+          </div>
+
+          <button class="btn btn-lg" id="place-order" style="margin-top:16px">Place order &middot; <span id="btn-total"></span></button>
+          <p class="muted center" style="font-size:13px;margin-top:10px">By placing this order you agree to our <a href={BASE + 'terms'}>terms</a> and confirm the details are correct.</p>
         </div>
       </div>
-
-      <div class="panel" id="rx-panel">
-        <h3>Prescription upload</h3>
-        <div class="rx-alert" id="rx-alert">
-          <b>One or more items need a prescription</b>
-          <span>Take a clear photo of the prescription and attach it below. Our pharmacist reviews it and confirms via WhatsApp before dispatch.</span>
-        </div>
-        <div style="margin-top:12px">
-          <label class="upload-box" id="upload-box">
-            <input type="file" id="rx-file" accept="image/jpeg,image/png,image/webp" />
-            <span id="rx-label">Tap to attach prescription (photo or scan)</span>
-          </label>
-          <p class="hint muted" style="margin:8px 0 0">JPEG / PNG / WebP, max 5MB. Files are stored privately and only seen by {site.brand} staff.</p>
-        </div>
-      </div>
-
-      <button class="btn btn-lg" id="place-order" style="margin-top:6px">Place order &middot; <span id="btn-total"></span></button>
-      <p class="muted center" style="font-size:13px;margin-top:8px">By placing this order you agree to our <a href={BASE + 'terms'}>terms</a> and confirm the details are correct.</p>
     </div>
   </div>
 

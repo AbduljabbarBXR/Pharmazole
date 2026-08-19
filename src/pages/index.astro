@@ -5,21 +5,82 @@ import { products, categories, site } from '../data/catalog.mjs';
 const BASE = import.meta.env.BASE_URL;
 const q = Astro.url.searchParams.get('q') || '';
 const cats = categories();
+const catReps = cats.map((c) => {
+  const rep = products.find((p) => p.category === c.name);
+  return { ...c, image: rep ? rep.image : '' };
+});
+const heroImgs = ['panadol-advance-500mg-tablets-20s', 'coartem-20120mg-tablets-24s', 'symbicort-inhaler-160mcg45mcg-120doses'];
+const heroUrl = (slug) => BASE + 'images/products/' + slug + '.webp';
 ---
 
 <Base>
   <section class="container">
     <div class="hero">
-      <h1>{site.heroTitle}</h1>
-      <p>{site.tagline} Pay with M-Pesa till, then get it delivered — {site.delivery.zones[0].label} for KES {site.delivery.zones[0].fee}, rest of Nairobi KES {site.delivery.zones[1].fee}.</p>
-      <a class="btn hero-btn" href="#catalog">Browse products</a>
-      <div class="hero-badges">
-        <span class="hero-badge">Same-day delivery</span>
-        <span class="hero-badge">Lowest everyday prices</span>
-        <span class="hero-badge">M-Pesa till payment</span>
-        <span class="hero-badge">PPB-licensed</span>
-        <span class="hero-badge">WhatsApp support</span>
+      <div class="hero-copy">
+        <span class="hero-eyebrow">Nairobi's neighbourhood pharmacy</span>
+        <h1>{site.heroTitle}</h1>
+        <p>{site.tagline} Pay with M-Pesa till, then get it delivered — {site.delivery.zones[0].label} for KES {site.delivery.zones[0].fee}, rest of Nairobi KES {site.delivery.zones[1].fee}.</p>
+        <div class="hero-cta">
+          <a class="btn hero-btn btn-lg" href="#catalog">Browse products</a>
+          <a class="btn btn-whatsapp btn-lg" href={'https://wa.me/' + site.whatsapp} target="_blank" rel="noopener">Order on WhatsApp</a>
+        </div>
+        <div class="hero-badges">
+          <span class="hero-badge">Same-day delivery</span>
+          <span class="hero-badge">Lowest everyday prices</span>
+          <span class="hero-badge">M-Pesa till payment</span>
+          <span class="hero-badge">PPB-licensed</span>
+        </div>
       </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-img main"><img src={heroUrl(heroImgs[0])} alt="" loading="eager" /></div>
+        <div class="hero-img t1"><img src={heroUrl(heroImgs[1])} alt="" loading="eager" /></div>
+        <div class="hero-img t2"><img src={heroUrl(heroImgs[2])} alt="" loading="eager" /></div>
+        <div class="float-card fc1">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 4 5v6c0 5.05 3.4 9.8 8 11 4.6-1.2 8-5.95 8-11V5l-8-3Z"/></svg>
+          PPB-licensed pharmacy
+        </div>
+        <div class="float-card fc2">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3.1 6.3 7 1-5 4.9 1.2 6.9-6.3-3.3L5.7 21l1.2-6.9-5-4.9 7-1L12 2Z"/></svg>
+          Lowest price promise
+        </div>
+      </div>
+    </div>
+
+    <div class="trust-strip">
+      <div class="trust-item">
+        <span class="trust-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.5 11 15.5 16.5 9"/></svg>
+        </span>
+        <span><b>Genuine medicines</b><span>From licensed distributors</span></span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2 4 5v6c0 5.05 3.4 9.8 8 11 4.6-1.2 8-5.95 8-11V5l-8-3Z"/></svg>
+        </span>
+        <span><b>PPB-licensed</b><span>Pharmacist reviewed</span></span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z"/></svg>
+        </span>
+        <span><b>Same-day delivery</b><span>Before 5PM, Nairobi-wide</span></span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16v12H7l-3 3V4Z"/><path d="M8 9h8M8 12h5"/></svg>
+        </span>
+        <span><b>Real human support</b><span>On WhatsApp, always</span></span>
+      </div>
+    </div>
+
+    <h2 class="section-title" id="categories">Shop by category</h2>
+    <div class="cat-grid">
+      {catReps.map((c) => (
+        <a class="cat-tile" href={'#catalog'} data-cat-link={c.name}>
+          <img src={BASE + c.image} alt="" loading="lazy" onerror={`this.onerror=null;this.src='${BASE}images/fallback-product.png'`} />
+          <span><b>{c.name}</b><span>{c.count} products</span></span>
+        </a>
+      ))}
     </div>
 
     <div class="toolbar" id="catalog">
@@ -43,6 +104,14 @@ const cats = categories();
     </div>
 
     <script type="application/json" id="pz-full-catalog" set:html={JSON.stringify(products)}></script>
+
+    <div class="rx-banner">
+      <div>
+        <h3>Need a prescription medicine?</h3>
+        <p>Products marked <span class="badge badge-rx">Prescription</span> need a valid prescription. Upload a photo at checkout — our pharmacist verifies it before dispatch, then we deliver the same day.</p>
+      </div>
+      <a class="btn btn-lg" href={BASE + 'prescriptions'} style="min-width:220px">How it works</a>
+    </div>
   </section>
 
   <script>
@@ -60,24 +129,23 @@ const cats = categories();
       const fallback = PZ.BASE_URL + 'images/fallback-product.png';
       const img = (PZ.BASE_URL + (p.image || 'images/fallback-product.png')).replace(/([^:])\/\//g, '$1/');
       const badge = p.prescription
-        ? '<span class="badge badge-rx">Prescription</span>'
-        : (p.inStock === false ? '<span class="badge badge-out">Out of stock</span>' : '<span class="badge badge-otc">OTC</span>');
+        ? '<span class="card-badge badge badge-rx">Prescription</span>'
+        : (p.inStock === false ? '<span class="card-badge badge badge-out">Out of stock</span>' : '');
       const disabled = p.inStock === false ? 'disabled' : '';
-      return `<div class="card">
+      return `<article class="card">
         <a class="card-img-wrap" href="${PZ.BASE_URL}product/${p.slug}">
+          ${badge}
           <img src="${img}" alt="${PZ.esc(p.name)}" loading="lazy" onerror="this.onerror=null;this.src='${fallback}'">
         </a>
         <div class="card-body">
+          <span class="card-brand">${PZ.esc(p.brand || '')}</span>
           <a class="card-name" href="${PZ.BASE_URL}product/${p.slug}">${PZ.esc(p.name)}</a>
-          <div style="display:flex;justify-content:space-between;align-items:center">
-            <span class="card-brand">${PZ.esc(p.brand || '')}</span>${badge}
-          </div>
           <div class="card-bottom">
             <span class="price">${PZ.fmt(p.price)}</span>
             <button type="button" class="add-btn" data-add="${p.id}" ${disabled} aria-label="Add to cart">+</button>
           </div>
         </div>
-      </div>`;
+      </article>`;
     }
 
     function apply() {
@@ -111,6 +179,14 @@ const cats = categories();
       cat = b.dataset.cat;
       apply();
     });
+    document.querySelectorAll('[data-cat-link]').forEach((a) => a.addEventListener('click', (e) => {
+      e.preventDefault();
+      const name = a.dataset.catLink;
+      chips.querySelectorAll('.chip').forEach((x) => { x.classList.toggle('active', x.dataset.cat === name); });
+      cat = name;
+      apply();
+      document.getElementById('catalog').scrollIntoView({ behavior: 'smooth' });
+    }));
     sortEl.addEventListener('change', apply);
     searchInput && searchInput.addEventListener('input', () => { qq = searchInput.value.trim(); apply(); });
     apply();

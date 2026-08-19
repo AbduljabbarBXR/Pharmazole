@@ -50,7 +50,6 @@ const fullUrl = SITE + BASE + 'product/' + p.slug;
         </span>
         <h1>{p.name}</h1>
         <div class="detail-price">KES {p.price.toLocaleString('en-KE')}</div>
-        <p class="muted" style="margin:4px 0 0">Delivery: {site.delivery.zones[0].label} KES {site.delivery.zones[0].fee} &middot; rest of Nairobi KES {site.delivery.zones[1].fee}</p>
 
         <div class="detail-actions">
           <button type="button" class="btn btn-lg" data-add={p.id} disabled={p.inStock === false} id="buy-btn">Add to cart</button>
@@ -72,10 +71,11 @@ const fullUrl = SITE + BASE + 'product/' + p.slug;
         )}
 
         <div class="detail-meta">
-          {p.generic && <div><b>Active ingredient:</b> {p.generic}</div>}
-          {p.pack && <div><b>Pack size:</b> {p.pack}</div>}
-          {p.brand && <div><b>Brand:</b> {p.brand}</div>}
-          <div><b>Category:</b> {p.category}</div>
+          {p.generic && <div><b>Active ingredient</b><span>{p.generic}</span></div>}
+          {p.pack && <div><b>Pack size</b><span>{p.pack}</span></div>}
+          {p.brand && <div><b>Brand</b><span>{p.brand}</span></div>}
+          <div><b>Category</b><span>{p.category}</span></div>
+          <div><b>Delivery</b><span>{site.delivery.zones[0].label} KES {site.delivery.zones[0].fee} &middot; Nairobi KES {site.delivery.zones[1].fee}</span></div>
         </div>
       </div>
     </div>
