@@ -161,7 +161,7 @@ window.PZ = (function () {
     if (sub) {
       sub.innerHTML = `
         <div class="summary-row"><span>Subtotal</span><span>${fmt(subtotal())}</span></div>
-        <div class="summary-row"><span>Delivery</span><span>${fee == null ? (zone() ? '-' : 'Choose at checkout') : fmt(fee)}</span></div>
+        <div class="summary-row"><span>Delivery</span><span>${fee == null ? (zone() ? 'Pending' : 'Choose at checkout') : fmt(fee)}</span></div>
         <div class="summary-row total"><span>Total</span><span>${fmt(tot)}</span></div>`;
     }
     const checkBtn = document.getElementById('drawer-checkout');

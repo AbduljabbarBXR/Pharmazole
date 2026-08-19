@@ -52,7 +52,7 @@ const BASE = import.meta.env.BASE_URL;
           <h3>Store settings</h3>
           <div class="field"><label>Brand name</label><input class="input" id="s-brand"></div>
           <div class="field"><label>Tagline</label><input class="input" id="s-tagline"></div>
-          <div class="field"><label>M-Pesa till number</label><input class="input" id="s-till"></div>
+          <div class="field"><label>Mpesa till number</label><input class="input" id="s-till"></div>
           <div class="field"><label>Till store name</label><input class="input" id="s-tillname"></div>
           <div class="field"><label>WhatsApp number (international, e.g. 2547XX…)</label><input class="input" id="s-whatsapp"></div>
           <div class="field"><label>WhatsApp display</label><input class="input" id="s-whatsappdisp"></div>
@@ -124,7 +124,7 @@ const BASE = import.meta.env.BASE_URL;
             <td>${PZ.esc(o.customer)}<br><span class="mono" style="font-size:12px">${PZ.esc(o.phone)}</span></td>
             <td>${o.itemCount} item${o.itemCount === 1 ? '' : 's'}${o.hasRx ? ' <span class="badge badge-rx">Rx</span>' : ''}</td>
             <td><b>${PZ.fmt(o.total)}</b></td>
-            <td>${o.paymentCode ? '<span class="mono">' + PZ.esc(o.paymentCode) + '</span>' : '<span class="muted">-</span>'}</td>
+            <td>${o.paymentCode ? '<span class="mono">' + PZ.esc(o.paymentCode) + '</span>' : '<span class="muted">Not yet</span>'}</td>
             <td>${statusSelect(o)}</td>
             <td><button class="btn btn-outline btn-sm" data-view="${o.id}">View</button></td>
           </tr>`).join('')}
@@ -162,7 +162,7 @@ const BASE = import.meta.env.BASE_URL;
             <div style="display:flex;justify-content:space-between"><span class="muted">Delivery</span><span>${PZ.fmt(o.delivery)}</span></div>
             <div style="display:flex;justify-content:space-between;font-weight:700"><span>Total</span><span>${PZ.fmt(o.total)}</span></div>
           </div>
-          ${o.paymentCode ? `<p style="margin:10px 0 0"><b>M-Pesa code:</b> <span class="mono">${PZ.esc(o.paymentCode)}</span></p>` : ''}
+          ${o.paymentCode ? `<p style="margin:10px 0 0"><b>Mpesa code:</b> <span class="mono">${PZ.esc(o.paymentCode)}</span></p>` : ''}
           ${rxHtml}
           <a class="btn btn-whatsapp btn-sm" style="margin-top:14px" target="_blank" href="https://wa.me/${PZ.SITE.whatsapp}?text=${encodeURIComponent('Order ' + o.id + ' for ' + o.customer.name + ' | KES ' + o.total + ' | ' + o.customer.address)}">Reach customer on WhatsApp</a>
         </div>`;

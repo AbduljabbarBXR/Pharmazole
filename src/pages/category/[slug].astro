@@ -13,7 +13,7 @@ const BASE = import.meta.env.BASE_URL;
 const catProducts = productsFor(cat.name);
 const blurb = categoryBlurbs[cat.name] || '';
 const title = cat.name + ' | ' + site.brand;
-const desc = (blurb || cat.name + ' medicines') + ' Order online with same-day delivery across Nairobi.';
+const desc = (blurb || cat.name + ' medicines') + ' Order online with same day delivery across Nairobi.';
 ---
 
 <Base title={title} description={desc}>
@@ -38,7 +38,7 @@ const desc = (blurb || cat.name + ' medicines') + ' Order online with same-day d
         <option value="popular">Sort: Popular</option>
         <option value="price-asc">Price: low to high</option>
         <option value="price-desc">Price: high to low</option>
-        <option value="name">Name A-Z</option>
+        <option value="name">Alphabetical</option>
       </select>
     </div>
 

@@ -4,7 +4,7 @@ import { site } from '../data/catalog.mjs';
 const BASE = import.meta.env.BASE_URL;
 ---
 
-<Base title={`Checkout | ${site.brand}`} description="Complete your order. Pay with M-Pesa till and get fast delivery in Nairobi.">
+<Base title={`Checkout | ${site.brand}`} description="Complete your order. Pay with Mpesa till and get fast delivery in Nairobi.">
   <div class="container" style="max-width:840px">
     <h1 class="page-head" style="font-size:26px">Checkout</h1>
 
@@ -47,9 +47,9 @@ const BASE = import.meta.env.BASE_URL;
               <input class="input" id="address" name="address" placeholder="e.g. South C, Ole Sangale Rd, Gate 14, House 22" autocomplete="street-address" />
             </div>
             <div class="field">
-              <label for="phone">Mobile number (M-Pesa)</label>
+              <label for="phone">Mobile number (Mpesa)</label>
               <input class="input" id="phone" name="phone" inputmode="tel" placeholder="07XX XXX XXX" autocomplete="tel" />
-              <span class="hint">You will receive an M-Pesa prompt-free payment: send to our till below.</span>
+              <span class="hint">You will receive an Mpesa prompt free payment: send to our till below.</span>
             </div>
             <div class="field">
               <label for="name">Full name</label>
@@ -147,7 +147,7 @@ const BASE = import.meta.env.BASE_URL;
       const fee = PZ.deliveryFee();
       document.getElementById('summary').innerHTML = `
         <div class="summary-row"><span>Subtotal</span><span>${PZ.fmt(PZ.subtotal())}</span></div>
-        <div class="summary-row"><span>Delivery (${PZ.zone() ? PZ.esc(PZ.zone().id === 'south' ? 'South C / South B / Nairobi West' : 'Nairobi') : ''})</span><span>${fee == null ? '-' : PZ.fmt(fee)}</span></div>
+        <div class="summary-row"><span>Delivery (${PZ.zone() ? PZ.esc(PZ.zone().id === 'south' ? 'South C / South B / Nairobi West' : 'Nairobi') : ''})</span><span>${fee == null ? 'Pending' : PZ.fmt(fee)}</span></div>
         <div class="summary-row total"><span>Total</span><span>${PZ.fmt(PZ.total())}</span></div>`;
       document.getElementById('btn-total').textContent = PZ.fmt(PZ.total());
     }
@@ -171,7 +171,7 @@ const BASE = import.meta.env.BASE_URL;
       const z = PZ.zone();
       const errors = [];
       if (!name) errors.push('Enter your full name');
-      if (!/^2547\d{8}$/.test(phone)) errors.push('Enter a valid M-Pesa number, e.g. 07XX XXX XXX');
+      if (!/^2547\d{8}$/.test(phone)) errors.push('Enter a valid Mpesa number, e.g. 07XX XXX XXX');
       if (!address) errors.push('Enter your delivery address');
       if (!z) errors.push('Choose a delivery zone');
       if (hasRx && !rxData) errors.push('Attach the prescription for your prescription items');

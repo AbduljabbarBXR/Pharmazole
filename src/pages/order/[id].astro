@@ -7,7 +7,7 @@ export function getStaticPaths() {
 }
 ---
 
-<Base title={`Order | ${site.brand}`} description="Track your Pharmazole order and pay with M-Pesa till.">
+<Base title={`Order | ${site.brand}`} description="Track your Pharmazole order and pay with Mpesa till.">
   <div class="container" style="max-width:760px">
     <h1 class="page-head" style="font-size:26px">Order</h1>
 
@@ -31,19 +31,19 @@ export function getStaticPaths() {
       </div>
 
       <div class="panel pay-box" id="pay-panel">
-        <h3>Pay with M-Pesa</h3>
-        <p class="muted" style="margin:0 0 4px">Send <b id="pay-amount"></b> via M-Pesa <b>Buy Goods</b> to:</p>
-        <div class="till-chip" id="till">– – – – – –</div>
+        <h3>Pay with Mpesa</h3>
+        <p class="muted" style="margin:0 0 4px">Send <b id="pay-amount"></b> via Mpesa <b>Buy Goods</b> to:</p>
+        <div class="till-chip" id="till">• • • • • •</div>
         <p style="font-size:13.5px;margin:8px 0 0"><b>Store name:</b> <span id="till-name"></span></p>
         <div class="pay-steps">
-          <div class="pay-step"><span class="n">1</span><span>Go to M-Pesa &gt; Lipa na M-Pesa &gt; <b>Buy Goods</b> and enter the till number above.</span></div>
-          <div class="pay-step"><span class="n">2</span><span>Enter the amount above, then your M-Pesa PIN and complete the payment.</span></div>
-          <div class="pay-step"><span class="n">3</span><span>Enter the confirmation code (e.g. <span class="mono">SJD7XK2W1Q</span>) from the M-Pesa SMS below so we can verify instantly.</span></div>
+          <div class="pay-step"><span class="n">1</span><span>Go to Mpesa &gt; Lipa na Mpesa &gt; <b>Buy Goods</b> and enter the till number above.</span></div>
+          <div class="pay-step"><span class="n">2</span><span>Enter the amount above, then your Mpesa PIN and complete the payment.</span></div>
+          <div class="pay-step"><span class="n">3</span><span>Enter the confirmation code (e.g. <span class="mono">SJD7XK2W1Q</span>) from the Mpesa SMS below so we can verify instantly.</span></div>
         </div>
         <div class="field" style="text-align:left">
-          <label for="code">M-Pesa confirmation code</label>
+          <label for="code">Mpesa confirmation code</label>
           <input class="input mono" id="code" placeholder="e.g. SJD7XK2W1Q" maxlength="20" />
-          <span class="hint">We confirm payment from your M-Pesa message before dispatching.</span>
+          <span class="hint">We confirm payment from your Mpesa message before dispatching.</span>
         </div>
         <button class="btn btn-lg" id="submit-code">I've paid, confirm my order</button>
       </div>
@@ -120,7 +120,7 @@ export function getStaticPaths() {
 
     document.getElementById('submit-code').addEventListener('click', async () => {
       const code = document.getElementById('code').value.trim().toUpperCase();
-      if (code.length < 6) { PZ.toast('Enter the M-Pesa confirmation code from your SMS', true); return; }
+      if (code.length < 6) { PZ.toast('Enter the Mpesa confirmation code from your SMS', true); return; }
       const btn = document.getElementById('submit-code');
       btn.disabled = true; btn.textContent = 'Submitting…';
       try {

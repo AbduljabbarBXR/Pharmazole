@@ -14,15 +14,15 @@ const img = (name) => BASE + 'images/banners/' + name;
         <div class="hero-copy">
           <span class="hero-eyebrow">Lowest everyday prices</span>
           <h1>{site.heroTitle}</h1>
-          <p>{site.tagline} Pay with M-Pesa till, then get it delivered to {site.delivery.zones[0].label} for KES {site.delivery.zones[0].fee}, or anywhere else in Nairobi for KES {site.delivery.zones[1].fee}.</p>
+          <p>{site.tagline} Pay with Mpesa till, then get it delivered to {site.delivery.zones[0].label} for KES {site.delivery.zones[0].fee}, or anywhere else in Nairobi for KES {site.delivery.zones[1].fee}.</p>
           <div class="hero-cta">
             <a class="btn hero-btn btn-lg" href="#categories">Browse products</a>
             <a class="btn btn-whatsapp btn-lg" href={'https://wa.me/' + site.whatsapp} target="_blank" rel="noopener">Order on WhatsApp</a>
           </div>
           <div class="hero-badges">
-            <span class="hero-badge">Same-day delivery</span>
+            <span class="hero-badge">Same day delivery</span>
             <span class="hero-badge">Genuine medicines</span>
-            <span class="hero-badge">M-Pesa till payment</span>
+            <span class="hero-badge">Mpesa till payment</span>
           </div>
         </div>
       </div>
@@ -51,7 +51,7 @@ const img = (name) => BASE + 'images/banners/' + name;
       <div class="hero-scrim" aria-hidden="true"></div>
       <div class="container hero-container">
         <div class="hero-copy">
-          <span class="hero-eyebrow">Same-day delivery</span>
+          <span class="hero-eyebrow">Same day delivery</span>
           <h1>Order before 5PM, get it today</h1>
           <p>Flat delivery fees: {site.delivery.zones[0].label} for KES {site.delivery.zones[0].fee}, rest of Nairobi for KES {site.delivery.zones[1].fee}. Your zone is remembered at checkout.</p>
           <div class="hero-cta">
@@ -92,7 +92,7 @@ const img = (name) => BASE + 'images/banners/' + name;
         <span class="step-icon">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg>
         </span>
-        <span><b>Pay with M-Pesa till</b><span class="muted" style="font-size:13px">Send the amount and confirm with your code</span></span>
+        <span><b>Pay with Mpesa till</b><span class="muted" style="font-size:13px">Send the amount and confirm with your code</span></span>
       </div>
       <div class="step-arrow" aria-hidden="true">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -117,13 +117,13 @@ const img = (name) => BASE + 'images/banners/' + name;
         <span class="trust-icon">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2 4 5v6c0 5.05 3.4 9.8 8 11 4.6-1.2 8-5.95 8-11V5l-8-3Z"/></svg>
         </span>
-        <span><b>PPB-licensed</b><span>Pharmacist reviewed</span></span>
+        <span><b>PPB licensed</b><span>Pharmacist reviewed</span></span>
       </div>
       <div class="trust-item">
         <span class="trust-icon">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z"/></svg>
         </span>
-        <span><b>Same-day delivery</b><span>Before 5PM, Nairobi-wide</span></span>
+        <span><b>Same day delivery</b><span>Before 5PM across Nairobi</span></span>
       </div>
       <div class="trust-item">
         <span class="trust-icon">
@@ -164,7 +164,7 @@ const img = (name) => BASE + 'images/banners/' + name;
       <a class="feature-card" href={BASE + 'delivery'} style={`background-image:url('${img('feature-delivery.webp')}')`}>
         <div class="feature-shade" aria-hidden="true"></div>
         <div class="feature-body">
-          <span class="feature-tag">Same-day delivery</span>
+          <span class="feature-tag">Same day delivery</span>
           <h3>Order before 5PM, get it today</h3>
           <p>Flat delivery fees across Nairobi: {site.delivery.zones[0].label} for KES {site.delivery.zones[0].fee}, rest of Nairobi for KES {site.delivery.zones[1].fee}.</p>
           <span class="feature-cta">Delivery &amp; fees
