@@ -94,6 +94,39 @@ input, select, textarea { font-family: inherit; font-size: 16px; }
   padding: 6px 12px; border-radius: 999px;
 }
 .main-nav a:hover { background: var(--green-soft); color: var(--green-dark); text-decoration: none; }
+.nav-dd { position: relative; }
+.nav-dd-toggle {
+  white-space: nowrap; color: var(--ink); font-weight: 600; font-size: 14.5px;
+  padding: 6px 12px; border-radius: 999px; border: none; background: transparent;
+  display: inline-flex; align-items: center; gap: 5px; cursor: pointer; font-family: inherit;
+  transition: background 0.15s, color 0.15s;
+}
+.nav-dd-toggle:hover, .nav-dd.open .nav-dd-toggle { background: var(--green-soft); color: var(--green-dark); }
+.nav-dd-toggle svg { transition: transform 0.15s; }
+.nav-dd.open .nav-dd-toggle svg { transform: rotate(180deg); }
+.nav-dd-menu {
+  position: absolute; top: calc(100% + 10px); left: 0; z-index: 60;
+  min-width: 260px; background: #fff; border: 1px solid var(--line); border-radius: 14px;
+  box-shadow: var(--shadow-lg); padding: 7px;
+  opacity: 0; visibility: hidden; transform: translateY(8px);
+  transition: opacity 0.15s, transform 0.15s, visibility 0.15s;
+}
+.nav-dd:hover .nav-dd-menu, .nav-dd.open .nav-dd-menu { opacity: 1; visibility: visible; transform: none; }
+.nav-dd-menu a {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  border-radius: 10px; padding: 9px 12px; font-size: 14px; font-weight: 600; color: var(--ink);
+}
+.nav-dd-menu a:hover { background: var(--green-soft); color: var(--green-dark); text-decoration: none; }
+.nav-dd-count {
+  font-size: 11.5px; font-weight: 700; color: var(--green);
+  background: var(--green-soft); border-radius: 999px; padding: 2px 8px;
+}
+@media (max-width: 1023px) {
+  .nav-dd-menu {
+    position: fixed; top: 96px; left: 12px; right: 12px; min-width: 0;
+    max-height: calc(100vh - 120px); overflow-y: auto;
+  }
+}
 .header-search { flex: 1; min-width: 200px; position: relative; }
 .header-search input {
   width: 100%; padding: 11px 18px 11px 42px;

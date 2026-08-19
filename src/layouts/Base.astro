@@ -1,7 +1,8 @@
 ---
-import { site, cartIndex, categorySlug as slug } from '../data/catalog.mjs';
+import { site, cartIndex, categorySlug as slug, categories } from '../data/catalog.mjs';
 const BASE = import.meta.env.BASE_URL;
 const cartIndexData = cartIndex();
+const catList = categories();
 const title = site.brand + ' | ' + site.tagline;
 const desc = 'Order medicines online in Nairobi with fast delivery. Lowest everyday prices, M-Pesa till payment, and genuine products from a PPB-licensed pharmacy. South C, South B, Nairobi West KES 100 delivery; rest of Nairobi KES 300.';
 interface Props {
@@ -80,7 +81,20 @@ const fullUrl = SITE + path;
         </a>
         <nav class="main-nav" aria-label="Main navigation">
           <a href={BASE}>Shop</a>
-          <a href={BASE + '#categories'}>Categories</a>
+          <div class="nav-dd" id="nav-dd">
+            <button class="nav-dd-toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="nav-dd-menu">
+              Categories
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="nav-dd-menu" id="nav-dd-menu">
+              {catList.map((c) => (
+                <a href={BASE + 'category/' + slug(c.name)}>
+                  <span>{c.name}</span>
+                  <span class="nav-dd-count">{c.count}</span>
+                </a>
+              ))}
+            </div>
+          </div>
           <a href={BASE + 'prescriptions'}>Rx medicines</a>
           <a href={BASE + 'delivery'}>Delivery</a>
           <a href={BASE + 'about'}>About</a>
@@ -178,6 +192,28 @@ const fullUrl = SITE + path;
 
     <script>
       (function () {
+        const dd = document.getElementById('nav-dd');
+        const toggle = dd && dd.querySelector('.nav-dd-toggle');
+        if (dd && toggle) {
+          toggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const open = dd.classList.toggle('open');
+            toggle.setAttribute('aria-expanded', String(open));
+          });
+          document.addEventListener('click', (e) => {
+            if (!dd.contains(e.target)) {
+              dd.classList.remove('open');
+              toggle.setAttribute('aria-expanded', 'false');
+            }
+          });
+          document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+              dd.classList.remove('open');
+              toggle.setAttribute('aria-expanded', 'false');
+              toggle.focus();
+            }
+          });
+        }
         const sel = document.getElementById('zone-select');
         if (!sel) return;
         const cur = PZ.zone();
