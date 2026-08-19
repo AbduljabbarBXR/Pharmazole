@@ -138,7 +138,6 @@ const img = (name) => BASE + 'images/banners/' + name;
       {cats.map((c) => (
         <a class="cat-card" href={BASE + 'category/' + categorySlug(c.name)}>
           <img src={BASE + 'images/categories/' + categorySlug(c.name) + '.webp'} alt={c.name} loading="lazy" onerror={`this.onerror=null;this.src='${BASE}images/fallback-product.png'`} />
-          <div class="cat-card-shade" aria-hidden="true"></div>
           <div class="cat-card-body">
             <b>{c.name}</b>
             <span class="cat-card-count">{c.count} products</span>
