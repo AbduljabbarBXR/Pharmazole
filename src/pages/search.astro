@@ -1,0 +1,98 @@
+---
+import Base from '../layouts/Base.astro';
+import ProductCard from '../components/ProductCard.astro';
+import { products, site } from '../data/catalog.mjs';
+const BASE = import.meta.env.BASE_URL;
+const title = 'Search products | ' + site.brand;
+---
+
+<Base title={title} description={'Search the ' + site.brand + ' catalog: medicines, vitamins, and care products with same-day delivery in Nairobi.'}>
+  <section class="container">
+    <div class="page-head">
+      <h1>Search products</h1>
+      <p class="muted">Type a medicine name, brand, or condition to find what you need.</p>
+    </div>
+
+    <div class="toolbar">
+      <span class="result-count" id="result-count">{products.length} products</span>
+      <select id="sort" aria-label="Sort products">
+        <option value="popular">Sort: Popular</option>
+        <option value="price-asc">Price: low to high</option>
+        <option value="price-desc">Price: high to low</option>
+        <option value="name">Name A-Z</option>
+      </select>
+    </div>
+
+    <div class="grid" id="grid">
+      {products.map((p) => <ProductCard product={p} />)}
+    </div>
+  </section>
+
+  <script type="application/json" id="pz-search-catalog" set:html={JSON.stringify(products)}></script>
+
+  <script>
+    const PRODUCTS = PZ.readJson('pz-search-catalog') || [];
+    const grid = document.getElementById('grid');
+    const countEl = document.getElementById('result-count');
+    const sortEl = document.getElementById('sort');
+    let qq = new URLSearchParams(location.search).get('q') || '';
+    const searchInput = document.querySelector('.header-search input');
+    if (searchInput) searchInput.value = qq;
+
+    function cardHtml(p) {
+      const fallback = PZ.BASE_URL + 'images/fallback-product.png';
+      const img = (PZ.BASE_URL + (p.image || 'images/fallback-product.png')).replace(/([^:])\/\//g, '$1/');
+      const badge = p.prescription
+        ? '<span class="card-badge badge badge-rx">Prescription</span>'
+        : (p.inStock === false ? '<span class="card-badge badge badge-out">Out of stock</span>' : '');
+      const disabled = p.inStock === false ? 'disabled' : '';
+      return `<article class="card">
+        <a class="card-img-wrap" href="${PZ.BASE_URL}product/${p.slug}">
+          ${badge}
+          <img src="${img}" alt="${PZ.esc(p.name)}" loading="lazy" onerror="this.onerror=null;this.src='${fallback}'">
+        </a>
+        <div class="card-body">
+          <span class="card-brand">${PZ.esc(p.brand || '')}</span>
+          <a class="card-name" href="${PZ.BASE_URL}product/${p.slug}">${PZ.esc(p.name)}</a>
+          <div class="card-bottom">
+            <span class="price">${PZ.fmt(p.price)}</span>
+            <button type="button" class="add-btn" data-add="${p.id}" ${disabled} aria-label="Add to cart">+</button>
+          </div>
+        </div>
+      </article>`;
+    }
+
+    function apply() {
+      let list = PRODUCTS.slice();
+      if (qq) {
+        const t = qq.toLowerCase();
+        list = list.filter((p) =>
+          (p.name || '').toLowerCase().includes(t) ||
+          (p.generic || '').toLowerCase().includes(t) ||
+          (p.brand || '').toLowerCase().includes(t) ||
+          (p.category || '').toLowerCase().includes(t)
+        );
+      }
+      const s = sortEl.value;
+      if (s === 'price-asc') list.sort((a, b) => a.price - b.price);
+      else if (s === 'price-desc') list.sort((a, b) => b.price - a.price);
+      else if (s === 'name') list.sort((a, b) => a.name.localeCompare(b.name));
+      grid.innerHTML = list.map(cardHtml).join('');
+      countEl.textContent = list.length + ' product' + (list.length === 1 ? '' : 's');
+      grid.querySelectorAll('[data-add]').forEach((b) =>
+        b.addEventListener('click', () => { PZ.addToCart(b.dataset.add, 1); PZ.toast('Added to cart'); b.classList.add('added'); setTimeout(() => b.classList.remove('added'), 600); })
+      );
+    }
+
+    sortEl.addEventListener('change', apply);
+    searchInput && searchInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        qq = searchInput.value.trim();
+        apply();
+        history.replaceState(null, '', PZ.BASE_URL + 'search?q=' + encodeURIComponent(qq));
+      }
+    });
+    apply();
+  </script>
+</Base>

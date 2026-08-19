@@ -1,0 +1,97 @@
+---
+import Base from '../../layouts/Base.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import { site, categories, categoryBySlug, categorySlug, categoryBlurbs, productsFor } from '../../data/catalog.mjs';
+export function getStaticPaths() {
+  return categories().map((c) => ({
+    params: { slug: categorySlug(c.name) },
+    props: { cat: c }
+  }));
+}
+const { cat } = Astro.props;
+const BASE = import.meta.env.BASE_URL;
+const catProducts = productsFor(cat.name);
+const blurb = categoryBlurbs[cat.name] || '';
+const title = cat.name + ' | ' + site.brand;
+const desc = (blurb || cat.name + ' medicines') + ' Order online with same-day delivery across Nairobi.';
+---
+
+<Base title={title} description={desc}>
+  <section class="container">
+    <div class="cat-hero" style={`background-image:url('${BASE}images/categories/${categorySlug(cat.name)}.webp')`}>
+      <div class="cat-hero-shade" aria-hidden="true"></div>
+      <div class="cat-hero-inner">
+        <div class="breadcrumb">
+          <a href={BASE}>Home</a>
+          <span aria-hidden="true"> / </span>
+          <span>{cat.name}</span>
+        </div>
+        <h1>{cat.name}</h1>
+        {blurb && <p>{blurb}</p>}
+        <span class="cat-hero-count">{cat.count} products</span>
+      </div>
+    </div>
+
+    <div class="toolbar">
+      <span class="result-count" id="result-count">{catProducts.length} products</span>
+      <select id="sort" aria-label="Sort products">
+        <option value="popular">Sort: Popular</option>
+        <option value="price-asc">Price: low to high</option>
+        <option value="price-desc">Price: high to low</option>
+        <option value="name">Name A-Z</option>
+      </select>
+    </div>
+
+    <div class="grid" id="grid">
+      {catProducts.map((p) => <ProductCard product={p} />)}
+    </div>
+  </section>
+
+  <script type="application/json" id="pz-cat-products" set:html={JSON.stringify(catProducts)}></script>
+
+  <script>
+    const PRODUCTS = PZ.readJson('pz-cat-products') || [];
+    const grid = document.getElementById('grid');
+    const countEl = document.getElementById('result-count');
+    const sortEl = document.getElementById('sort');
+
+    function cardHtml(p) {
+      const fallback = PZ.BASE_URL + 'images/fallback-product.png';
+      const img = (PZ.BASE_URL + (p.image || 'images/fallback-product.png')).replace(/([^:])\/\//g, '$1/');
+      const badge = p.prescription
+        ? '<span class="card-badge badge badge-rx">Prescription</span>'
+        : (p.inStock === false ? '<span class="card-badge badge badge-out">Out of stock</span>' : '');
+      const disabled = p.inStock === false ? 'disabled' : '';
+      return `<article class="card">
+        <a class="card-img-wrap" href="${PZ.BASE_URL}product/${p.slug}">
+          ${badge}
+          <img src="${img}" alt="${PZ.esc(p.name)}" loading="lazy" onerror="this.onerror=null;this.src='${fallback}'">
+        </a>
+        <div class="card-body">
+          <span class="card-brand">${PZ.esc(p.brand || '')}</span>
+          <a class="card-name" href="${PZ.BASE_URL}product/${p.slug}">${PZ.esc(p.name)}</a>
+          <div class="card-bottom">
+            <span class="price">${PZ.fmt(p.price)}</span>
+            <button type="button" class="add-btn" data-add="${p.id}" ${disabled} aria-label="Add to cart">+</button>
+          </div>
+        </div>
+      </article>`;
+    }
+
+    function apply() {
+      const list = PRODUCTS.slice();
+      const s = sortEl.value;
+      if (s === 'price-asc') list.sort((a, b) => a.price - b.price);
+      else if (s === 'price-desc') list.sort((a, b) => b.price - a.price);
+      else if (s === 'name') list.sort((a, b) => a.name.localeCompare(b.name));
+      grid.innerHTML = list.map(cardHtml).join('');
+      countEl.textContent = list.length + ' product' + (list.length === 1 ? '' : 's');
+      grid.querySelectorAll('[data-add]').forEach((b) =>
+        b.addEventListener('click', () => { PZ.addToCart(b.dataset.add, 1); PZ.toast('Added to cart'); b.classList.add('added'); setTimeout(() => b.classList.remove('added'), 600); })
+      );
+    }
+
+    sortEl.addEventListener('change', apply);
+    apply();
+  </script>
+</Base>

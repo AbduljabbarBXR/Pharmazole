@@ -1,7 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import ProductCard from '../../components/ProductCard.astro';
-import { products, bySlug, site } from '../../data/catalog.mjs';
+import { products, bySlug, site, categorySlug } from '../../data/catalog.mjs';
 import { img, pathFor } from '../../lib/img.mjs';
 export function getStaticPaths() {
   return products.map((p) => ({ params: { slug: p.slug }, props: { p } }));
@@ -34,7 +34,7 @@ const fullUrl = SITE + BASE + 'product/' + p.slug;
 
   <div class="container">
     <nav class="page-head" style="font-size:13.5px;color:var(--muted)">
-      <a href={BASE}>Home</a> &rsaquo; <a href={BASE}>{p.category}</a> &rsaquo; {p.name}
+      <a href={BASE}>Home</a> &rsaquo; <a href={BASE + 'category/' + categorySlug(p.category)}>{p.category}</a> &rsaquo; {p.name}
     </nav>
 
     <div class="detail">

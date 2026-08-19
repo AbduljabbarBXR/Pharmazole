@@ -1,31 +1,22 @@
 ---
 import Base from '../layouts/Base.astro';
-import ProductCard from '../components/ProductCard.astro';
-import { products, categories, site } from '../data/catalog.mjs';
+import { categories, site, categorySlug } from '../data/catalog.mjs';
 const BASE = import.meta.env.BASE_URL;
-const q = Astro.url.searchParams.get('q') || '';
 const cats = categories();
-const catReps = cats.map((c) => {
-  const rep = products.find((p) => p.category === c.name);
-  return { ...c, image: rep ? rep.image : '' };
-});
-const popular = products.filter((p) => !p.prescription && p.inStock !== false).slice(0, 8);
-const coldflu = products.filter((p) => ['Cold & Flu', 'Cough & Throat'].includes(p.category) && p.inStock !== false).slice(0, 8);
-const chronic = products.filter((p) => ['Diabetes', 'Blood Pressure', 'Blood & Heart'].includes(p.category)).slice(0, 8);
 const img = (name) => BASE + 'images/banners/' + name;
 ---
 
 <Base>
-  <section class="container">
-    <div class="hero" id="hero">
-      <div class="hero-slide active" style={`background-image:url('${img('hero-prices.webp')}')`}>
-        <div class="hero-scrim" aria-hidden="true"></div>
+  <section class="hero" id="hero">
+    <div class="hero-slide active" style={`background-image:url('${img('hero-prices.webp')}')`}>
+      <div class="hero-scrim" aria-hidden="true"></div>
+      <div class="container hero-container">
         <div class="hero-copy">
           <span class="hero-eyebrow">Lowest everyday prices</span>
           <h1>{site.heroTitle}</h1>
           <p>{site.tagline} Pay with M-Pesa till, then get it delivered to {site.delivery.zones[0].label} for KES {site.delivery.zones[0].fee}, or anywhere else in Nairobi for KES {site.delivery.zones[1].fee}.</p>
           <div class="hero-cta">
-            <a class="btn hero-btn btn-lg" href="#catalog">Browse products</a>
+            <a class="btn hero-btn btn-lg" href="#categories">Browse products</a>
             <a class="btn btn-whatsapp btn-lg" href={'https://wa.me/' + site.whatsapp} target="_blank" rel="noopener">Order on WhatsApp</a>
           </div>
           <div class="hero-badges">
@@ -35,16 +26,18 @@ const img = (name) => BASE + 'images/banners/' + name;
           </div>
         </div>
       </div>
+    </div>
 
-      <div class="hero-slide" style={`background-image:url('${img('hero-rx.webp')}')`}>
-        <div class="hero-scrim" aria-hidden="true"></div>
+    <div class="hero-slide" style={`background-image:url('${img('hero-rx.webp')}')`}>
+      <div class="hero-scrim" aria-hidden="true"></div>
+      <div class="container hero-container">
         <div class="hero-copy">
           <span class="hero-eyebrow">Prescription medicines</span>
           <h1>Verified by a pharmacist, delivered to your door</h1>
           <p>Upload a photo of your prescription at checkout. Our pharmacist verifies it, then we pack and dispatch the same day.</p>
           <div class="hero-cta">
             <a class="btn hero-btn btn-lg" href={BASE + 'prescriptions'}>How it works</a>
-            <a class="btn btn-outline btn-lg" href="#catalog" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.6)">Browse Rx medicines</a>
+            <a class="btn btn-outline btn-lg" href="#categories" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.6)">Browse Rx medicines</a>
           </div>
           <div class="hero-badges">
             <span class="hero-badge">Pharmacist verified</span>
@@ -52,15 +45,17 @@ const img = (name) => BASE + 'images/banners/' + name;
           </div>
         </div>
       </div>
+    </div>
 
-      <div class="hero-slide" style={`background-image:url('${img('hero-delivery.webp')}')`}>
-        <div class="hero-scrim" aria-hidden="true"></div>
+    <div class="hero-slide" style={`background-image:url('${img('hero-delivery.webp')}')`}>
+      <div class="hero-scrim" aria-hidden="true"></div>
+      <div class="container hero-container">
         <div class="hero-copy">
           <span class="hero-eyebrow">Same-day delivery</span>
           <h1>Order before 5PM, get it today</h1>
           <p>Flat delivery fees: {site.delivery.zones[0].label} for KES {site.delivery.zones[0].fee}, rest of Nairobi for KES {site.delivery.zones[1].fee}. Your zone is remembered at checkout.</p>
           <div class="hero-cta">
-            <a class="btn hero-btn btn-lg" href="#catalog">Shop now</a>
+            <a class="btn hero-btn btn-lg" href="#categories">Shop now</a>
             <a class="btn btn-outline btn-lg" href={BASE + 'delivery'} style="background:transparent;color:#fff;border-color:rgba(255,255,255,.6)">Delivery &amp; fees</a>
           </div>
           <div class="hero-badges">
@@ -69,16 +64,18 @@ const img = (name) => BASE + 'images/banners/' + name;
           </div>
         </div>
       </div>
-
-      <button class="hero-arrow prev" id="hero-prev" aria-label="Previous slide">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
-      </button>
-      <button class="hero-arrow next" id="hero-next" aria-label="Next slide">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
-      </button>
-      <div class="hero-dots" id="hero-dots" role="tablist" aria-label="Promo slides"></div>
     </div>
 
+    <button class="hero-arrow prev" id="hero-prev" aria-label="Previous slide">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+    </button>
+    <button class="hero-arrow next" id="hero-next" aria-label="Next slide">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+    </button>
+    <div class="hero-dots" id="hero-dots" role="tablist" aria-label="Promo slides"></div>
+  </section>
+
+  <section class="container">
     <div class="steps-band">
       <div class="step">
         <span class="step-n">1</span>
@@ -137,108 +134,49 @@ const img = (name) => BASE + 'images/banners/' + name;
     </div>
 
     <h2 class="section-title" id="categories">Shop by category</h2>
-    <div class="cat-grid">
-      {catReps.map((c) => (
-        <a class="cat-tile" href="#catalog" data-cat-link={c.name}>
-          <img src={BASE + c.image} alt="" loading="lazy" onerror={`this.onerror=null;this.src='${BASE}images/fallback-product.png'`} />
-          <span><b>{c.name}</b><span>{c.count} products</span></span>
+    <div class="cat-cards">
+      {cats.map((c) => (
+        <a class="cat-card" href={BASE + 'category/' + categorySlug(c.name)}>
+          <img src={BASE + 'images/categories/' + categorySlug(c.name) + '.webp'} alt={c.name} loading="lazy" onerror={`this.onerror=null;this.src='${BASE}images/fallback-product.png'`} />
+          <div class="cat-card-shade" aria-hidden="true"></div>
+          <div class="cat-card-body">
+            <b>{c.name}</b>
+            <span class="cat-card-count">{c.count} products</span>
+            <span class="cat-card-cta">Browse
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+            </span>
+          </div>
         </a>
       ))}
     </div>
 
-    <div class="carousel-head">
-      <h2 class="section-title" style="margin:0">Popular right now</h2>
-      <div class="carousel-nav">
-        <button class="carousel-btn" data-track="car-popular" data-dir="-1" aria-label="Scroll left">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
-        </button>
-        <button class="carousel-btn" data-track="car-popular" data-dir="1" aria-label="Scroll right">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
-        </button>
-      </div>
-    </div>
-    <div class="carousel">
-      <div class="carousel-track" id="car-popular">
-        {popular.map((p) => <ProductCard product={p} />)}
-      </div>
-    </div>
-
-    <div class="carousel-head">
-      <h2 class="section-title" style="margin:0">Cold, cough and flu essentials</h2>
-      <div class="carousel-nav">
-        <button class="carousel-btn" data-track="car-coldflu" data-dir="-1" aria-label="Scroll left">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
-        </button>
-        <button class="carousel-btn" data-track="car-coldflu" data-dir="1" aria-label="Scroll right">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
-        </button>
-      </div>
-    </div>
-    <div class="carousel">
-      <div class="carousel-track" id="car-coldflu">
-        {coldflu.map((p) => <ProductCard product={p} />)}
-      </div>
-    </div>
-
-    <div class="carousel-head">
-      <h2 class="section-title" style="margin:0">Chronic care essentials</h2>
-      <div class="carousel-nav">
-        <button class="carousel-btn" data-track="car-chronic" data-dir="-1" aria-label="Scroll left">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
-        </button>
-        <button class="carousel-btn" data-track="car-chronic" data-dir="1" aria-label="Scroll right">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
-        </button>
-      </div>
-    </div>
-    <div class="carousel">
-      <div class="carousel-track" id="car-chronic">
-        {chronic.map((p) => <ProductCard product={p} />)}
-      </div>
-    </div>
-
-    <div class="toolbar" id="catalog">
-      <div class="category-chips" id="chips">
-        <button class="chip active" data-cat="All">All ({products.length})</button>
-        {cats.map((c) => <button class="chip" data-cat={c.name}>{c.name} ({c.count})</button>)}
-      </div>
-      <div class="sort-row">
-        <span class="result-count" id="result-count">{products.length} products</span>
-        <select id="sort" aria-label="Sort products">
-          <option value="popular">Sort: Popular</option>
-          <option value="price-asc">Price: low to high</option>
-          <option value="price-desc">Price: high to low</option>
-          <option value="name">Name A–Z</option>
-        </select>
-      </div>
-    </div>
-
-    <div class="grid" id="grid">
-      {products.map((p) => <ProductCard product={p} />)}
-    </div>
-
-    <script type="application/json" id="pz-full-catalog" set:html={JSON.stringify(products)}></script>
-
-    <div class="rx-banner">
-      <div>
-        <h3>Need a prescription medicine?</h3>
-        <p>Products marked <span class="badge badge-rx">Prescription</span> need a valid prescription. Upload a photo at checkout, and our pharmacist verifies it before dispatch, then we deliver the same day.</p>
-      </div>
-      <a class="btn btn-lg" href={BASE + 'prescriptions'} style="min-width:220px">How it works</a>
+    <div class="feature-grid">
+      <a class="feature-card" href={BASE + 'prescriptions'} style={`background-image:url('${img('feature-rx.webp')}')`}>
+        <div class="feature-shade" aria-hidden="true"></div>
+        <div class="feature-body">
+          <span class="feature-tag">Prescription medicines</span>
+          <h3>Verified by our pharmacist, delivered to your door</h3>
+          <p>Products marked Prescription need a valid prescription. Upload a photo at checkout, our pharmacist verifies it, and we dispatch the same day.</p>
+          <span class="feature-cta">How it works
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+          </span>
+        </div>
+      </a>
+      <a class="feature-card" href={BASE + 'delivery'} style={`background-image:url('${img('feature-delivery.webp')}')`}>
+        <div class="feature-shade" aria-hidden="true"></div>
+        <div class="feature-body">
+          <span class="feature-tag">Same-day delivery</span>
+          <h3>Order before 5PM, get it today</h3>
+          <p>Flat delivery fees across Nairobi: {site.delivery.zones[0].label} for KES {site.delivery.zones[0].fee}, rest of Nairobi for KES {site.delivery.zones[1].fee}.</p>
+          <span class="feature-cta">Delivery &amp; fees
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+          </span>
+        </div>
+      </a>
     </div>
   </section>
 
   <script>
-    const PRODUCTS = PZ.readJson('pz-full-catalog') || [];
-    const grid = document.getElementById('grid');
-    const chips = document.getElementById('chips');
-    const countEl = document.getElementById('result-count');
-    const sortEl = document.getElementById('sort');
-    let cat = 'All';
-    let qq = new URLSearchParams(location.search).get('q') || '';
-    const searchInput = document.querySelector('.header-search input');
-    if (searchInput) searchInput.value = qq;
-
     /* ---------- hero carousel ---------- */
     const slides = Array.from(document.querySelectorAll('.hero-slide'));
     const dotsWrap = document.getElementById('hero-dots');
@@ -270,83 +208,5 @@ const img = (name) => BASE + 'images/banners/' + name;
     hero.addEventListener('mouseenter', () => clearInterval(timer));
     hero.addEventListener('mouseleave', restart);
     restart();
-
-    /* ---------- product carousels ---------- */
-    document.querySelectorAll('.carousel-btn').forEach((b) => b.addEventListener('click', () => {
-      const track = document.getElementById(b.dataset.track);
-      if (track) track.scrollBy({ left: Number(b.dataset.dir) * track.clientWidth * 0.8, behavior: 'smooth' });
-    }));
-    document.querySelectorAll('.carousel-track').forEach((t) => {
-      t.querySelectorAll('[data-add]').forEach((b) =>
-        b.addEventListener('click', () => { PZ.addToCart(b.dataset.add, 1); PZ.toast('Added to cart'); b.classList.add('added'); setTimeout(() => b.classList.remove('added'), 600); })
-      );
-    });
-
-    /* ---------- catalog grid ---------- */
-    function cardHtml(p) {
-      const fallback = PZ.BASE_URL + 'images/fallback-product.png';
-      const img = (PZ.BASE_URL + (p.image || 'images/fallback-product.png')).replace(/([^:])\/\//g, '$1/');
-      const badge = p.prescription
-        ? '<span class="card-badge badge badge-rx">Prescription</span>'
-        : (p.inStock === false ? '<span class="card-badge badge badge-out">Out of stock</span>' : '');
-      const disabled = p.inStock === false ? 'disabled' : '';
-      return `<article class="card">
-        <a class="card-img-wrap" href="${PZ.BASE_URL}product/${p.slug}">
-          ${badge}
-          <img src="${img}" alt="${PZ.esc(p.name)}" loading="lazy" onerror="this.onerror=null;this.src='${fallback}'">
-        </a>
-        <div class="card-body">
-          <span class="card-brand">${PZ.esc(p.brand || '')}</span>
-          <a class="card-name" href="${PZ.BASE_URL}product/${p.slug}">${PZ.esc(p.name)}</a>
-          <div class="card-bottom">
-            <span class="price">${PZ.fmt(p.price)}</span>
-            <button type="button" class="add-btn" data-add="${p.id}" ${disabled} aria-label="Add to cart">+</button>
-          </div>
-        </div>
-      </article>`;
-    }
-
-    function apply() {
-      let list = PRODUCTS.slice();
-      if (cat !== 'All') list = list.filter((p) => p.category === cat);
-      if (qq) {
-        const t = qq.toLowerCase();
-        list = list.filter((p) =>
-          (p.name || '').toLowerCase().includes(t) ||
-          (p.generic || '').toLowerCase().includes(t) ||
-          (p.brand || '').toLowerCase().includes(t) ||
-          (p.category || '').toLowerCase().includes(t)
-        );
-      }
-      const s = sortEl.value;
-      if (s === 'price-asc') list.sort((a, b) => a.price - b.price);
-      else if (s === 'price-desc') list.sort((a, b) => b.price - a.price);
-      else if (s === 'name') list.sort((a, b) => a.name.localeCompare(b.name));
-      grid.innerHTML = list.map(cardHtml).join('');
-      countEl.textContent = list.length + ' product' + (list.length === 1 ? '' : 's');
-      grid.querySelectorAll('[data-add]').forEach((b) =>
-        b.addEventListener('click', () => { PZ.addToCart(b.dataset.add, 1); PZ.toast('Added to cart'); b.classList.add('added'); setTimeout(() => b.classList.remove('added'), 600); })
-      );
-    }
-
-    chips.addEventListener('click', (e) => {
-      const b = e.target.closest('[data-cat]');
-      if (!b) return;
-      chips.querySelectorAll('.chip').forEach((x) => x.classList.remove('active'));
-      b.classList.add('active');
-      cat = b.dataset.cat;
-      apply();
-    });
-    document.querySelectorAll('[data-cat-link]').forEach((a) => a.addEventListener('click', (e) => {
-      e.preventDefault();
-      const name = a.dataset.catLink;
-      chips.querySelectorAll('.chip').forEach((x) => { x.classList.toggle('active', x.dataset.cat === name); });
-      cat = name;
-      apply();
-      document.getElementById('catalog').scrollIntoView({ behavior: 'smooth' });
-    }));
-    sortEl.addEventListener('change', apply);
-    searchInput && searchInput.addEventListener('input', () => { qq = searchInput.value.trim(); apply(); });
-    apply();
   </script>
 </Base>
