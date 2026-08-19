@@ -1,0 +1,118 @@
+---
+import Base from '../layouts/Base.astro';
+import ProductCard from '../components/ProductCard.astro';
+import { products, categories, site } from '../data/catalog.mjs';
+const BASE = import.meta.env.BASE_URL;
+const q = Astro.url.searchParams.get('q') || '';
+const cats = categories();
+---
+
+<Base>
+  <section class="container">
+    <div class="hero">
+      <h1>{site.heroTitle}</h1>
+      <p>{site.tagline} Pay with M-Pesa till, then get it delivered — {site.delivery.zones[0].label} for KES {site.delivery.zones[0].fee}, rest of Nairobi KES {site.delivery.zones[1].fee}.</p>
+      <a class="btn hero-btn" href="#catalog">Browse products</a>
+      <div class="hero-badges">
+        <span class="hero-badge">Same-day delivery</span>
+        <span class="hero-badge">Lowest everyday prices</span>
+        <span class="hero-badge">M-Pesa till payment</span>
+        <span class="hero-badge">PPB-licensed</span>
+        <span class="hero-badge">WhatsApp support</span>
+      </div>
+    </div>
+
+    <div class="toolbar" id="catalog">
+      <div class="category-chips" id="chips">
+        <button class="chip active" data-cat="All">All ({products.length})</button>
+        {cats.map((c) => <button class="chip" data-cat={c.name}>{c.name} ({c.count})</button>)}
+      </div>
+      <div class="sort-row">
+        <span class="result-count" id="result-count">{products.length} products</span>
+        <select id="sort" aria-label="Sort products">
+          <option value="popular">Sort: Popular</option>
+          <option value="price-asc">Price: low to high</option>
+          <option value="price-desc">Price: high to low</option>
+          <option value="name">Name A–Z</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="grid" id="grid">
+      {products.map((p) => <ProductCard product={p} />)}
+    </div>
+
+    <script type="application/json" id="pz-full-catalog" set:html={JSON.stringify(products)}></script>
+  </section>
+
+  <script>
+    const PRODUCTS = PZ.readJson('pz-full-catalog') || [];
+    const grid = document.getElementById('grid');
+    const chips = document.getElementById('chips');
+    const countEl = document.getElementById('result-count');
+    const sortEl = document.getElementById('sort');
+    let cat = 'All';
+    let qq = new URLSearchParams(location.search).get('q') || '';
+    const searchInput = document.querySelector('.header-search input');
+    if (searchInput) searchInput.value = qq;
+
+    function cardHtml(p) {
+      const fallback = PZ.BASE_URL + 'images/fallback-product.png';
+      const img = (PZ.BASE_URL + (p.image || 'images/fallback-product.png')).replace(/([^:])\/\//g, '$1/');
+      const badge = p.prescription
+        ? '<span class="badge badge-rx">Prescription</span>'
+        : (p.inStock === false ? '<span class="badge badge-out">Out of stock</span>' : '<span class="badge badge-otc">OTC</span>');
+      const disabled = p.inStock === false ? 'disabled' : '';
+      return `<div class="card">
+        <a class="card-img-wrap" href="${PZ.BASE_URL}product/${p.slug}">
+          <img src="${img}" alt="${PZ.esc(p.name)}" loading="lazy" onerror="this.onerror=null;this.src='${fallback}'">
+        </a>
+        <div class="card-body">
+          <a class="card-name" href="${PZ.BASE_URL}product/${p.slug}">${PZ.esc(p.name)}</a>
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <span class="card-brand">${PZ.esc(p.brand || '')}</span>${badge}
+          </div>
+          <div class="card-bottom">
+            <span class="price">${PZ.fmt(p.price)}</span>
+            <button type="button" class="add-btn" data-add="${p.id}" ${disabled} aria-label="Add to cart">+</button>
+          </div>
+        </div>
+      </div>`;
+    }
+
+    function apply() {
+      let list = PRODUCTS.slice();
+      if (cat !== 'All') list = list.filter((p) => p.category === cat);
+      if (qq) {
+        const t = qq.toLowerCase();
+        list = list.filter((p) =>
+          (p.name || '').toLowerCase().includes(t) ||
+          (p.generic || '').toLowerCase().includes(t) ||
+          (p.brand || '').toLowerCase().includes(t) ||
+          (p.category || '').toLowerCase().includes(t)
+        );
+      }
+      const s = sortEl.value;
+      if (s === 'price-asc') list.sort((a, b) => a.price - b.price);
+      else if (s === 'price-desc') list.sort((a, b) => b.price - a.price);
+      else if (s === 'name') list.sort((a, b) => a.name.localeCompare(b.name));
+      grid.innerHTML = list.map(cardHtml).join('');
+      countEl.textContent = list.length + ' product' + (list.length === 1 ? '' : 's');
+      grid.querySelectorAll('[data-add]').forEach((b) =>
+        b.addEventListener('click', () => { PZ.addToCart(b.dataset.add, 1); PZ.toast('Added to cart'); b.classList.add('added'); setTimeout(() => b.classList.remove('added'), 600); })
+      );
+    }
+
+    chips.addEventListener('click', (e) => {
+      const b = e.target.closest('[data-cat]');
+      if (!b) return;
+      chips.querySelectorAll('.chip').forEach((x) => x.classList.remove('active'));
+      b.classList.add('active');
+      cat = b.dataset.cat;
+      apply();
+    });
+    sortEl.addEventListener('change', apply);
+    searchInput && searchInput.addEventListener('input', () => { qq = searchInput.value.trim(); apply(); });
+    apply();
+  </script>
+</Base>

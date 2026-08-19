@@ -1,0 +1,344 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../data/catalog.mjs';
+const BASE = import.meta.env.BASE_URL;
+---
+
+<Base title={`Admin — ${site.brand}`} description="">
+  <div class="admin-layout">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
+      <h1 style="margin:0;font-size:26px">Pharmazole admin</h1>
+      <button class="btn btn-ghost hide" id="logout">Log out</button>
+    </div>
+
+    <div id="login-view" class="login-box hide">
+      <div class="panel">
+        <h3>Owner login</h3>
+        <div class="field">
+          <input class="input" type="password" id="pw" placeholder="Password" autocomplete="current-password" />
+        </div>
+        <button class="btn btn-lg" id="login-btn">Log in</button>
+        <p class="muted" style="font-size:12.5px;margin:12px 0 0">Owner access only. Password is stored as a hash in the worker secrets.</p>
+      </div>
+    </div>
+
+    <div id="admin-view" class="hide">
+      <div class="admin-tabs">
+        <button class="admin-tab active" data-tab="orders">Orders</button>
+        <button class="admin-tab" data-tab="products">Products</button>
+        <button class="admin-tab" data-tab="settings">Settings</button>
+      </div>
+
+      <section id="tab-orders">
+        <div id="orders-loading"><div class="spin"></div></div>
+        <div id="orders-wrap" class="table-wrap hide"></div>
+      </section>
+
+      <section id="tab-products" class="hide">
+        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:12px">
+          <input class="input" id="prod-search" placeholder="Search products…" style="max-width:300px" />
+          <button class="btn btn-outline btn-sm" id="prod-add">+ New product</button>
+          <span class="muted" style="font-size:13px" id="prod-count"></span>
+        </div>
+        <div id="prod-list" style="display:grid;gap:10px"></div>
+        <div style="display:flex;gap:10px;margin-top:18px;align-items:center;flex-wrap:wrap">
+          <button class="btn" id="prod-save">Save all changes</button>
+          <span class="muted" style="font-size:13px">Saves are committed to GitHub and the site rebuilds automatically.</span>
+        </div>
+      </section>
+
+      <section id="tab-settings" class="hide">
+        <div class="panel" style="max-width:640px">
+          <h3>Store settings</h3>
+          <div class="field"><label>Brand name</label><input class="input" id="s-brand"></div>
+          <div class="field"><label>Tagline</label><input class="input" id="s-tagline"></div>
+          <div class="field"><label>M-Pesa till number</label><input class="input" id="s-till"></div>
+          <div class="field"><label>Till store name</label><input class="input" id="s-tillname"></div>
+          <div class="field"><label>WhatsApp number (international, e.g. 2547XX…)</label><input class="input" id="s-whatsapp"></div>
+          <div class="field"><label>WhatsApp display</label><input class="input" id="s-whatsappdisp"></div>
+          <div class="field"><label>Delivery zone 1 — label</label><input class="input" id="s-z1-label"></div>
+          <div class="field"><label>Delivery zone 1 — fee (KES)</label><input class="input" id="s-z1-fee" type="number"></div>
+          <div class="field"><label>Delivery zone 2 — label</label><input class="input" id="s-z2-label"></div>
+          <div class="field"><label>Delivery zone 2 — fee (KES)</label><input class="input" id="s-z2-fee" type="number"></div>
+          <div class="field"><label>PPB license number</label><input class="input" id="s-ppb" placeholder="e.g. PPB (K) 2026/12345"></div>
+          <div class="field"><label>Pharmacist in charge</label><input class="input" id="s-pharmacist" placeholder="Full name"></div>
+          <button class="btn" id="s-save">Save settings</button>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    const $ = (id) => document.getElementById(id);
+    const loginView = $('login-view'), adminView = $('admin-view'), logout = $('logout');
+    let products = [];
+    let dirty = new Set();
+
+    async function init() {
+      try {
+        const s = await PZ.api('/admin/session');
+        if (s.authed) showAdmin(); else showLogin();
+      } catch (e) { showLogin(); }
+    }
+    function showLogin() { loginView.classList.remove('hide'); adminView.classList.add('hide'); logout.classList.add('hide'); }
+    function showAdmin() { loginView.classList.add('hide'); adminView.classList.remove('hide'); logout.classList.remove('hide'); loadOrders(); loadSettings(); }
+
+    $('login-btn').addEventListener('click', async () => {
+      const pw = $('pw').value;
+      $('login-btn').disabled = true;
+      try { await PZ.api('/admin/login', { method: 'POST', body: JSON.stringify({ password: pw }) }); showAdmin(); }
+      catch (e) { PZ.toast(e.message, true); }
+      $('login-btn').disabled = false; $('pw').value = '';
+    });
+    $('pw').addEventListener('keydown', (e) => { if (e.key === 'Enter') $('login-btn').click(); });
+    logout.addEventListener('click', async () => { await PZ.api('/admin/logout', { method: 'POST' }); showLogin(); });
+
+    /* ---------- tabs ---------- */
+    document.querySelectorAll('.admin-tab').forEach((t) => t.addEventListener('click', () => {
+      document.querySelectorAll('.admin-tab').forEach((x) => x.classList.remove('active'));
+      t.classList.add('active');
+      ['orders', 'products', 'settings'].forEach((n) => $('tab-' + n).classList.toggle('hide', n !== t.dataset.tab));
+      if (t.dataset.tab === 'products' && !products.length) loadProducts();
+      if (t.dataset.tab === 'orders') loadOrders();
+    }));
+
+    /* ---------- orders ---------- */
+    async function loadOrders() {
+      $('orders-loading').classList.remove('hide');
+      $('orders-wrap').classList.add('hide');
+      try {
+        const { orders } = await PZ.api('/admin/orders');
+        renderOrders(orders);
+      } catch (e) { $('orders-loading').classList.add('hide'); PZ.toast(e.message, true); }
+    }
+    function renderOrders(orders) {
+      $('orders-loading').classList.add('hide');
+      const wrap = $('orders-wrap');
+      wrap.classList.remove('hide');
+      if (!orders.length) { wrap.innerHTML = '<div class="panel">No orders yet.</div>'; return; }
+      wrap.innerHTML = `<table class="table">
+        <thead><tr><th>Order</th><th>Customer</th><th>Items</th><th>Total</th><th>Payment</th><th>Status</th><th></th></tr></thead>
+        <tbody>${orders.map((o) => `
+          <tr>
+            <td class="mono">${o.id}<br><span class="muted" style="font-size:12px">${new Date(o.createdAt).toLocaleString('en-KE')}</span></td>
+            <td>${PZ.esc(o.customer)}<br><span class="mono" style="font-size:12px">${PZ.esc(o.phone)}</span></td>
+            <td>${o.itemCount} item${o.itemCount === 1 ? '' : 's'}${o.hasRx ? ' <span class="badge badge-rx">Rx</span>' : ''}</td>
+            <td><b>${PZ.fmt(o.total)}</b></td>
+            <td>${o.paymentCode ? '<span class="mono">' + PZ.esc(o.paymentCode) + '</span>' : '<span class="muted">—</span>'}</td>
+            <td>${statusSelect(o)}</td>
+            <td><button class="btn btn-outline btn-sm" data-view="${o.id}">View</button></td>
+          </tr>`).join('')}
+        </tbody></table>`;
+      wrap.querySelectorAll('[data-view]').forEach((b) => b.addEventListener('click', () => viewOrder(b.dataset.view)));
+      wrap.querySelectorAll('select[data-status]').forEach((s) => s.addEventListener('change', () => setStatus(s.dataset.status, s.value, s)));
+    }
+    const LABELS = { placed: 'Placed', 'awaiting-payment': 'Awaiting payment', 'payment-submitted': 'Payment submitted', confirmed: 'Confirmed', dispatched: 'Out for delivery', delivered: 'Delivered', cancelled: 'Cancelled' };
+    function statusSelect(o) {
+      const opts = Object.keys(LABELS).map((s) => `<option value="${s}" ${o.status === s ? 'selected' : ''}>${LABELS[s]}</option>`).join('');
+      return `<select data-status="${o.id}" class="select" style="padding:6px 8px;font-size:13px">${opts}</select>`;
+    }
+    async function setStatus(id, status, el) {
+      try { await PZ.api('/admin/orders/' + id + '/status', { method: 'PUT', body: JSON.stringify({ status }) }); PZ.toast('Order ' + id + ' → ' + LABELS[status]); }
+      catch (e) { PZ.toast(e.message, true); loadOrders(); }
+    }
+    async function viewOrder(id) {
+      try {
+        const o = await PZ.api('/admin/orders/' + id);
+        const items = (o.items || []).map((i) => `<tr><td>${i.qty} × ${PZ.esc(i.name)}</td><td>${PZ.fmt(i.price * i.qty)}</td></tr>`).join('');
+        const rxHtml = o.prescription
+          ? `<div style="margin-top:10px"><b>Prescription:</b> <button class="btn btn-outline btn-sm" id="view-rx">View prescription</button>
+             <div id="rx-img-wrap"></div></div>`
+          : '';
+        const div = document.createElement('div');
+        div.style.cssText = 'position:fixed;inset:0;background:rgba(10,30,22,.5);z-index:99;display:flex;align-items:center;justify-content:center;padding:16px';
+        div.innerHTML = `<div style="background:#fff;border-radius:14px;max-width:560px;width:100%;max-height:90vh;overflow:auto;padding:20px">
+          <div style="display:flex;justify-content:space-between;align-items:center"><h3 style="margin:0">Order ${o.id}</h3><button class="icon-btn" id="rx-close">&times;</button></div>
+          <p class="muted" style="font-size:13px;margin:6px 0 12px">${new Date(o.createdAt).toLocaleString('en-KE')} · Status: ${LABELS[o.status] || o.status}</p>
+          <p style="margin:0 0 4px"><b>${PZ.esc(o.customer.name)}</b> · <span class="mono">${PZ.esc(o.customer.phone)}</span></p>
+          <p class="muted" style="margin:0 0 10px">${PZ.esc(o.customer.address)}${o.customer.note ? '<br>Note: ' + PZ.esc(o.customer.note) : ''}</p>
+          <table class="table"><thead><tr><th>Item</th><th>Amount</th></tr></thead><tbody>${items}</tbody></table>
+          <div style="margin-top:8px;display:grid;gap:4px">
+            <div style="display:flex;justify-content:space-between"><span class="muted">Subtotal</span><span>${PZ.fmt(o.subtotal)}</span></div>
+            <div style="display:flex;justify-content:space-between"><span class="muted">Delivery</span><span>${PZ.fmt(o.delivery)}</span></div>
+            <div style="display:flex;justify-content:space-between;font-weight:700"><span>Total</span><span>${PZ.fmt(o.total)}</span></div>
+          </div>
+          ${o.paymentCode ? `<p style="margin:10px 0 0"><b>M-Pesa code:</b> <span class="mono">${PZ.esc(o.paymentCode)}</span></p>` : ''}
+          ${rxHtml}
+          <a class="btn btn-whatsapp btn-sm" style="margin-top:14px" target="_blank" href="https://wa.me/${PZ.SITE.whatsapp}?text=${encodeURIComponent('Order ' + o.id + ' for ' + o.customer.name + ' — KES ' + o.total + ' — ' + o.customer.address)}">Reach customer on WhatsApp</a>
+        </div>`;
+        document.body.appendChild(div);
+        div.querySelector('#rx-close').addEventListener('click', () => div.remove());
+        div.addEventListener('click', (e) => { if (e.target === div) div.remove(); });
+        if (o.prescription) {
+          const viewRx = div.querySelector('#view-rx');
+          viewRx.addEventListener('click', async () => {
+            const imgWrap = div.querySelector('#rx-img-wrap');
+            try {
+              const img = await PZ.api('/admin/orders/' + id + '/prescription');
+              imgWrap.innerHTML = `<img src="data:${img.mime};base64,${img.data}" alt="Prescription" style="max-width:100%;margin-top:10px;border:1px solid var(--line);border-radius:8px">`;
+              viewRx.style.display = 'none';
+            } catch (e) { PZ.toast(e.message, true); }
+          });
+        }
+      } catch (e) { PZ.toast(e.message, true); }
+    }
+
+    /* ---------- products ---------- */
+    async function loadProducts() {
+      try {
+        const res = await fetch((PZ.BASE_URL + 'products.json').replace(/([^:])\/\//g, '$1/'), { credentials: 'include' });
+        products = await res.json();
+        renderProducts();
+      } catch (e) {
+        PZ.toast('Could not load products: ' + e.message, true);
+      }
+    }
+
+    function renderProducts() {
+      const q = ($('prod-search').value || '').toLowerCase();
+      const list = products.filter((p) => !q || (p.name + ' ' + p.brand + ' ' + p.category).toLowerCase().includes(q));
+      $('prod-count').textContent = list.length + ' products';
+      $('prod-list').innerHTML = list.map((p) => `
+        <div class="row-item" data-id="${p.id}">
+          <img src="${(PZ.BASE_URL + p.image).replace(/([^:])\/\//g, '$1/')}" alt="">
+          <div class="grow">
+            <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+              <input class="input" data-f="name" style="flex:2;min-width:180px;font-weight:600" value="${PZ.esc(p.name)}">
+              <input class="input" data-f="price" type="number" style="width:90px" value="${p.price}">
+              <input class="input" data-f="category" style="width:150px" value="${PZ.esc(p.category)}">
+              <label style="font-size:13px;display:flex;gap:5px;align-items:center"><input type="checkbox" data-f="rx" ${p.prescription ? 'checked' : ''}> Rx</label>
+              <label style="font-size:13px;display:flex;gap:5px;align-items:center"><input type="checkbox" data-f="stock" ${p.inStock !== false ? 'checked' : ''}> In stock</label>
+            </div>
+            <input class="input" data-f="generic" style="width:100%;margin-top:6px" placeholder="Active ingredient (optional)" value="${PZ.esc(p.generic || '')}">
+            <div style="margin-top:6px;display:flex;gap:8px;align-items:center">
+              <input class="input" data-f="image" style="flex:1" value="${PZ.esc(p.image)}">
+              <label class="btn btn-outline btn-sm" style="cursor:pointer">Image file<input type="file" data-img accept="image/jpeg,image/png,image/webp" style="display:none"></label>
+              <button class="btn btn-danger btn-sm" data-del>Delete</button>
+            </div>
+          </div>
+        </div>`).join('');
+      $('prod-list').querySelectorAll('input,select').forEach((el) => {
+        el.addEventListener('input', () => {
+          const row = el.closest('[data-id]');
+          const p = products.find((x) => x.id === row.dataset.id);
+          const f = el.dataset.f;
+          if (f === 'rx' || f === 'stock') p[f === 'rx' ? 'prescription' : 'inStock'] = el.checked;
+          else if (f === 'price') p.price = Number(el.value) || 0;
+          else p[f] = el.value;
+          dirty.add(p.id);
+        });
+      });
+      $('prod-list').querySelectorAll('[data-del]').forEach((b) => b.addEventListener('click', () => {
+        const id = b.closest('[data-id]').dataset.id;
+        products = products.filter((p) => p.id !== id);
+        renderProducts();
+      }));
+      $('prod-list').querySelectorAll('[data-img]').forEach((input) => input.addEventListener('change', async () => {
+        const f = input.files[0];
+        if (!f) return;
+        const p = products.find((x) => x.id === input.closest('[data-id]').dataset.id);
+        const scaled = await downscale(f, 500);
+        PZ.toast('Uploading image…');
+        try {
+          const res = await PZ.api('/admin/image', { method: 'POST', body: JSON.stringify({ filename: p.slug + '.webp', data: scaled.data64 }) });
+          p.image = res.path;
+          dirty.add(p.id);
+          renderProducts();
+          PZ.toast('Image uploaded — save changes to apply');
+        } catch (e) { PZ.toast(e.message, true); }
+      }));
+    }
+
+    function downscale(file, maxSide) {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = () => {
+          const scale = Math.min(1, maxSide / Math.max(img.width, img.height));
+          const cv = document.createElement('canvas');
+          cv.width = Math.round(img.width * scale);
+          cv.height = Math.round(img.height * scale);
+          cv.getContext('2d').drawImage(img, 0, 0, cv.width, cv.height);
+          const mime = file.type === 'image/png' ? 'image/png' : 'image/webp';
+          const data64 = cv.toDataURL(mime, 0.85).split(',')[1];
+          resolve({ data64, mime });
+        };
+        img.onerror = () => reject(new Error('Could not read image'));
+        img.src = URL.createObjectURL(file);
+      });
+    }
+
+    $('prod-search').addEventListener('input', renderProducts);
+    $('prod-add').addEventListener('click', () => {
+      const slug = 'new-' + Date.now().toString(36);
+      products.unshift({
+        id: 'p' + Date.now().toString(36),
+        slug,
+        name: 'New product',
+        brand: '',
+        category: 'General',
+        price: 0,
+        prescription: false,
+        inStock: true,
+        image: '',
+        description: '',
+        generic: '',
+        pack: ''
+      });
+      renderProducts();
+      dirty.add(products[0].id);
+    });
+    $('prod-save').addEventListener('click', async () => {
+      const btn = $('prod-save');
+      btn.disabled = true; btn.textContent = 'Saving…';
+      try {
+        await PZ.api('/admin/products', { method: 'PUT', body: JSON.stringify({ products }) });
+        dirty.clear();
+        PZ.toast('Catalog saved — site rebuilds automatically');
+      } catch (e) { PZ.toast(e.message, true); }
+      btn.disabled = false; btn.textContent = 'Save all changes';
+    });
+
+    /* ---------- settings ---------- */
+    async function loadSettings() {
+      const s = PZ.SITE;
+      $('s-brand').value = s.brand; $('s-tagline').value = s.tagline || '';
+      $('s-till').value = s.tillNumber; $('s-tillname').value = s.tillName || '';
+      $('s-whatsapp').value = s.whatsapp; $('s-whatsappdisp').value = s.whatsappDisplay || '';
+      $('s-z1-label').value = s.delivery.zones[0].label; $('s-z1-fee').value = s.delivery.zones[0].fee;
+      $('s-z2-label').value = s.delivery.zones[1].label; $('s-z2-fee').value = s.delivery.zones[1].fee;
+      $('s-ppb').value = s.legal.ppbLicense || ''; $('s-pharmacist').value = s.legal.pharmacist || '';
+    }
+    $('s-save').addEventListener('click', async () => {
+      const btn = $('s-save');
+      btn.disabled = true; btn.textContent = 'Saving…';
+      const site = {
+        brand: $('s-brand').value,
+        tagline: $('s-tagline').value,
+        heroTitle: PZ.SITE.heroTitle,
+        tillNumber: $('s-till').value.trim(),
+        tillName: $('s-tillname').value,
+        whatsapp: $('s-whatsapp').value.replace(/[^\d]/g, ''),
+        whatsappDisplay: $('s-whatsappdisp').value,
+        apiBase: '/api',
+        currency: 'KES',
+        delivery: {
+          zones: [
+            { id: 'south', label: $('s-z1-label').value, fee: Number($('s-z1-fee').value) || 0, note: PZ.SITE.delivery.zones[0].note },
+            { id: 'nairobi', label: $('s-z2-label').value, fee: Number($('s-z2-fee').value) || 0, note: PZ.SITE.delivery.zones[1].note }
+          ],
+          cutoff: PZ.SITE.delivery.cutoff,
+          outOfCoverage: PZ.SITE.delivery.outOfCoverage
+        },
+        legal: { ppbLicense: $('s-ppb').value.trim(), pharmacist: $('s-pharmacist').value.trim(), ppbDisclaimer: PZ.SITE.legal.ppbDisclaimer },
+        whatsappTemplates: PZ.SITE.whatsappTemplates
+      };
+      try {
+        await PZ.api('/admin/site', { method: 'PUT', body: JSON.stringify({ site }) });
+        PZ.toast('Settings saved — site rebuilds automatically');
+      } catch (e) { PZ.toast(e.message, true); }
+      btn.disabled = false; btn.textContent = 'Save settings';
+    });
+
+    init();
+  </script>
+</Base>

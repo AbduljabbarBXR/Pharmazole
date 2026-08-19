@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pharmazole — Canvas Logo Generator</title>
+<style>
+  body { font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif; background: #f4f7f5; color: #14261d; margin: 0; padding: 24px; }
+  h1 { font-size: 22px; margin: 0 0 4px; }
+  p.sub { color: #5b6f66; margin: 0 0 20px; }
+  .card { background: #fff; border: 1px solid #e3ede7; border-radius: 14px; padding: 20px; max-width: 900px; }
+  .row { display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start; }
+  canvas { background: #fff; border: 1px solid #e3ede7; border-radius: 12px; }
+  .controls { display: grid; gap: 12px; flex: 1; min-width: 260px; }
+  .ctl { display: grid; gap: 4px; }
+  .ctl label { font-size: 13px; font-weight: 600; }
+  .ctl input[type=color] { width: 100%; height: 38px; border: 1px solid #e3ede7; border-radius: 8px; padding: 2px; cursor: pointer; }
+  .ctl input[type=range] { width: 100%; }
+  .btn { border: none; border-radius: 9px; padding: 12px 16px; font-size: 14px; font-weight: 600; background: #0b7a4b; color: #fff; cursor: pointer; }
+  .btn:hover { background: #075c38; }
+  .btns { display: flex; gap: 8px; flex-wrap: wrap; }
+  .preview { display: flex; gap: 14px; align-items: center; margin-top: 16px; }
+  .preview div { text-align: center; font-size: 12px; color: #5b6f66; }
+</style>
+</head>
+<body>
+<h1>Pharmazole — Canvas Logo Generator</h1>
+<p class="sub">Tune the colors, press download, then save the PNGs into <code>public/</code> (logo.png, logo-192.png, logo-512.png, favicon.png).</p>
+
+<div class="card">
+  <div class="row">
+    <div class="preview">
+      <canvas id="cv" width="512" height="512"></canvas>
+    </div>
+    <div class="controls">
+      <div class="ctl"><label>Primary (green)</label><input type="color" id="c1" value="#0b7a4b"></div>
+      <div class="ctl"><label>Accent (teal)</label><input type="color" id="c2" value="#12b886"></div>
+      <div class="ctl"><label>Wordmark color</label><input type="color" id="c3" value="#14261d"></div>
+      <div class="ctl"><label>Show wordmark</label><input type="checkbox" id="wordmark" checked></div>
+      <div class="btns">
+        <button class="btn" onclick="dl(512,'logo.png')">512px logo.png</button>
+        <button class="btn" onclick="dl(512,'logo-512.png')">logo-512.png</button>
+        <button class="btn" onclick="dl(192,'logo-192.png')">logo-192.png</button>
+        <button class="btn" onclick="dl(64,'favicon.png')">64px favicon.png</button>
+      </div>
+      <p class="sub" style="margin:0">The 512px download is used in the site header/footer and WhatsApp profile.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  const cv = document.getElementById('cv');
+  const ctx = cv.getContext('2d');
+
+  function roundRect(x, y, w, h, r) {
+    ctx.beginPath();
+    ctx.moveTo(x + r, y);
+    ctx.arcTo(x + w, y, x + w, y + h, r);
+    ctx.arcTo(x + w, y + h, x, y + h, r);
+    ctx.arcTo(x, y + h, x, y, r);
+    ctx.arcTo(x, y, x + w, y, r);
+    ctx.closePath();
+  }
+
+  function draw() {
+    const c1 = document.getElementById('c1').value;
+    const c2 = document.getElementById('c2').value;
+    const c3 = document.getElementById('c3').value;
+    const wordmark = document.getElementById('wordmark').checked;
+
+    ctx.clearRect(0, 0, 512, 512);
+    const pad = 8;
+    const g = ctx.createLinearGradient(0, 0, 512, 512);
+    g.addColorStop(0, c2);
+    g.addColorStop(1, c1);
+    roundRect(pad, pad, 512 - pad * 2, 512 - pad * 2, 96);
+    ctx.fillStyle = g;
+    ctx.fill();
+
+    // pharmacy cross
+    ctx.strokeStyle = '#ffffff';
+    ctx.lineCap = 'round';
+    ctx.lineWidth = 64;
+    ctx.beginPath();
+    ctx.moveTo(256, 128); ctx.lineTo(256, 384);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(128, 256); ctx.lineTo(384, 256);
+    ctx.stroke();
+
+    // pill capsule behind the cross lower arm
+    ctx.globalAlpha = 0.35;
+    roundRect(196, 320, 120, 64, 32);
+    ctx.fillStyle = '#ffffff';
+    ctx.fill();
+    ctx.globalAlpha = 1;
+
+    if (wordmark) {
+      ctx.fillStyle = c3;
+      ctx.font = '800 40px -apple-system, "Segoe UI", Roboto, Arial, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('PHARMAZOLE', 256, 486);
+      ctx.fillStyle = 'rgba(20,38,29,0.55)';
+      ctx.font = '600 18px -apple-system, "Segoe UI", Roboto, Arial, sans-serif';
+      ctx.fillText('Nairobi pharmacy, delivered', 256, 508);
+    }
+  }
+
+  function dl(size, name) {
+    const tmp = document.createElement('canvas');
+    tmp.width = size; tmp.height = size;
+    const t = tmp.getContext('2d');
+    if (size !== 512) {
+      t.clearRect(0, 0, size, size);
+      t.drawImage(cv, 0, 0, 512, 512, 0, 0, size, size);
+    } else {
+      t.drawImage(cv, 0, 0);
+    }
+    const a = document.createElement('a');
+    a.download = name;
+    a.href = tmp.toDataURL('image/png');
+    a.click();
+  }
+
+  document.querySelectorAll('input').forEach((el) => el.addEventListener('input', draw));
+  draw();
+</script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+# Copy to .dev.vars (gitignored) for local `wrangler dev`.
+# In production set these with: `wrangler secret put SESSION_SECRET` / `wrangler secret put PBKDF2_HASH`
+SESSION_SECRET = "generate-a-long-random-string"
+PBKDF2_HASH = "pbkdf2$100000$SALT_B64==$HASH_B64="

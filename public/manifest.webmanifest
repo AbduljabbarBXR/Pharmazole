@@ -1,0 +1,21 @@
+{
+  "name": "Pharmazole",
+  "short_name": "Pharmazole",
+  "description": "Nairobi pharmacy delivered — medicines at the lowest everyday prices.",
+  "start_url": "/Pharmazole/",
+  "display": "standalone",
+  "background_color": "#f6faf8",
+  "theme_color": "#0b7a4b",
+  "icons": [
+    {
+      "src": "/Pharmazole/logo-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/Pharmazole/logo-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

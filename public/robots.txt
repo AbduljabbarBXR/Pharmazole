@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://abduljabbarbxr.github.io/Pharmazole/sitemap-index.xml

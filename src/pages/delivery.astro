@@ -1,0 +1,33 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../data/catalog.mjs';
+const BASE = import.meta.env.BASE_URL;
+---
+
+<Base title={`Delivery & fees — ${site.brand}`} description={`Fast delivery across Nairobi. ${site.delivery.zones[0].label} KES ${site.delivery.zones[0].fee}; rest of Nairobi KES ${site.delivery.zones[1].fee}.`}>
+  <div class="container" style="max-width:760px">
+    <h1 class="page-head" style="font-size:28px">Delivery &amp; fees</h1>
+    <div class="panel" style="margin-bottom:16px">
+      <h3>Delivery zones in Nairobi</h3>
+      <div style="display:grid;gap:10px">
+        {site.delivery.zones.map((z) => (
+          <div class="zone-option" style="cursor:default">
+            <span><b>{z.label}</b><br /><span class="muted" style="font-size:13px">{z.note}</span></span>
+            <span class="fee">KES {z.fee}</span>
+          </div>
+        ))}
+      </div>
+      <p style="margin:12px 0 0"><b>{site.delivery.cutoff}</b></p>
+      <p class="muted" style="margin:8px 0 0">{site.delivery.outOfCoverage}</p>
+    </div>
+    <div class="panel">
+      <h3>How it works</h3>
+      <div class="pay-steps">
+        <div class="pay-step"><span class="n">1</span><span>Add items to cart and checkout — we confirm stock and availability.</span></div>
+        <div class="pay-step"><span class="n">2</span><span>Pay via M-Pesa Buy Goods till and share the confirmation code.</span></div>
+        <div class="pay-step"><span class="n">3</span><span>We verify, pack, and dispatch. Track your order status online or chat with us on WhatsApp.</span></div>
+      </div>
+      <a class="btn btn-whatsapp" href={'https://wa.me/' + site.whatsapp} target="_blank">Ask about delivery on WhatsApp</a>
+    </div>
+  </div>
+</Base>

@@ -1,0 +1,24 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../data/catalog.mjs';
+const BASE = import.meta.env.BASE_URL;
+---
+
+<Base title={`Terms of service — ${site.brand}`} description="Terms of service for ordering from Pharmazole.">
+  <div class="container" style="max-width:760px">
+    <h1 class="page-head" style="font-size:28px">Terms of service</h1>
+    <div class="panel">
+      <ul style="margin:0;padding-left:20px;display:grid;gap:10px">
+        <li><b>Medicines &amp; advice.</b> Information on this site is for general guidance and does not replace professional medical advice, diagnosis or treatment. Always read the label and consult a pharmacist or doctor.</li>
+        <li><b>Prescription medicines.</b> POM items are dispensed only against a valid prescription. We may decline orders where a prescription is missing, unclear or appears invalid. Our pharmacist's decision on verification is final.</li>
+        <li><b>Pricing &amp; availability.</b> Prices are in Kenyan Shillings (KES) and may change without notice. We confirm stock and final price before dispatch; if an item is unavailable we will contact you to substitute or refund.</li>
+        <li><b>Payment.</b> Payment is via M-Pesa Buy Goods till. Orders are processed only after payment is confirmed on our side.</li>
+        <li><b>Delivery.</b> Delivery is within Nairobi only at the fees shown at checkout. Time estimates are best-effort, not guaranteed.</li>
+        <li><b>Cancellations &amp; returns.</b> For safety reasons, medicines cannot be returned once dispatched unless defective or incorrectly supplied. Chat with us on WhatsApp for help.</li>
+        <li><b>Use of site.</b> Do not misuse the site, upload fraudulent prescriptions, or attempt to access the admin area without authorisation.</li>
+        <li><b>Liability.</b> {site.brand} is not liable for misuse of medicines, or for delays caused by circumstances beyond our control (e.g. transport, weather).</li>
+      </ul>
+      <p style="margin:16px 0 0">Questions? WhatsApp <b>{site.whatsappDisplay}</b>.</p>
+    </div>
+  </div>
+</Base>

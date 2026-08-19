@@ -1,0 +1,198 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../data/catalog.mjs';
+const BASE = import.meta.env.BASE_URL;
+---
+
+<Base title={`Checkout — ${site.brand}`} description="Complete your order. Pay with M-Pesa till and get fast delivery in Nairobi.">
+  <div class="container" style="max-width:840px">
+    <h1 class="page-head" style="font-size:26px">Checkout</h1>
+
+    <div id="empty" class="panel center hide">
+      <p style="margin:0 0 14px">Your cart is empty.</p>
+      <a class="btn" href={BASE}>Browse products</a>
+    </div>
+
+    <div id="checkout-form" class="hide">
+      <div class="panel">
+        <h3>Your order</h3>
+        <div id="items" style="display:grid;gap:10px"></div>
+        <div id="summary" style="margin-top:14px;border-top:1px dashed var(--line);padding-top:12px;display:grid;gap:6px"></div>
+      </div>
+
+      <div class="panel">
+        <h3>Delivery</h3>
+        <div id="zones"></div>
+        <div class="field">
+          <label for="address">Delivery address <span class="hint">(estate, street/building, house number)</span></label>
+          <input class="input" id="address" name="address" placeholder="e.g. South C, Ole Sangale Rd, Gate 14, House 22" autocomplete="street-address" />
+        </div>
+        <div class="field">
+          <label for="phone">Mobile number (M-Pesa)</label>
+          <input class="input" id="phone" name="phone" inputmode="tel" placeholder="07XX XXX XXX" autocomplete="tel" />
+          <span class="hint">You will receive an M-Pesa prompt-free payment — send to our till below.</span>
+        </div>
+        <div class="field">
+          <label for="name">Full name</label>
+          <input class="input" id="name" name="name" placeholder="Jane Wanjiku" autocomplete="name" />
+        </div>
+        <div class="field">
+          <label for="note">Order note (optional)</label>
+          <textarea class="textarea" id="note" rows="2" placeholder="Anything we should know?"></textarea>
+        </div>
+      </div>
+
+      <div class="panel" id="rx-panel">
+        <h3>Prescription upload</h3>
+        <div class="rx-alert" id="rx-alert">
+          <b>One or more items need a prescription</b>
+          <span>Take a clear photo of the prescription and attach it below. Our pharmacist reviews it and confirms via WhatsApp before dispatch.</span>
+        </div>
+        <div style="margin-top:12px">
+          <label class="upload-box" id="upload-box">
+            <input type="file" id="rx-file" accept="image/jpeg,image/png,image/webp" />
+            <span id="rx-label">Tap to attach prescription (photo or scan)</span>
+          </label>
+          <p class="hint muted" style="margin:8px 0 0">JPEG / PNG / WebP, max 5MB. Files are stored privately and only seen by {site.brand} staff.</p>
+        </div>
+      </div>
+
+      <button class="btn btn-lg" id="place-order" style="margin-top:6px">Place order &middot; <span id="btn-total"></span></button>
+      <p class="muted center" style="font-size:13px;margin-top:8px">By placing this order you agree to our <a href={BASE + 'terms'}>terms</a> and confirm the details are correct.</p>
+    </div>
+  </div>
+
+  <script>
+    const its = PZ.items();
+    const empty = document.getElementById('empty');
+    const form = document.getElementById('checkout-form');
+    if (!its.length) { empty.classList.remove('hide'); }
+    else form.classList.remove('hide');
+
+    const zones = PZ.SITE.delivery.zones;
+    const zoneEl = document.getElementById('zones');
+    zoneEl.innerHTML = zones.map((z) => `
+      <label class="zone-option">
+        <span style="display:flex;gap:10px;align-items:center">
+          <input type="radio" name="zone" value="${z.id}" ${PZ.zone() && PZ.zone().id === z.id ? 'checked' : ''}>
+          <span>
+            <b>${PZ.esc(z.label)}</b><br>
+            <span class="muted" style="font-size:13px">${PZ.esc(z.note || '')}</span>
+          </span>
+        </span>
+        <span class="fee">KES ${z.fee}</span>
+      </label>`).join('');
+
+    zoneEl.addEventListener('change', (e) => {
+      const z = zones.find((x) => x.id === e.target.value);
+      PZ.saveZone({ id: z.id, fee: z.fee });
+      renderTotals();
+    });
+    if (!PZ.zone()) { const first = zones[0]; PZ.saveZone({ id: first.id, fee: first.fee }); zoneEl.querySelector('input').checked = true; }
+    else renderTotals();
+
+    const hasRx = PZ.hasRx();
+    document.getElementById('rx-panel').classList.toggle('hide', !hasRx);
+    document.getElementById('rx-alert').style.display = hasRx ? '' : 'none';
+
+    const fileInput = document.getElementById('rx-file');
+    const uploadBox = document.getElementById('upload-box');
+    const rxLabel = document.getElementById('rx-label');
+    let rxData = null;
+    fileInput.addEventListener('change', () => {
+      const f = fileInput.files[0];
+      if (!f) { rxData = null; uploadBox.classList.remove('has-file'); rxLabel.textContent = 'Tap to attach prescription (photo or scan)'; return; }
+      if (!/image\/(jpeg|png|webp)/.test(f.type)) { PZ.toast('Please attach a JPEG, PNG or WebP image', true); fileInput.value = ''; return; }
+      PZ.toast('Compressing image…');
+      const img = new Image();
+      img.onload = () => {
+        const maxSide = 1200;
+        const scale = Math.min(1, maxSide / Math.max(img.width, img.height));
+        const cv = document.createElement('canvas');
+        cv.width = Math.round(img.width * scale);
+        cv.height = Math.round(img.height * scale);
+        cv.getContext('2d').drawImage(img, 0, 0, cv.width, cv.height);
+        let out;
+        try { out = cv.toDataURL('image/webp', 0.82); } catch (e) { out = cv.toDataURL('image/jpeg', 0.82); }
+        if (out.length > 8 * 1024 * 1024) { PZ.toast('Image still too large — try a smaller photo', true); fileInput.value = ''; return; }
+        const isWebp = out.startsWith('data:image/webp');
+        rxData = { name: (isWebp ? f.name.replace(/\.[a-z0-9]+$/i, '') + '.webp' : f.name.replace(/\.[a-z0-9]+$/i, '') + '.jpg'), mime: isWebp ? 'image/webp' : 'image/jpeg', data: out.split(',')[1] };
+        uploadBox.classList.add('has-file');
+        rxLabel.textContent = '✓ Prescription attached (' + Math.round(out.length / 1024) + ' KB)';
+      };
+      img.onerror = () => { PZ.toast('Could not read image', true); fileInput.value = ''; };
+      img.src = URL.createObjectURL(f);
+    });
+
+    function renderItems() {
+      const el = document.getElementById('items');
+      el.innerHTML = its.map((i) => `
+        <div style="display:flex;gap:12px;align-items:center">
+          <img src="${(PZ.BASE_URL + (i.image || '')).replace(/([^:])\/\//g, '$1/')}" alt="" style="width:52px;height:52px;object-fit:contain;border:1px solid var(--line);border-radius:8px;background:#fff">
+          <div style="flex:1;min-width:0">
+            <div style="font-weight:600;font-size:14.5px">${PZ.esc(i.name)} ${i.prescription ? '<span class="badge badge-rx">Rx</span>' : ''}</div>
+            <div class="muted" style="font-size:13px">${i.qty} × KES ${i.price.toLocaleString('en-KE')}</div>
+          </div>
+          <b>KES ${(i.price * i.qty).toLocaleString('en-KE')}</b>
+        </div>`).join('');
+    }
+    function renderTotals() {
+      renderItems();
+      const fee = PZ.deliveryFee();
+      document.getElementById('summary').innerHTML = `
+        <div class="summary-row"><span>Subtotal</span><span>${PZ.fmt(PZ.subtotal())}</span></div>
+        <div class="summary-row"><span>Delivery (${PZ.zone() ? PZ.esc(PZ.zone().id === 'south' ? 'South C / South B / Nairobi West' : 'Nairobi') : ''})</span><span>${fee == null ? '—' : PZ.fmt(fee)}</span></div>
+        <div class="summary-row total"><span>Total</span><span>${PZ.fmt(PZ.total())}</span></div>`;
+      document.getElementById('btn-total').textContent = PZ.fmt(PZ.total());
+    }
+    renderTotals();
+
+    function normPhone(v) {
+      let p = (v || '').replace(/[^\d+]/g, '');
+      if (p.startsWith('+')) p = p.slice(1);
+      if (p.startsWith('0')) p = '254' + p.slice(1);
+      if (/^7\d{8}$/.test(p)) p = '254' + p;
+      return p;
+    }
+
+    const placeBtn = document.getElementById('place-order');
+    placeBtn.addEventListener('click', async () => {
+      const name = document.getElementById('name').value.trim();
+      const phoneRaw = document.getElementById('phone').value.trim();
+      const address = document.getElementById('address').value.trim();
+      const note = document.getElementById('note').value.trim();
+      const phone = normPhone(phoneRaw);
+      const z = PZ.zone();
+      const errors = [];
+      if (!name) errors.push('Enter your full name');
+      if (!/^2547\d{8}$/.test(phone)) errors.push('Enter a valid M-Pesa number, e.g. 07XX XXX XXX');
+      if (!address) errors.push('Enter your delivery address');
+      if (!z) errors.push('Choose a delivery zone');
+      if (hasRx && !rxData) errors.push('Attach the prescription for your prescription items');
+      if (errors.length) { PZ.toast(errors[0], true); return; }
+
+      placeBtn.disabled = true;
+      placeBtn.textContent = 'Placing order…';
+      try {
+        const order = await PZ.api('/order', {
+          method: 'POST',
+          body: JSON.stringify({
+            customer: { name, phone, address, note },
+            zone: z,
+            items: its.map((i) => ({ id: i.id, name: i.name, qty: i.qty, price: i.price, prescription: !!i.prescription })),
+            subtotal: PZ.subtotal(),
+            delivery: PZ.deliveryFee(),
+            total: PZ.total(),
+            prescription: hasRx ? { name: rxData.name, mime: rxData.mime, data: rxData.data } : null
+          })
+        });
+        PZ.clearCart();
+        location.href = PZ.BASE_URL + 'order/' + order.id + '?phone=' + phone;
+      } catch (e) {
+        placeBtn.disabled = false;
+        placeBtn.textContent = 'Place order';
+        PZ.toast(e.message, true);
+      }
+    });
+  </script>
+</Base>

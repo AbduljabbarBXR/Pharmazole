@@ -1,0 +1,15 @@
+{
+  "name": "pharmazole-api",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "description": "Pharmazole backend: auth, GitHub commits, orders and prescriptions (private repo). No database.",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "hash": "node tools/hash-password.mjs"
+  },
+  "devDependencies": {
+    "wrangler": "^3.100.0"
+  }
+}

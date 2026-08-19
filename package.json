@@ -1,0 +1,17 @@
+{
+  "name": "pharmazole",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Pharmazole - online pharmacy storefront. Static site hosted on GitHub Pages, backend via Cloudflare Worker, data in GitHub repos (no database).",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "seed": "python3 tools/seed.py"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.2.1",
+    "astro": "^5.2.5"
+  }
+}

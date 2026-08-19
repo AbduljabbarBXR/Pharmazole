@@ -1,0 +1,140 @@
+---
+import { site, cartIndex } from '../data/catalog.mjs';
+const BASE = import.meta.env.BASE_URL;
+const cartIndexData = cartIndex();
+const title = site.brand + ' — ' + site.tagline;
+const desc = 'Order medicines online in Nairobi with fast delivery. Lowest everyday prices, M-Pesa till payment, and genuine products from a PPB-licensed pharmacy. South C, South B, Nairobi West KES 100 delivery; rest of Nairobi KES 300.';
+interface Props {
+  title?: string;
+  description?: string;
+}
+const { title: pageTitle = title, description = desc } = Astro.props;
+const path = Astro.url.pathname;
+const SITE = new URL(import.meta.env.SITE).origin;
+const fullUrl = SITE + path;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={fullUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={fullUrl} />
+    <meta property="og:image" content={SITE + BASE + 'logo.png'} />
+    <meta property="og:site_name" content={site.brand} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/svg+xml" href={BASE + 'favicon.svg'} />
+    <link rel="stylesheet" href={BASE + 'styles/global.css'} />
+    <link rel="manifest" href={BASE + 'manifest.webmanifest'} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Pharmacy',
+      name: site.brand,
+      description: site.tagline,
+      url: fullUrl,
+      logo: SITE + BASE + 'logo.png',
+      priceRange: 'KES',
+      contactPoint: {
+        '@type': 'ContactPoint',
+        telephone: '+' + site.whatsapp,
+        contactType: 'customer service'
+      },
+      areaServed: 'Nairobi, Kenya'
+    })} />
+  </head>
+  <body>
+    <script type="application/json" id="pz-site" set:html={JSON.stringify(site)}></script>
+    <script type="application/json" id="pz-catalog" set:html={JSON.stringify(cartIndexData)}></script>
+    <script type="application/json" id="pz-base" set:html={JSON.stringify(BASE)}></script>
+    <script src={BASE + 'scripts/store.js'}></script>
+
+    <header class="site-header">
+      <div class="header-inner container">
+        <a class="logo" href={BASE}>
+          <span class="logo-mark">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+              <rect x="3" y="13.5" width="9" height="5" rx="2.5" fill="currentColor" opacity="0.35"/>
+            </svg>
+          </span>
+          <span>
+            <span class="logo-name">Pharma<span>zole</span></span>
+          </span>
+        </a>
+        <form class="header-search" action={BASE} method="get" role="search">
+          <input type="search" name="q" placeholder="Search medicines, vitamins, care products…" aria-label="Search products" autocomplete="off" />
+        </form>
+        <div class="header-actions">
+          <a class="icon-btn" href={'https://wa.me/' + site.whatsapp} target="_blank" rel="noopener" title="Chat on WhatsApp" aria-label="Chat on WhatsApp">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.5A9.9 9.9 0 1 0 12.04 2Zm5.8 14.06c-.24.68-1.4 1.3-1.93 1.35-.52.05-1.17.24-3.95-.82-3.34-1.3-5.44-4.66-5.6-4.88-.16-.22-1.34-1.79-1.34-3.41 0-1.63.85-2.43 1.15-2.76.3-.33.66-.41.88-.41h.63c.2 0 .48-.08.75.57.27.66.93 2.28 1.01 2.45.08.16.14.36.03.58-.11.22-.17.35-.33.54-.16.19-.35.43-.5.57-.16.16-.33.34-.14.66.19.33.85 1.4 1.82 2.27 1.25 1.12 2.3 1.47 2.63 1.63.33.16.52.14.71-.08.19-.22.82-.95 1.04-1.28.22-.33.44-.27.74-.16.3.11 1.9.9 2.23 1.06.33.16.54.24.62.38.08.13.08.79-.16 1.47Z"/></svg>
+          </a>
+          <button class="icon-btn" id="cart-open" onclick="PZ_openCart()" aria-label="Open cart" title="Cart">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="9" cy="21" r="1.6" fill="currentColor" stroke="none"/>
+              <circle cx="19" cy="21" r="1.6" fill="currentColor" stroke="none"/>
+              <path d="M2 3h3l2.6 12.4a2 2 0 0 0 2 1.6h8.8a2 2 0 0 0 2-1.6L22 7H6"/>
+            </svg>
+            <span class="cart-count hide" id="cart-count">0</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <h4>{site.brand}</h4>
+          <p style="margin:0 0 10px">{site.tagline} Genuine medicines, lowest everyday prices, and same-day delivery across Nairobi.</p>
+          <p style="margin:0">WhatsApp: {site.whatsappDisplay}</p>
+        </div>
+        <div>
+          <h4>Shop</h4>
+          <p style="margin:0 0 8px"><a href={BASE}>All products</a></p>
+          <p style="margin:0 0 8px"><a href={BASE + 'delivery'}>Delivery &amp; fees</a></p>
+          <p style="margin:0 0 8px"><a href={BASE + 'prescriptions'}>Prescription medicines</a></p>
+          <p style="margin:0 0 8px"><a href={BASE + 'about'}>About {site.brand}</a></p>
+        </div>
+        <div>
+          <h4>Support</h4>
+          <p style="margin:0 0 8px"><a href={'https://wa.me/' + site.whatsapp} target="_blank" rel="noopener">Chat with us on WhatsApp</a></p>
+          <p style="margin:0 0 8px"><a href={BASE + 'privacy'}>Privacy</a></p>
+          <p style="margin:0 0 8px"><a href={BASE + 'terms'}>Terms</a></p>
+        </div>
+      </div>
+      <div class="container footer-legal">
+        {site.legal.ppbDisclaimer}
+        {site.legal.ppbLicense && <span> &middot; PPB License No: {site.legal.ppbLicense}</span>}
+        {site.legal.pharmacist && <span> &middot; Pharmacist in charge: {site.legal.pharmacist}</span>}
+        <div style="margin-top:8px">&copy; {new Date().getFullYear()} {site.brand}. All rights reserved.</div>
+      </div>
+    </footer>
+
+    <a class="wa-float" href={'https://wa.me/' + site.whatsapp} target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.5A9.9 9.9 0 1 0 12.04 2Zm5.8 14.06c-.24.68-1.4 1.3-1.93 1.35-.52.05-1.17.24-3.95-.82-3.34-1.3-5.44-4.66-5.6-4.88-.16-.22-1.34-1.79-1.34-3.41 0-1.63.85-2.43 1.15-2.76.3-.33.66-.41.88-.41h.63c.2 0 .48-.08.75.57.27.66.93 2.28 1.01 2.45.08.16.14.36.03.58-.11.22-.17.35-.33.54-.16.19-.35.43-.5.57-.16.16-.33.34-.14.66.19.33.85 1.4 1.82 2.27 1.25 1.12 2.3 1.47 2.63 1.63.33.16.52.14.71-.08.19-.22.82-.95 1.04-1.28.22-.33.44-.27.74-.16.3.11 1.9.9 2.23 1.06.33.16.54.24.62.38.08.13.08.79-.16 1.47Z"/></svg>
+    </a>
+
+    <div class="drawer-overlay" id="drawer-overlay"></div>
+    <aside class="drawer" id="cart-drawer" aria-label="Cart">
+      <div class="drawer-head">
+        <h3>Your cart</h3>
+        <button class="icon-btn" onclick="PZ_closeCart()" aria-label="Close cart">&times;</button>
+      </div>
+      <div class="drawer-body" id="drawer-list"></div>
+      <div class="drawer-foot">
+        <div id="drawer-subtotal"></div>
+        <a class="btn btn-lg" id="drawer-checkout" href={BASE + 'checkout'}>Checkout</a>
+      </div>
+    </aside>
+  </body>
+</html>

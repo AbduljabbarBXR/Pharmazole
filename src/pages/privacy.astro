@@ -1,0 +1,35 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../data/catalog.mjs';
+const BASE = import.meta.env.BASE_URL;
+---
+
+<Base title={`Privacy policy — ${site.brand}`} description="How Pharmazole handles your personal data and prescriptions, in line with the Kenya Data Protection Act 2019.">
+  <div class="container" style="max-width:760px">
+    <h1 class="page-head" style="font-size:28px">Privacy policy</h1>
+    <div class="panel">
+      <p style="margin:0 0 12px">This policy explains what information {site.brand} collects when you use this website and how we protect it, in line with the <b>Kenya Data Protection Act 2019</b>.</p>
+      <h3>What we collect</h3>
+      <ul style="margin:0 0 16px;padding-left:20px;display:grid;gap:8px">
+        <li>Your name, mobile number and delivery address — needed to fulfil your order.</li>
+        <li>Prescription images you attach for prescription-only medicines.</li>
+        <li>Order details and payment confirmation codes.</li>
+      </ul>
+      <h3>How we use it</h3>
+      <ul style="margin:0 0 16px;padding-left:20px;display:grid;gap:8px">
+        <li>To process, verify and deliver your orders.</li>
+        <li>To contact you on WhatsApp about your order.</li>
+        <li>To comply with Pharmacy and Poisons Board requirements (pharmacists must verify prescriptions).</li>
+      </ul>
+      <h3>How we protect it</h3>
+      <ul style="margin:0 0 16px;padding-left:20px;display:grid;gap:8px">
+        <li>Order and prescription data are stored in a private, access-controlled repository — never on the public website.</li>
+        <li>Only {site.brand} pharmacy staff can access prescriptions.</li>
+        <li>Prescription files are available to you and to us via secure, expiring links.</li>
+      </ul>
+      <h3>Your rights</h3>
+      <p style="margin:0 0 12px">You may request a copy of, correction of, or deletion of your personal data at any time by messaging us on WhatsApp at <b>{site.whatsappDisplay}</b>.</p>
+      <p style="margin:0">We do not sell or share your data with third parties, except as required by law.</p>
+    </div>
+  </div>
+</Base>

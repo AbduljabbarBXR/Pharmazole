@@ -1,0 +1,29 @@
+{
+  "brand": "Pharmazole",
+  "tagline": "Your neighbourhood pharmacy, delivered.",
+  "heroTitle": "Medicine at your door in hours — at prices that beat the big stores.",
+  "tillNumber": "000000",
+  "tillName": "PHARMAZOLE TILL",
+  "whatsapp": "254729499313",
+  "whatsappDisplay": "0729 499 313",
+  "apiBase": "/api",
+  "currency": "KES",
+  "delivery": {
+    "zones": [
+      { "id": "south", "label": "South C, South B & Nairobi West", "fee": 100, "note": "Same-day, ~1-3 hours" },
+      { "id": "nairobi", "label": "Other areas within Nairobi", "fee": 300, "note": "Same-day or next-day" }
+    ],
+    "cutoff": "Orders before 5PM delivered the same day",
+    "outOfCoverage": "We currently deliver within Nairobi only."
+  },
+  "legal": {
+    "ppbLicense": "PPB (K) 2026/XXXXXX",
+    "pharmacist": "Pharmacist name (to be added)",
+    "ppbDisclaimer": "Pharmazole is a licensed pharmacy under the Pharmacy and Poisons Board of Kenya (PPB). Prescription-only medicines (POM) are dispensed only against a valid prescription uploaded at checkout."
+  },
+  "whatsappTemplates": {
+    "newOrder": "Hi {brand}! New order {orderId} - KES {total} ({itemCount} items). Name: {name}, Phone: {phone}, Zone: {zone}, Address: {address}. Rx items: {rxItems}",
+    "payment": "Hi {brand}! Payment code entered for order {orderId}: {code}. Amount: KES {total}. Please confirm from M-Pesa.",
+    "customer": "Order {orderId} - KES {total}. {items}"
+  }
+}

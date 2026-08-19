@@ -1,0 +1,108 @@
+---
+import Base from '../../layouts/Base.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import { products, bySlug, site } from '../../data/catalog.mjs';
+import { img, pathFor } from '../../lib/img.mjs';
+export function getStaticPaths() {
+  return products.map((p) => ({ params: { slug: p.slug }, props: { p } }));
+}
+const BASE = import.meta.env.BASE_URL;
+const SITE = new URL(import.meta.env.SITE).origin;
+const { p } = Astro.props;
+const related = products.filter((x) => x.category === p.category && x.id !== p.id).slice(0, 4);
+const fullUrl = SITE + BASE + 'product/' + p.slug;
+---
+
+<Base title={`${p.name} — ${site.brand}`} description={p.description && p.description.slice(0, 160)}>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: p.name,
+    description: p.description,
+    image: p.image ? SITE + pathFor(p.image) : undefined,
+    brand: { '@type': 'Brand', name: p.brand },
+    sku: p.sku,
+    offers: {
+      '@type': 'Offer',
+      url: fullUrl,
+      priceCurrency: 'KES',
+      price: p.price,
+      availability: p.inStock === false ? 'https://schema.org/OutOfStock' : 'https://schema.org/InStock',
+      seller: { '@type': 'Organization', name: site.brand }
+    }
+  })} />
+
+  <div class="container">
+    <nav class="page-head" style="font-size:13.5px;color:var(--muted)">
+      <a href={BASE}>Home</a> &rsaquo; <a href={BASE}>{p.category}</a> &rsaquo; {p.name}
+    </nav>
+
+    <div class="detail">
+      <div class="detail-img-wrap">
+        <img src={img.url(p)} alt={p.name} width="420" height="420" onerror={`this.onerror=null;this.src='${img.fallback()}'`} />
+      </div>
+      <div>
+        <span style="display:flex;gap:8px;align-items:center;margin-bottom:10px">
+          {p.prescription
+            ? <span class="badge badge-rx">Prescription required</span>
+            : <span class="badge badge-otc">Over the counter</span>}
+          {p.inStock === false && <span class="badge badge-out">Out of stock</span>}
+        </span>
+        <h1>{p.name}</h1>
+        <div class="detail-price">KES {p.price.toLocaleString('en-KE')}</div>
+        <p class="muted" style="margin:4px 0 0">Delivery: {site.delivery.zones[0].label} KES {site.delivery.zones[0].fee} &middot; rest of Nairobi KES {site.delivery.zones[1].fee}</p>
+
+        <div class="detail-actions">
+          <button type="button" class="btn btn-lg" data-add={p.id} disabled={p.inStock === false} id="buy-btn">Add to cart</button>
+          <a class="btn btn-whatsapp btn-lg" href={'https://wa.me/' + site.whatsapp + '?text=' + encodeURIComponent('Hi ' + site.brand + '! I want to order: ' + p.name + ' (KES ' + p.price + ')')} target="_blank" rel="noopener" style="max-width:260px">Order on WhatsApp</a>
+        </div>
+
+        {p.prescription && (
+          <div class="rx-alert">
+            <b>Prescription required</b>
+            <span>This medicine needs a valid prescription. Attach it at checkout — we verify it and send it to our pharmacist via WhatsApp before dispatch.</span>
+          </div>
+        )}
+
+        {p.description && (
+          <div class="detail-desc">
+            <h3 style="margin-top:26px">About this product</h3>
+            <p style="margin:0">{p.description}</p>
+          </div>
+        )}
+
+        <div class="detail-meta">
+          {p.generic && <div><b>Active ingredient:</b> {p.generic}</div>}
+          {p.pack && <div><b>Pack size:</b> {p.pack}</div>}
+          {p.brand && <div><b>Brand:</b> {p.brand}</div>}
+          <div><b>Category:</b> {p.category}</div>
+        </div>
+      </div>
+    </div>
+
+    {related.length > 0 && (
+      <>
+        <h2 class="section-title">Related products</h2>
+        <div class="grid">
+          {related.map((r) => <ProductCard product={r} />)}
+        </div>
+      </>
+    )}
+  </div>
+
+  <script>
+    const btn = document.getElementById('buy-btn');
+    if (btn && !btn.disabled) {
+      btn.addEventListener('click', () => {
+        PZ.addToCart(btn.dataset.add, 1);
+        PZ.toast('Added to cart');
+        btn.textContent = 'Added ✓';
+        setTimeout(() => { btn.textContent = 'Add to cart'; }, 900);
+      });
+    }
+    document.querySelectorAll('[data-add]').forEach((b) => {
+      if (b === btn || b.disabled) return;
+      b.addEventListener('click', () => { PZ.addToCart(b.dataset.add, 1); PZ.toast('Added to cart'); });
+    });
+  </script>
+</Base>

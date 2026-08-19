@@ -1,0 +1,140 @@
+---
+import Base from '../../layouts/Base.astro';
+import { site } from '../../data/catalog.mjs';
+const BASE = import.meta.env.BASE_URL;
+export function getStaticPaths() {
+  return [{ params: { id: 'demo' } }];
+}
+---
+
+<Base title={`Order — ${site.brand}`} description="Track your Pharmazole order and pay with M-Pesa till.">
+  <div class="container" style="max-width:760px">
+    <h1 class="page-head" style="font-size:26px">Order</h1>
+
+    <div id="loading"><div class="spin"></div><p class="center muted">Loading your order…</p></div>
+
+    <div id="not-found" class="panel center hide">
+      <p style="margin:0 0 14px">We couldn't find this order. Check the link or contact us on WhatsApp.</p>
+      <a class="btn btn-whatsapp" id="wa-help" href="#" target="_blank">Chat on WhatsApp</a>
+    </div>
+
+    <div id="content" class="hide">
+      <div class="panel">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+          <h3 style="margin:0">Order <span class="mono" id="order-id"></span></h3>
+          <span class="badge" id="status-badge">Placed</span>
+        </div>
+        <div class="status-steps" id="steps"></div>
+        <div id="items" style="display:grid;gap:8px;margin-top:10px"></div>
+        <div id="summary" style="margin-top:12px;border-top:1px dashed var(--line);padding-top:10px;display:grid;gap:6px"></div>
+        <p class="muted" style="font-size:13px;margin:12px 0 0"><b>Deliver to:</b> <span id="delivery-info"></span></p>
+      </div>
+
+      <div class="panel pay-box" id="pay-panel">
+        <h3>Pay with M-Pesa</h3>
+        <p class="muted" style="margin:0 0 4px">Send <b id="pay-amount"></b> via M-Pesa <b>Buy Goods</b> to:</p>
+        <div class="till-chip" id="till">– – – – – –</div>
+        <p style="font-size:13.5px;margin:8px 0 0"><b>Store name:</b> <span id="till-name"></span></p>
+        <div class="pay-steps">
+          <div class="pay-step"><span class="n">1</span><span>Go to M-Pesa &gt; Lipa na M-Pesa &gt; <b>Buy Goods</b> and enter the till number above.</span></div>
+          <div class="pay-step"><span class="n">2</span><span>Enter the amount above, then your M-Pesa PIN and complete the payment.</span></div>
+          <div class="pay-step"><span class="n">3</span><span>Enter the confirmation code (e.g. <span class="mono">SJD7XK2W1Q</span>) from the M-Pesa SMS below so we can verify instantly.</span></div>
+        </div>
+        <div class="field" style="text-align:left">
+          <label for="code">M-Pesa confirmation code</label>
+          <input class="input mono" id="code" placeholder="e.g. SJD7XK2W1Q" maxlength="20" />
+          <span class="hint">We confirm payment from your M-Pesa message before dispatching.</span>
+        </div>
+        <button class="btn btn-lg" id="submit-code">I've paid — confirm my order</button>
+      </div>
+
+      <div class="panel">
+        <h3>Notify {site.brand}</h3>
+        <p class="muted" style="margin:0 0 10px;font-size:14px">Send your order straight to our pharmacy WhatsApp so we start preparing it right away.</p>
+        <a class="btn btn-whatsapp btn-lg" id="wa-send" href="#" target="_blank">Send order on WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const id = location.pathname.split('/').filter(Boolean).pop();
+    const phone = new URLSearchParams(location.search).get('phone') || '';
+    const STEPS = ['placed', 'awaiting-payment', 'payment-submitted', 'confirmed', 'dispatched', 'delivered'];
+    const LABELS = { placed: 'Order placed', 'awaiting-payment': 'Awaiting payment', 'payment-submitted': 'Payment submitted', confirmed: 'Confirmed by pharmacist', dispatched: 'Out for delivery', delivered: 'Delivered', cancelled: 'Cancelled' };
+    let order = null;
+
+    document.getElementById('wa-help').href = 'https://wa.me/' + PZ.SITE.whatsapp;
+
+    function waSendHref() {
+      const items = (order.items || []).map((i) => `${i.qty} × ${i.name}`).join(', ');
+      const msg = `New order ${order.id} — KES ${order.total}\nItems: ${items}\nCustomer: ${order.customer.name} (${order.customer.phone})\nDeliver to: ${order.customer.address}\nTrack: ${location.origin}${location.pathname}?phone=${order.customer.phone}`;
+      return 'https://wa.me/' + PZ.SITE.whatsapp + '?text=' + encodeURIComponent(msg);
+    }
+
+    async function load() {
+      try {
+        order = await PZ.api('/order/' + id + '?phone=' + encodeURIComponent(phone));
+        render();
+      } catch (e) {
+        document.getElementById('loading').classList.add('hide');
+        document.getElementById('not-found').classList.remove('hide');
+      }
+    }
+
+    function render() {
+      document.getElementById('loading').classList.add('hide');
+      document.getElementById('content').classList.remove('hide');
+      document.getElementById('order-id').textContent = order.id;
+      document.getElementById('status-badge').textContent = LABELS[order.status] || order.status;
+      document.getElementById('status-badge').style.background = order.status === 'cancelled' ? 'var(--red)' : 'var(--green)';
+      document.getElementById('status-badge').style.color = '#fff';
+
+      const steps = document.getElementById('steps');
+      steps.innerHTML = STEPS.map((s) => {
+        const idx = STEPS.indexOf(s);
+        const cur = STEPS.indexOf(order.status);
+        const cls = cur > idx ? 'done' : (cur === idx ? 'now' : '');
+        return `<span class="status-step ${cls}">${LABELS[s]}</span>`;
+      }).join('');
+
+      document.getElementById('items').innerHTML = (order.items || []).map((i) => `
+        <div style="display:flex;justify-content:space-between;gap:10px;font-size:14.5px">
+          <span>${i.qty} × ${PZ.esc(i.name)}${i.prescription ? ' <span class="badge badge-rx">Rx</span>' : ''}</span>
+          <b>KES ${Number(i.price * i.qty).toLocaleString('en-KE')}</b>
+        </div>`).join('');
+      document.getElementById('summary').innerHTML = `
+        <div class="summary-row"><span>Subtotal</span><span>${PZ.fmt(order.subtotal)}</span></div>
+        <div class="summary-row"><span>Delivery</span><span>${PZ.fmt(order.delivery)}</span></div>
+        <div class="summary-row total"><span>Total</span><span>${PZ.fmt(order.total)}</span></div>`;
+      document.getElementById('delivery-info').textContent = `${order.customer.name} · ${order.customer.phone} · ${order.customer.address}`;
+      document.getElementById('pay-amount').textContent = PZ.fmt(order.total);
+      document.getElementById('till').textContent = PZ.SITE.tillNumber || '—';
+      document.getElementById('till-name').textContent = PZ.SITE.tillName || '';
+      document.getElementById('wa-send').href = waSendHref();
+
+      const payPanel = document.getElementById('pay-panel');
+      const done = ['confirmed', 'dispatched', 'delivered'].includes(order.status);
+      payPanel.classList.toggle('hide', done);
+      if (done) payPanel.innerHTML = '<p style="margin:0"><b>Payment confirmed — thank you!</b></p>';
+    }
+
+    document.getElementById('submit-code').addEventListener('click', async () => {
+      const code = document.getElementById('code').value.trim().toUpperCase();
+      if (code.length < 6) { PZ.toast('Enter the M-Pesa confirmation code from your SMS', true); return; }
+      const btn = document.getElementById('submit-code');
+      btn.disabled = true; btn.textContent = 'Submitting…';
+      try {
+        await PZ.api('/order/' + id + '/payment', { method: 'POST', body: JSON.stringify({ phone, code }) });
+        PZ.toast('Payment code received — we\'ll confirm shortly');
+        btn.disabled = false; btn.textContent = 'I\'ve paid — confirm my order';
+        setTimeout(load, 1500);
+      } catch (e) {
+        btn.disabled = false; btn.textContent = 'I\'ve paid — confirm my order';
+        PZ.toast(e.message, true);
+      }
+    });
+
+    load();
+    setInterval(() => { if (!order || !['delivered', 'cancelled'].includes(order.status)) load(); }, 20000);
+  </script>
+</Base>

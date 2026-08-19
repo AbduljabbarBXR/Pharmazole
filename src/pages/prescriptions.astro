@@ -1,0 +1,29 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../data/catalog.mjs';
+const BASE = import.meta.env.BASE_URL;
+---
+
+<Base title={`Prescription medicines — ${site.brand}`} description="How prescription medicines work at Pharmazole: upload your prescription at checkout and our pharmacist verifies it via WhatsApp before dispatch.">
+  <div class="container" style="max-width:760px">
+    <h1 class="page-head" style="font-size:28px">Prescription medicines</h1>
+    <div class="panel" style="margin-bottom:16px">
+      <h3>How it works</h3>
+      <div class="pay-steps">
+        <div class="pay-step"><span class="n">1</span><span>Products that require a prescription are clearly marked <span class="badge badge-rx">Prescription</span>.</span></div>
+        <div class="pay-step"><span class="n">2</span><span>At checkout, take a clear photo of your doctor's prescription and attach it — the upload box appears automatically.</span></div>
+        <div class="pay-step"><span class="n">3</span><span>Your prescription goes securely to our pharmacist (via WhatsApp), who verifies it before the order is confirmed.</span></div>
+        <div class="pay-step"><span class="n">4</span><span>Once verified and paid, your medicine is packed and delivered the same day.</span></div>
+      </div>
+    </div>
+    <div class="panel">
+      <h3>Important</h3>
+      <ul style="margin:0;padding-left:20px;display:grid;gap:8px">
+        <li>Prescription-only medicines are dispensed only against a valid prescription — this is required by the Pharmacy and Poisons Board of Kenya.</li>
+        <li>Prescriptions are stored securely and handled only by {site.brand} pharmacy staff.</li>
+        <li>Never share your medicine with others. Always follow your doctor's instructions.</li>
+        <li>Some medicines may be out of stock — we'll confirm availability on WhatsApp before dispatch.</li>
+      </ul>
+    </div>
+  </div>
+</Base>
