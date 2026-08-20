@@ -42,7 +42,10 @@ const fullUrl = SITE + path;
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={fullUrl} />
-    <meta property="og:image" content={SITE + BASE + 'logo.png'} />
+    <meta property="og:image" content={SITE + BASE + 'images/og-card.png'} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={site.brand} />
     <meta property="og:site_name" content={site.brand} />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" type="image/svg+xml" href={BASE + 'favicon.svg'} />

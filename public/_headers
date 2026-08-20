@@ -1,0 +1,26 @@
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+
+# Hashed build assets: cache forever
+/_assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Images: cache for 7 days, revalidate
+/images/*
+  Cache-Control: public, max-age=604800, must-revalidate
+/*.png
+  Cache-Control: public, max-age=604800, must-revalidate
+/*.webp
+  Cache-Control: public, max-age=604800, must-revalidate
+
+# Unhashed css/js: short cache
+/styles/*
+  Cache-Control: public, max-age=86400, must-revalidate
+/scripts/*
+  Cache-Control: public, max-age=86400, must-revalidate
+
+# HTML: never cache stale
+/*
+  Cache-Control: public, max-age=0, must-revalidate
