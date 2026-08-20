@@ -71,5 +71,13 @@ export const categoryBlurbs = {
   Allergy:
     'Antihistamines and allergy relief for sneezing, hives, itching, and hay fever, so the season never slows you down.',
   Malaria:
-    'Quality assured antimalarials to treat and prevent malaria, supplied by a PPB licensed pharmacy.'
+    'Quality assured antimalarials to treat and prevent malaria, supplied by a PPB licensed pharmacy.',
+  Hypertension:
+    'Daily blood pressure medicines from trusted brands, with pharmacist guidance and easy refills.',
+  Asthma:
+    'Asthma relievers, preventers, and inhalers to keep airways open and symptoms under control.',
+  Arthritis:
+    'Joint pain relief, gels, and anti inflammatory medicines to ease stiffness and keep you moving.',
+  Supplements:
+    'Vitamins, protein, and wellness supplements to support your health, immunity, joints, and fitness goals.'
 };

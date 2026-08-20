@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import ProductCard from '../../components/ProductCard.astro';
 import { site, categories, categoryBySlug, categorySlug, categoryBlurbs, productsFor } from '../../data/catalog.mjs';
+import { existsSync } from 'node:fs';
 export function getStaticPaths() {
   return categories().map((c) => ({
     params: { slug: categorySlug(c.name) },
@@ -14,11 +15,16 @@ const catProducts = productsFor(cat.name);
 const blurb = categoryBlurbs[cat.name] || '';
 const title = cat.name + ' | ' + site.brand;
 const desc = (blurb || cat.name + ' medicines') + ' Order online with same day delivery across Nairobi.';
+const catSlug = categorySlug(cat.name);
+const hasHero = existsSync('public/images/categories/' + catSlug + '-hero.webp');
+const heroImg = hasHero
+  ? BASE + 'images/categories/' + catSlug + '-hero.webp'
+  : `linear-gradient(rgba(4,40,26,.35),rgba(4,40,26,.35)),url('${BASE}images/categories/${catSlug}.webp')`;
 ---
 
 <Base title={title} description={desc}>
   <section class="container">
-    <div class="cat-hero" style={`background-image:url('${BASE}images/categories/${categorySlug(cat.name)}-hero.webp')`}>
+    <div class="cat-hero" style={`background-image:${heroImg}`}>
       <div class="cat-hero-shade" aria-hidden="true"></div>
       <div class="cat-hero-inner">
         <div class="breadcrumb">

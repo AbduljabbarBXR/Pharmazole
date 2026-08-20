@@ -1,5 +1,6 @@
 [
   {
+    "id": "p1000",
     "slug": "coartem-80480-tablets-6s",
     "name": "Coartem 80/480 Tablets 6's",
     "brand": "COARTEM",
@@ -10,10 +11,10 @@
     "image": "images/products/coartem-80480-tablets-6s.webp",
     "description": "Coartem Tablets contain a fixed combination of 2 antimalarial active ingredients, artemether, an artemisinin derivative, and lumefantrine. Both components are blood schizontocides. Coartem (artemether/lumefantrine) Tablets are indicated for treatment of acute, uncomplicated malaria infections due to Plasmodium falciparum in patients of 5 kg bodyweight and above.",
     "generic": "",
-    "pack": "480 Tablets",
-    "id": "p1000"
+    "pack": "480 Tablets"
   },
   {
+    "id": "p1001",
     "slug": "coartem-20120mg-tablets-24s",
     "name": "Coartem 20/120mg Tablets 24's",
     "brand": "COARTEM",
@@ -24,10 +25,10 @@
     "image": "images/products/coartem-20120mg-tablets-24s.webp",
     "description": "Coartem Tablets contain a fixed combination of 2 antimalarial active ingredients, artemether, an artemisinin derivative, and lumefantrine. Both components are blood schizontocides. Coartem (artemether/lumefantrine) Tablets are indicated for treatment of acute, uncomplicated malaria infections due to Plasmodium falciparum in patients of 5 kg bodyweight and above.",
     "generic": "120mg",
-    "pack": "24's",
-    "id": "p1001"
+    "pack": "24's"
   },
   {
+    "id": "p1002",
     "slug": "coartem-20120mg-dispersible-tablets-6s",
     "name": "Coartem 20/120mg Dispersible Tablets 6's",
     "brand": "COARTEM",
@@ -38,10 +39,10 @@
     "image": "images/products/coartem-20120mg-dispersible-tablets-6s.webp",
     "description": "Each Coartem/Riamet Dispersible tablet contains 20 mg of artemether and 120 mg of lumefantrine. Coartem Dispersible belongs to the group of medicines known as anti-malarials, i.e. medicines used to treat certain types of malaria infections. It destroys the malaria parasites (tiny organisms consisting of a single cell that are found inside the red blood cells). Coartem Dispersible is used to treat infants and children with malaria infections caused by Plasmodium falciparum (a particular type of m",
     "generic": "120mg",
-    "pack": "6's",
-    "id": "p1002"
+    "pack": "6's"
   },
   {
+    "id": "p1004",
     "slug": "augmentin-1gm-tablets-14s",
     "name": "Augmentin 1gm Tablets 14's",
     "brand": "AUGMENTIN",
@@ -52,10 +53,10 @@
     "image": "images/products/augmentin-1gm-tablets-14s.webp",
     "description": "Augmentin 1 g contains amoxicillin 875 mg and clavulanic acid 125 mg. It Is an antibiotic that belongs in a group of medicines called '' Penicillins''. Augmentin is used to treat sinus infection, throat and chest infection, Skin infection, Urinary infection, Dental infections and other bacterial infections.",
     "generic": "1g",
-    "pack": "14's",
-    "id": "p1004"
+    "pack": "14's"
   },
   {
+    "id": "p1005",
     "slug": "augmentin-es-syrup-100ml",
     "name": "Augmentin ES Syrup 100ml",
     "brand": "AUGMENTIN",
@@ -66,10 +67,10 @@
     "image": "images/products/augmentin-es-syrup-100ml.webp",
     "description": "Augmentin ES Suspension contains amoxicillin 600 mg and clavulanic 42.9 mg (642.9 mg per 5 ml). It is an antibiotic that belongs in a group of medicines called '' Penicillin''. Augmentin is used to treat sinus infection, throat and chest infection, Skin infection, Urinary infection, Dental infections and other bacterial infections.",
     "generic": "100ml",
-    "pack": "100ml",
-    "id": "p1005"
+    "pack": "100ml"
   },
   {
+    "id": "p1007",
     "slug": "augmentin-625mg-tablets-14s",
     "name": "Augmentin 625mg Tablets 14's",
     "brand": "AUGMENTIN",
@@ -80,10 +81,10 @@
     "image": "images/products/augmentin-625mg-tablets-14s.webp",
     "description": "Augmentin 625 mg contains amoxicillin 500 mg and clavulanic acid 125 mg. It is an antibiotic that belongs in a group of medicines called '' Penicillin''. Augmentin is used to treat sinus infection, throat and chest infection, Skin infection, Urinary infection, Dental infections and other bacterial infections.",
     "generic": "625mg",
-    "pack": "14's",
-    "id": "p1007"
+    "pack": "14's"
   },
   {
+    "id": "p1008",
     "slug": "augmentin-457mg5ml-suspension-70ml",
     "name": "Augmentin 457mg/5ml Suspension 70ml",
     "brand": "AUGMENTIN",
@@ -94,10 +95,10 @@
     "image": "images/products/augmentin-457mg5ml-suspension-70ml.webp",
     "description": "Augmentin 457 mg contains amoxicillin 400 mg and clavulanic acid 57 mg. It is an antibiotic that belongs in a group of medicines called '' Penicillin''. Augmentin is used to treat sinus infection,throat and chest infection, Skin infection, Urinary infection, Dental infections and other bacterial infections.",
     "generic": "457mg",
-    "pack": "5ml",
-    "id": "p1008"
+    "pack": "5ml"
   },
   {
+    "id": "p1010",
     "slug": "amoxicillin-250mg-dispersible-tablets-100s",
     "name": "Amoxicillin 250mg Dispersible Tablets 100's",
     "brand": "AMOXYCLAV-DENK",
@@ -106,12 +107,12 @@
     "prescription": true,
     "inStock": true,
     "image": "images/products/amoxicillin-250mg-dispersible-tablets-100s.webp",
-    "description": "Amoxicillin isÂ a broad-spectrum penicillin antibiotic used to treat bacterial infections. It is especially effective to treat bacterial pneumonia in children, as well other illnesses, including bacterial infections in the abdomen, blood, ears, sinuses, skin, throat, and urinary tract, amongst others.",
+    "description": "Amoxicillin is\u00c2 a broad-spectrum penicillin antibiotic used to treat bacterial infections. It is especially effective to treat bacterial pneumonia in children, as well other illnesses, including bacterial infections in the abdomen, blood, ears, sinuses, skin, throat, and urinary tract, amongst others.",
     "generic": "250mg",
-    "pack": "100's",
-    "id": "p1010"
+    "pack": "100's"
   },
   {
+    "id": "p1013",
     "slug": "augmentin-228mg5ml-suspension-70ml",
     "name": "Augmentin 228mg/5ml Suspension 70ml",
     "brand": "AUGMENTIN",
@@ -122,10 +123,10 @@
     "image": "images/products/augmentin-228mg5ml-suspension-70ml.webp",
     "description": "Augmentin suspension 200 mg/28 mg per 5 ml contains Amoxicillin and clavulanic acid. It is an antibiotic that belongs in a group of medicines called '' Penicillin''. Augmentin is used to treat sinus infection, throat and chest infection, Skin infection, Urinary infection, Dental infections and other bacterial infections.",
     "generic": "228mg",
-    "pack": "5ml",
-    "id": "p1013"
+    "pack": "5ml"
   },
   {
+    "id": "p1016",
     "slug": "amoxicillin-500mg-capsules-100s",
     "name": "Amoxicillin 500mg Capsules 100's",
     "brand": "AMOXIL ",
@@ -134,12 +135,12 @@
     "prescription": true,
     "inStock": true,
     "image": "images/products/amoxicillin-500mg-capsules-100s.webp",
-    "description": "Amoxicillin isÂ a penicillin antibiotic. It is used to treat bacterial infections, such as chest infections (including pneumonia) and dental abscesses. It can also be used together with other antibiotics and medicines to treat stomach ulcers.",
+    "description": "Amoxicillin is\u00c2 a penicillin antibiotic. It is used to treat bacterial infections, such as chest infections (including pneumonia) and dental abscesses. It can also be used together with other antibiotics and medicines to treat stomach ulcers.",
     "generic": "500mg",
-    "pack": "100's",
-    "id": "p1016"
+    "pack": "100's"
   },
   {
+    "id": "p1017",
     "slug": "septrin-syrup-100ml",
     "name": "Septrin Syrup 100ml",
     "brand": "SEPTRIN",
@@ -148,12 +149,12 @@
     "prescription": true,
     "inStock": true,
     "image": "images/products/septrin-syrup-100ml.webp",
-    "description": "Septrin 40 mg/200 mg per 5 ml Paediatric Suspension is a combination of two different antibiotics called sulfamethoxazole and trimethoprim, which is used to treat infections caused by bacteria. Like all antibiotics, Septrin only works against some types of bacteria. This means that it is only suitable for treating some types of infections. Septrin can be used to treat or prevent: •Lung infections (pneumonia or PJP) caused by a bacteria called Pneumocystis jirovecii. •Infections caused by a b",
+    "description": "Septrin 40 mg/200 mg per 5 ml Paediatric Suspension is a combination of two different antibiotics called sulfamethoxazole and trimethoprim, which is used to treat infections caused by bacteria. Like all antibiotics, Septrin only works against some types of bacteria. This means that it is only suitable for treating some types of infections. Septrin can be used to treat or prevent: \u2022Lung infections (pneumonia or PJP) caused by a bacteria called Pneumocystis jirovecii. \u2022Infections caused by a b",
     "generic": "100ml",
-    "pack": "100ml",
-    "id": "p1017"
+    "pack": "100ml"
   },
   {
+    "id": "p1018",
     "slug": "amoxicillin-250mg-capsules-100s",
     "name": "Amoxicillin 250mg Capsules 100's",
     "brand": "AMOXIL ",
@@ -162,12 +163,12 @@
     "prescription": true,
     "inStock": true,
     "image": "images/products/amoxicillin-250mg-capsules-100s.webp",
-    "description": "Amoxicillin isÂ a penicillin antibiotic. It is used to treat bacterial infections, such as chest infections (including pneumonia) and dental abscesses. It can also be used together with other antibiotics and medicines to treat stomach ulcers.",
+    "description": "Amoxicillin is\u00c2 a penicillin antibiotic. It is used to treat bacterial infections, such as chest infections (including pneumonia) and dental abscesses. It can also be used together with other antibiotics and medicines to treat stomach ulcers.",
     "generic": "250mg",
-    "pack": "100's",
-    "id": "p1018"
+    "pack": "100's"
   },
   {
+    "id": "p1019",
     "slug": "doxycycline-100mg-capsules-100s",
     "name": "Doxycycline 100mg capsules 100's",
     "brand": "DOXYCYCLINE",
@@ -176,12 +177,12 @@
     "prescription": true,
     "inStock": true,
     "image": "images/products/doxycycline-100mg-capsules-100s.webp",
-    "description": "The name of your medicine is Doxycycline 100 mg Capsules. It belongs to a group of medicines called tetracycline antibiotics. It may be used to treat a wide range of infections caused by bacteria, these include: •Chest, lung or nasal infections e.g. bronchitis, pneumonia, sinusitis. •Infections of the kidneys and bladder e.g. cystitis, urethritis. •Infections of the skin such as acne. •Eye infections. •Sexually transmitted diseases e.g. gonorrhoea, syphilis, chlamydia. •Rickettsial i",
+    "description": "The name of your medicine is Doxycycline 100 mg Capsules. It belongs to a group of medicines called tetracycline antibiotics. It may be used to treat a wide range of infections caused by bacteria, these include: \u2022Chest, lung or nasal infections e.g. bronchitis, pneumonia, sinusitis. \u2022Infections of the kidneys and bladder e.g. cystitis, urethritis. \u2022Infections of the skin such as acne. \u2022Eye infections. \u2022Sexually transmitted diseases e.g. gonorrhoea, syphilis, chlamydia. \u2022Rickettsial i",
     "generic": "100mg",
-    "pack": "100's",
-    "id": "p1019"
+    "pack": "100's"
   },
   {
+    "id": "p1021",
     "slug": "co-amoxiclav-1000mg-tablets-14s",
     "name": "Co-Amoxiclav 1000mg Tablets 14's",
     "brand": "",
@@ -192,10 +193,10 @@
     "image": "images/products/co-amoxiclav-1000mg-tablets-14s.webp",
     "description": "Co-amoxiclav 1000 mg contains amoxicillin 875 mg and clavulanic acid 125 mg. It Is an antibiotic that belongs in a group of medicines called '' Penicillins''. Co-amoxiclav is used to treat sinus infection, throat and chest infection, Skin infection, Urinary infection, Dental infections and other bacterial infections.",
     "generic": "1000mg",
-    "pack": "14's",
-    "id": "p1021"
+    "pack": "14's"
   },
   {
+    "id": "p1025",
     "slug": "co-amoxiclav-400mg57ml-suspension-70ml",
     "name": "Co-Amoxiclav 400mg/57ml Suspension 70ml",
     "brand": "",
@@ -206,10 +207,10 @@
     "image": "images/products/co-amoxiclav-400mg57ml-suspension-70ml.webp",
     "description": "My Co-amoxiclav 457mg contains a combination of amoxicillin 400mg and clavulanic acid 57mg.Amoxicillin exerts a bactericidal action against gram postive and gram negative organisms. Clavulanic acid protect amoxicillin from degradation by beta-lactamase enzymes produced by penicillin resistant strains.",
     "generic": "400mg",
-    "pack": "57ml",
-    "id": "p1025"
+    "pack": "57ml"
   },
   {
+    "id": "p1026",
     "slug": "co-amoxiclav-625mg-tablets-14s",
     "name": "Co-Amoxiclav 625mg Tablets 14's",
     "brand": "",
@@ -220,10 +221,10 @@
     "image": "images/products/co-amoxiclav-625mg-tablets-14s.webp",
     "description": "Co-Amoxiclav 625 mg contains amoxicillin 500 mg and clavulanic acid 125 mg. It is an antibiotic that belongs in a group of medicines called '' Penicillin''. Is used to treat sinus infection, throat and chest infection, Skin infection, Urinary infection, Dental infections and other bacterial infections.",
     "generic": "625mg",
-    "pack": "14's",
-    "id": "p1026"
+    "pack": "14's"
   },
   {
+    "id": "p1030",
     "slug": "co-amoxiclav-2285mg5ml-suspension-70ml",
     "name": "Co-Amoxiclav 228.5mg/5ml Suspension 70ml",
     "brand": "",
@@ -234,10 +235,10 @@
     "image": "images/products/co-amoxiclav-2285mg5ml-suspension-70ml.webp",
     "description": "My Co-amoxiclav 228mg contains a combination of amoxicillin 200mg and clavulanic acid 28mg.Amoxicillin exerts a bactericidal action against gram postive and gram negative organisms. Clavulanic acid protect amoxicillin from degradation by beta-lactamase enzymes produced by penicillin resistant strains.",
     "generic": "228.5mg",
-    "pack": "5ml",
-    "id": "p1030"
+    "pack": "5ml"
   },
   {
+    "id": "p1033",
     "slug": "tetracycline-eye-ointment-35g",
     "name": "Tetracycline Eye Ointment 3.5g",
     "brand": "TETRACYCLINE",
@@ -248,80 +249,80 @@
     "image": "images/products/tetracycline-eye-ointment-35g.webp",
     "description": "Tetracycline Eye Ointment contains tetracycline 1%. It is an antibacterial ointment used for treatment of bacterial conjunctivitis,Treatment of trachoma,Prevention of chlamydial and gonococcal neonatal conjunctivitis.",
     "generic": "3.5g",
-    "pack": "5g",
-    "id": "p1033"
+    "pack": "5g"
   },
   {
+    "id": "p1035",
     "slug": "hydrochlorothiazide-tablets-25mg-100s",
     "name": "Hydrochlorothiazide Tablets 25mg 100's",
     "brand": "HYDROCHLOROTHIAZIDE",
-    "category": "Blood Pressure",
+    "category": "Hypertension",
     "price": 375,
     "prescription": true,
     "inStock": true,
     "image": "images/products/hydrochlorothiazide-tablets-25mg-100s.webp",
     "description": "Hydrochlorothiazide tablets contains Hydrochlorothiazide 25 mg which is used in high blood pressure and oedema. It treats oedema (fluid overload) associated with heart, liver, kidney or lung disease. It is a diuretic which lowers blood pressure by removing extra water and certain electrolytes from the body. Over time it also relaxes blood vessels and improves blood flow.",
     "generic": "25mg",
-    "pack": "100's",
-    "id": "p1035"
+    "pack": "100's"
   },
   {
+    "id": "p1037",
     "slug": "atenolol-25mg-tablets-28s",
     "name": "Atenolol 25mg Tablets 28's",
     "brand": "ATENOLOL",
-    "category": "Blood Pressure",
+    "category": "Hypertension",
     "price": 323,
     "prescription": true,
     "inStock": true,
     "image": "images/products/atenolol-25mg-tablets-28s.webp",
-    "description": "Atenolol isÂ a beta-blocker medication that treats high blood pressure. It also prevents chest pain and further damage after a heart attack. It works by lowering your blood pressure and heart rate. This makes it easier for your heart to pump blood.",
+    "description": "Atenolol is\u00c2 a beta-blocker medication that treats high blood pressure. It also prevents chest pain and further damage after a heart attack. It works by lowering your blood pressure and heart rate. This makes it easier for your heart to pump blood.",
     "generic": "25mg",
-    "pack": "28's",
-    "id": "p1037"
+    "pack": "28's"
   },
   {
+    "id": "p1040",
     "slug": "propranolol-40mg-tablets-100s",
     "name": "Propranolol 40mg Tablets 100's",
     "brand": "PROPRANOLOL",
-    "category": "Blood Pressure",
+    "category": "Hypertension",
     "price": 225,
     "prescription": true,
     "inStock": true,
     "image": "images/products/propranolol-40mg-tablets-100s.webp",
     "description": "Propranolol 40mg contains propranolol which is used in the treatment of preventive treatment of migraine, chest pain (Angina), high blood pressure and anxiety. It works by blocking the action of certain chemical messengers on the heart and blood vessels. This effect reduces heartbeat, blood pressure, and strain on the heart following a heart attack.",
     "generic": "40mg",
-    "pack": "100's",
-    "id": "p1040"
+    "pack": "100's"
   },
   {
+    "id": "p1043",
     "slug": "atenolol-100mg-tablets-28s",
     "name": "Atenolol 100mg Tablets 28's",
     "brand": "ATENOLOL",
-    "category": "Blood Pressure",
+    "category": "Hypertension",
     "price": 147,
     "prescription": true,
     "inStock": true,
     "image": "images/products/atenolol-100mg-tablets-28s.webp",
     "description": "Atenolol 100 mg Tablets contains Atenolol which is used in the treatment of high blood pressure. Atenolol 100 mg is a beta blocker that works specifically on the heart. It works by slowing down the heart rate and makes the heart more efficient at pumping blood around the body.",
     "generic": "100mg",
-    "pack": "28's",
-    "id": "p1043"
+    "pack": "28's"
   },
   {
+    "id": "p1047",
     "slug": "atenolol-50mg-tablets-28s",
     "name": "Atenolol 50mg Tablets 28's",
     "brand": "ATENOLOL",
-    "category": "Blood Pressure",
+    "category": "Hypertension",
     "price": 105,
     "prescription": true,
     "inStock": true,
     "image": "images/products/atenolol-50mg-tablets-28s.webp",
     "description": "Atenolol 50 mg Tablets contains Atenolol which is used in the treatment of high blood pressure. Atenolol 50 mg is a beta blocker that works specifically on the heart. It works by slowing down the heart rate and makes the heart more efficient at pumping blood around the body.",
     "generic": "50mg",
-    "pack": "28's",
-    "id": "p1047"
+    "pack": "28's"
   },
   {
+    "id": "p1049",
     "slug": "lantus-solostar-100iu3ml-5s",
     "name": "Lantus Solostar 100iu/3ml 5's",
     "brand": "LANTUS",
@@ -332,10 +333,10 @@
     "image": "images/products/lantus-solostar-100iu3ml-5s.webp",
     "description": "Lantus contains insulin glargine. This is a modified insulin, very similar to human insulin. Lantus is used to treat diabetes mellitus in adults, adolescents and children aged 2 years and above. Diabetes mellitus is a disease where your body does not produce enough insulin to control the level of blood sugar. Insulin glargine has a long and steady blood-sugar-lowering action.",
     "generic": "100iu",
-    "pack": "3ml",
-    "id": "p1049"
+    "pack": "3ml"
   },
   {
+    "id": "p1050",
     "slug": "novomix-flexpen-100iuml-3ml-5s",
     "name": "Novomix Flexpen 100iu/ml 3ml 5's",
     "brand": "NOVOMIX",
@@ -344,12 +345,12 @@
     "prescription": true,
     "inStock": true,
     "image": "images/products/novomix-flexpen-100iuml-3ml-5s.webp",
-    "description": "NovoMixÂ® 30 is a modern insulin (insulin analogue) with both a rapid-acting and an intermediate-acting effect, in the ratio 30/70. Modern insulin products are improved versions of human insulin. NovoMixÂ® 30 is used to reduce the high blood sugar level in adults, adolescents and children aged 10 years and above with diabetes mellitus (diabetes). Diabetes is a disease where your body does not produce enough insulin to control the level of your blood sugar. NovoMixÂ® 30 will start to lower your b",
+    "description": "NovoMix\u00c2\u00ae 30 is a modern insulin (insulin analogue) with both a rapid-acting and an intermediate-acting effect, in the ratio 30/70. Modern insulin products are improved versions of human insulin. NovoMix\u00c2\u00ae 30 is used to reduce the high blood sugar level in adults, adolescents and children aged 10 years and above with diabetes mellitus (diabetes). Diabetes is a disease where your body does not produce enough insulin to control the level of your blood sugar. NovoMix\u00c2\u00ae 30 will start to lower your b",
     "generic": "100iu",
-    "pack": "3ml",
-    "id": "p1050"
+    "pack": "3ml"
   },
   {
+    "id": "p1051",
     "slug": "lantus-3ml-cartridges-5s",
     "name": "Lantus 3ml Cartridges 5's",
     "brand": "LANTUS",
@@ -358,12 +359,12 @@
     "prescription": true,
     "inStock": true,
     "image": "images/products/lantus-3ml-cartridges-5s.webp",
-    "description": "Lantus isÂ a man-made form of a hormone (insulin) that is produced in the body. Insulin is a hormone that works by lowering levels of glucose (sugar) in the blood. Insulin glargine is a long-acting insulin that starts to work several hours after injection and keeps working evenly for 24 hours.",
+    "description": "Lantus is\u00c2 a man-made form of a hormone (insulin) that is produced in the body. Insulin is a hormone that works by lowering levels of glucose (sugar) in the blood. Insulin glargine is a long-acting insulin that starts to work several hours after injection and keeps working evenly for 24 hours.",
     "generic": "3ml",
-    "pack": "3ml",
-    "id": "p1051"
+    "pack": "3ml"
   },
   {
+    "id": "p1052",
     "slug": "humulin-7030-100iu-3ml-5s",
     "name": "Humulin 70/30 100iu 3ml 5's",
     "brand": "HUMULIN",
@@ -374,10 +375,10 @@
     "image": "images/products/humulin-7030-100iu-3ml-5s.webp",
     "description": "Huminsulin 30/70 100IU/ml Cartridge 3ml is a combination of two medicines, an intermediate-acting and a short-acting type of insulin, used to improve blood sugar control in adults and children with type 1 and type 2 diabetes mellitus. It maintains blood sugar levels in adults and children. Huminsulin 30/70 100IU/ml Cartridge 3ml is a combination of two insulin preparations: Insulin Isophane / NPH and Human Insulin / Soluble Insulin. Insulin Isophane / NPH has a prolonged duration of action, whil",
     "generic": "100iu",
-    "pack": "3ml",
-    "id": "p1052"
+    "pack": "3ml"
   },
   {
+    "id": "p1053",
     "slug": "humulin-r-cart-100iu3ml-5s",
     "name": "Humulin-R Cart 100i.u/3ml 5's",
     "brand": "HUMULIN",
@@ -386,12 +387,12 @@
     "prescription": true,
     "inStock": true,
     "image": "images/products/humulin-r-cart-100iu3ml-5s.webp",
-    "description": "Humulin R belongs to a class of medications calledÂ short-acting insulins,",
+    "description": "Humulin R belongs to a class of medications called\u00c2 short-acting insulins,",
     "generic": "3ml",
-    "pack": "3ml",
-    "id": "p1053"
+    "pack": "3ml"
   },
   {
+    "id": "p1054",
     "slug": "actrapid-flexpen-100iuml-3ml-5s",
     "name": "Actrapid Flexpen 100iu/ml 3ml 5's",
     "brand": "ACTRAPID",
@@ -400,12 +401,12 @@
     "prescription": true,
     "inStock": true,
     "image": "images/products/actrapid-flexpen-100iuml-3ml-5s.webp",
-    "description": "Actrapid isÂ a fast-acting human insulinÂ and may be used in combination with intermediate or long-acting insulin medicinal products. Actrapid is administered subcutaneously by injection in the abdominal wall, the thigh, the gluteal region or the deltoid region.",
+    "description": "Actrapid is\u00c2 a fast-acting human insulin\u00c2 and may be used in combination with intermediate or long-acting insulin medicinal products. Actrapid is administered subcutaneously by injection in the abdominal wall, the thigh, the gluteal region or the deltoid region.",
     "generic": "100iu",
-    "pack": "3ml",
-    "id": "p1054"
+    "pack": "3ml"
   },
   {
+    "id": "p1055",
     "slug": "lantus-100iuml-10ml-vial",
     "name": "Lantus 100iu/ml 10ml Vial",
     "brand": "LANTUS",
@@ -414,12 +415,12 @@
     "prescription": true,
     "inStock": true,
     "image": "images/products/lantus-100iuml-10ml-vial.webp",
-    "description": "Lantus isÂ a man-made form of a hormone (insulin) that is produced in the body. Insulin is a hormone that works by lowering levels of glucose (sugar) in the blood. Insulin glargine is a long-acting insulin that starts to work several hours after injection and keeps working evenly for 24 hours.",
+    "description": "Lantus is\u00c2 a man-made form of a hormone (insulin) that is produced in the body. Insulin is a hormone that works by lowering levels of glucose (sugar) in the blood. Insulin glargine is a long-acting insulin that starts to work several hours after injection and keeps working evenly for 24 hours.",
     "generic": "100iu",
-    "pack": "10ml",
-    "id": "p1055"
+    "pack": "10ml"
   },
   {
+    "id": "p1056",
     "slug": "humulin-7030-100uml-10ml",
     "name": "Humulin 70/30 100u/ml 10ml",
     "brand": "HUMULIN",
@@ -430,10 +431,10 @@
     "image": "images/products/humulin-7030-100uml-10ml.webp",
     "description": "",
     "generic": "10ml",
-    "pack": "10ml",
-    "id": "p1056"
+    "pack": "10ml"
   },
   {
+    "id": "p1060",
     "slug": "actrapid-100iuml-10ml-vial",
     "name": "Actrapid 100iu/ml 10ml Vial",
     "brand": "ACTRAPID",
@@ -444,10 +445,10 @@
     "image": "images/products/actrapid-100iuml-10ml-vial.webp",
     "description": "Actrapid is a fast-acting human insulin and may be used in combination with intermediate or long-acting insulin medicinal products. 1 vial contains 10 ml equivalent to 1,000 international units. 1 ml solution contains 100 international units insulin human* (equivalent to 3.5 mg). Human insulin is produced in Saccharomyces cerevisiae by recombinant DNA technology. Excipient with known effect: Actrapid contains less than 1 mmol sodium (23 mg) per dose, i.e. Actrapid is essentially 'sodium-free'. T",
     "generic": "100iu",
-    "pack": "10ml",
-    "id": "p1060"
+    "pack": "10ml"
   },
   {
+    "id": "p1061",
     "slug": "lipitor-40mg-tablets-30s",
     "name": "Lipitor 40mg Tablets 30's",
     "brand": "LIPITOR",
@@ -458,10 +459,10 @@
     "image": "images/products/lipitor-40mg-tablets-30s.webp",
     "description": "Lipitor 40 mg tablets contain atorvastatin which is used in the treatment of high cholesterol and high triglycerides. Lipitor 40 mg Tablet is a lipid-lowering medication (statin). It works by blocking an enzyme (HMG-CoA-reductase) that is required in the body to make cholesterol. It thus lowers 'bad' cholesterol (LDL), triglycerides and raises 'good' cholesterol (HDL). It helps prevent heart attack and stroke.",
     "generic": "40mg",
-    "pack": "30's",
-    "id": "p1061"
+    "pack": "30's"
   },
   {
+    "id": "p1063",
     "slug": "lipitor-80mg-tablets-30s",
     "name": "Lipitor 80mg Tablets 30's",
     "brand": "LIPITOR",
@@ -472,10 +473,10 @@
     "image": "images/products/lipitor-80mg-tablets-30s.webp",
     "description": "Lipitor 80 mg tablets contain atorvastatin which is used in the treatment of high cholesterol and high triglycerides. Lipitor 80 mg Tablet is a lipid-lowering medication (statin). It works by blocking an enzyme (HMG-CoA-reductase) that is required in the body to make cholesterol. It thus lowers 'bad' cholesterol (LDL), triglycerides and raises 'good' cholesterol (HDL). It helps prevent heart attack and stroke.",
     "generic": "80mg",
-    "pack": "30's",
-    "id": "p1063"
+    "pack": "30's"
   },
   {
+    "id": "p1066",
     "slug": "warfarin-1mg-tablets-28s",
     "name": "Warfarin 1mg Tablets 28's",
     "brand": "WARFARIN",
@@ -486,10 +487,10 @@
     "image": "images/products/warfarin-1mg-tablets-28s.webp",
     "description": "Warfarin Tablets belong to a group of drugs called anti-coagulants. You take Warfarin Tablets to help thin your blood if you have had a heart problem, problems with blood clots or your blood flow. You may also be given Warfarin Tablets if you have been fitted with a replacement heart valve.",
     "generic": "1mg",
-    "pack": "28's",
-    "id": "p1066"
+    "pack": "28's"
   },
   {
+    "id": "p1067",
     "slug": "warfarin-warexx5mg-tablets-100s",
     "name": "Warfarin (Warexx)5mg Tablets 100's",
     "brand": "",
@@ -498,12 +499,12 @@
     "prescription": true,
     "inStock": true,
     "image": "images/products/warfarin-warexx5mg-tablets-100s.webp",
-    "description": "Warfarin isÂ an oral anticoagulant commonly used to treat and prevent blood clots. Warfarin has multiple FDA-approved and off-label clinical uses. FDA-approved clinical uses for warfarin: Prophylaxis and treatment of venous thrombosis and arising pulmonary embolisms",
+    "description": "Warfarin is\u00c2 an oral anticoagulant commonly used to treat and prevent blood clots. Warfarin has multiple FDA-approved and off-label clinical uses. FDA-approved clinical uses for warfarin: Prophylaxis and treatment of venous thrombosis and arising pulmonary embolisms",
     "generic": "5mg",
-    "pack": "100's",
-    "id": "p1067"
+    "pack": "100's"
   },
   {
+    "id": "p1068",
     "slug": "warfarin-5mg-tablets-28s",
     "name": "Warfarin 5mg Tablets 28's",
     "brand": "WARFARIN",
@@ -514,10 +515,10 @@
     "image": "images/products/warfarin-5mg-tablets-28s.webp",
     "description": "Warfarin Tablets belong to a group of drugs called anti-coagulants. You take Warfarin Tablets to help thin your blood if you have had a heart problem, problems with blood clots or your blood flow. You may also be given Warfarin Tablets if you have been fitted with a replacement heart valve.",
     "generic": "5mg",
-    "pack": "28's",
-    "id": "p1068"
+    "pack": "28's"
   },
   {
+    "id": "p1069",
     "slug": "warfarin-3mg-tablets-28s",
     "name": "Warfarin 3mg Tablets 28's",
     "brand": "WARFARIN",
@@ -528,10 +529,10 @@
     "image": "images/products/warfarin-3mg-tablets-28s.webp",
     "description": "Warfarin Tablets belong to a group of drugs called anti-coagulants. You take Warfarin Tablets to help thin your blood if you have had a heart problem, problems with blood clots or your blood flow. You may also be given Warfarin Tablets if you have been fitted with a replacement heart valve.",
     "generic": "3mg",
-    "pack": "28's",
-    "id": "p1069"
+    "pack": "28's"
   },
   {
+    "id": "p1070",
     "slug": "aspirin-cardio-100mg-tablets-30s",
     "name": "Aspirin-Cardio 100mg Tablets 30's",
     "brand": "BAYER",
@@ -542,10 +543,10 @@
     "image": "images/products/aspirin-cardio-100mg-tablets-30s.webp",
     "description": "Aspirin-Cardio 100mg Tablet contains Acetyl salicylic Acid. It is used for the treatment, control, prevention, & improvement of the following diseases, conditions and symptoms; Prevention of blood clots, Risk of stroke, Fever, Pain, Rheumatic fever, Rheumatoid arthritis and Pericarditis.",
     "generic": "100mg",
-    "pack": "30's",
-    "id": "p1070"
+    "pack": "30's"
   },
   {
+    "id": "p1072",
     "slug": "panadol-actifast-soluble-tablets-24s",
     "name": "Panadol Actifast Soluble Tablets 24's",
     "brand": "PANADOL",
@@ -556,10 +557,10 @@
     "image": "images/products/panadol-actifast-soluble-tablets-24s.webp",
     "description": "Panadol ActiFast Soluble tablets contains Paracetamol 500mg. It is a mild analgesic (pain reliever) and antipyretic (fever reliever) recommended for the treatment of headaches including migraine and tension headaches, toothaches, muscle pains, sore throat pains, dysmenorrhoea, aches and pains of colds and flu.",
     "generic": "",
-    "pack": "24's",
-    "id": "p1072"
+    "pack": "24's"
   },
   {
+    "id": "p1073",
     "slug": "ibuprofen-denk-400mg-tablets-100s",
     "name": "Ibuprofen Denk 400mg Tablets 100's",
     "brand": "DENK",
@@ -570,10 +571,10 @@
     "image": "images/products/ibuprofen-denk-400mg-tablets-100s.webp",
     "description": "Ibuprofen Denk 400mg contains ibuprofen which is used for pain relief and fever. It relieves pain and inflammation in conditions like headache, muscle pain, dental pain or joint pain.Its ia non-steroidal anti-inflammatory drug (NSAID). It works by blocking the release of certain chemical messengers that cause fever, pain and inflammation (redness and swelling).",
     "generic": "400mg",
-    "pack": "100's",
-    "id": "p1073"
+    "pack": "100's"
   },
   {
+    "id": "p1074",
     "slug": "calpol-saline-nasal-spray-15ml",
     "name": "Calpol Saline Nasal Spray 15ml",
     "brand": "CALPOL SALINE",
@@ -582,12 +583,12 @@
     "prescription": false,
     "inStock": true,
     "image": "images/products/calpol-saline-nasal-spray-15ml.webp",
-    "description": "CALPOLÂ® Soothe & Care Saline Nasal Spray helps wash away built up mucus when your little one has a stuffed up nose, helping them breathe more freely. And because it is a simple, natural, non-medicated treatment, you can use it right from birth.",
+    "description": "CALPOL\u00c2\u00ae Soothe & Care Saline Nasal Spray helps wash away built up mucus when your little one has a stuffed up nose, helping them breathe more freely. And because it is a simple, natural, non-medicated treatment, you can use it right from birth.",
     "generic": "15ml",
-    "pack": "15ml",
-    "id": "p1074"
+    "pack": "15ml"
   },
   {
+    "id": "p1075",
     "slug": "panadol-period-pain-tablets-16s",
     "name": "Panadol Period Pain Tablets 16's",
     "brand": "PANADOL",
@@ -598,10 +599,10 @@
     "image": "images/products/panadol-period-pain-tablets-16s.webp",
     "description": "",
     "generic": "",
-    "pack": "16's",
-    "id": "p1075"
+    "pack": "16's"
   },
   {
+    "id": "p1076",
     "slug": "panadol-period-pain-tablets-14s",
     "name": "Panadol Period Pain Tablets 14's",
     "brand": "PANADOL",
@@ -612,10 +613,10 @@
     "image": "images/products/panadol-period-pain-tablets-14s.webp",
     "description": "Panadol Period pain is a mild analgesic and antipyretic formulated to give extra pain relief. The tablets are recommended for the treatment of most painful and febrile conditions, for example, headache, including migraine, backache, toothache, rheumatic pain and dysmenorrhoea, and the relief of the symptoms of colds, influenza and sore throat.",
     "generic": "",
-    "pack": "14's",
-    "id": "p1076"
+    "pack": "14's"
   },
   {
+    "id": "p1077",
     "slug": "brufen-paed-susp-100mg5ml-100ml",
     "name": "Brufen Paed Susp 100mg/5ml 100ml",
     "brand": "BRUFEN",
@@ -626,10 +627,10 @@
     "image": "images/products/brufen-paed-susp-100mg5ml-100ml.webp",
     "description": "Brufen Paediatric Suspension contains Ibuprofen 100 mg/5 ml. Brufen Syrup can also be used to treat painful conditions such as toothache, pain after operations, period pain and headache, including migraine. It can also be used for the short term treatment of fever in children over the age of 1 year.It can be also be used to relieve pain and inflammation in conditions such as osteoarthritis, rheumatoid arthritis (including juvenile rheumatoid arthritis or Still's disease), arthritis of the spine,",
     "generic": "100mg",
-    "pack": "5ml",
-    "id": "p1077"
+    "pack": "5ml"
   },
   {
+    "id": "p1078",
     "slug": "panadol-extra-tablets-100s",
     "name": "Panadol Extra Tablets 100's",
     "brand": "PANADOL",
@@ -640,24 +641,24 @@
     "image": "images/products/panadol-extra-tablets-100s.webp",
     "description": "Panadol Extra contains Paracetamol 500mg and Caffeine 65mg. A mild analgesic and antipyretic formulated to give extra pain relief. The tablets are recommended for the treatment of most painful and febrile conditions, headache, including migraine, backache, toothache, rheumatic pain and dysmenorrhoea, and the relief of the symptoms of colds",
     "generic": "",
-    "pack": "100's",
-    "id": "p1078"
+    "pack": "100's"
   },
   {
+    "id": "p1079",
     "slug": "voltaren-emulgel-1-50g",
     "name": "Voltaren Emulgel 1% 50g",
     "brand": "VOLTAREN",
-    "category": "Pain & Fever",
+    "category": "Arthritis",
     "price": 589,
     "prescription": false,
     "inStock": true,
     "image": "images/products/voltaren-emulgel-1-50g.webp",
     "description": "Voltaren Gel (diclofenac sodium topical gel) is a topical gel nonsteroidal anti-inflammatory drug (NSAID) used to treat pain of osteoarthritis of joints that are amenable to topical treatment, such the hands and knees. Voltaren Gel contains diclofenac, a nonsteroidal anti-inflammatory drug (NSAID). Diclofenac works by reducing substances in the body that cause pain and inflammation. Voltaren Gel is used to treat joint pain caused by osteoarthritis in the hands, wrists, elbows, knees, ankles, or",
     "generic": "50g",
-    "pack": "50g",
-    "id": "p1079"
+    "pack": "50g"
   },
   {
+    "id": "p1080",
     "slug": "panadol-advance-500mg-tablets-100s",
     "name": "Panadol Advance 500mg Tablets 100's",
     "brand": "PANADOL ADVANCE",
@@ -668,10 +669,10 @@
     "image": "images/products/panadol-advance-500mg-tablets-100s.webp",
     "description": "Panadol Advance Tablets contains Paracetamol 500mg. It is a mild analgesic (pain reliever) and antipyretic (fever reliever) recommended for the treatment of headaches including migraine and tension headaches ,toothaches,muscle pains,sore throat pains,dysmenorrhoea, aches and pains of colds and flu.",
     "generic": "500mg",
-    "pack": "100's",
-    "id": "p1080"
+    "pack": "100's"
   },
   {
+    "id": "p1081",
     "slug": "panadol-extra-soluble-24s",
     "name": "Panadol Extra Soluble 24's",
     "brand": "PANADOL",
@@ -682,10 +683,10 @@
     "image": "images/products/panadol-extra-soluble-24s.webp",
     "description": "Panadol Extra Soluble are white tablets with bevelled edges, plain on one side and breakline on the other. They effervesce vigorously when placed in water and dissolve to give a clear, odourless solution with a slightly sweet taste.",
     "generic": "",
-    "pack": "24's",
-    "id": "p1081"
+    "pack": "24's"
   },
   {
+    "id": "p1082",
     "slug": "panadol-elixir-5-12yrs-100ml",
     "name": "Panadol Elixir 5-12Yrs 100ml",
     "brand": "PANADOL",
@@ -696,10 +697,10 @@
     "image": "images/products/panadol-elixir-5-12yrs-100ml.webp",
     "description": "Panadol Elixir 5-12 years contains paracetamol 48mg/ml and is used for the temporary relief from the fever and pain associated with teething, immunisation, ear aches, headaches and colds or flu.",
     "generic": "100ml",
-    "pack": "100ml",
-    "id": "p1082"
+    "pack": "100ml"
   },
   {
+    "id": "p1084",
     "slug": "ibuprofen-denk-400mg-tablets-20s",
     "name": "Ibuprofen Denk 400mg Tablets 20's",
     "brand": "DENK",
@@ -710,10 +711,10 @@
     "image": "images/products/ibuprofen-denk-400mg-tablets-20s.webp",
     "description": "Ibuprofen Denk 400mg contains ibuprofen which is used for pain relief and fever. It relieves pain and inflammation in conditions like headache, muscle pain, dental pain or joint pain.Its ia non-steroidal anti-inflammatory drug (NSAID). It works by blocking the release of certain chemical messengers that cause fever, pain and inflammation (redness and swelling).",
     "generic": "400mg",
-    "pack": "20's",
-    "id": "p1084"
+    "pack": "20's"
   },
   {
+    "id": "p1085",
     "slug": "parafast-et-500mg-tablets-16s",
     "name": "Parafast ET 500mg Tablets 16's",
     "brand": "PARAFAST",
@@ -724,10 +725,10 @@
     "image": "images/products/parafast-et-500mg-tablets-16s.webp",
     "description": "Parafast contains Paracetamol 500 mg effervescent. It is used for the relief of headache including migraine, neuralgia, toothache, period pain, and rheumatic aches and pains. Symptomatic relief of colds, influenza and sore throats.",
     "generic": "500mg",
-    "pack": "16's",
-    "id": "p1085"
+    "pack": "16's"
   },
   {
+    "id": "p1086",
     "slug": "calpol-infant-suspension-100ml",
     "name": "Calpol Infant Suspension 100ml",
     "brand": "CALPOL",
@@ -738,10 +739,10 @@
     "image": "images/products/calpol-infant-suspension-100ml.webp",
     "description": "Calpol contains Paracetamol 120 mg in each 5 ml. Paracetamol is an antipyretic (fever reliever) and analgesic (pain reliever). It helps in relieving pain of teething, sore throat and fever associated with colds and flu, childhood infections like chicken pox, whooping cough, measles and mumps.",
     "generic": "100ml",
-    "pack": "100ml",
-    "id": "p1086"
+    "pack": "100ml"
   },
   {
+    "id": "p1087",
     "slug": "panadol-coldflu-tablets-24s-night",
     "name": "Panadol Cold&Flu Tablets 24's-Night.",
     "brand": "PANADOL",
@@ -752,10 +753,10 @@
     "image": "images/products/panadol-coldflu-tablets-24s-night.webp",
     "description": "Panadol Cold and Flu contains Paracetamol and pseudoephedrine. It is used for the relief of nasal congestion combined with fever and/or pain such as sore throat, sinus pain or headache in the common cold or flu.",
     "generic": "",
-    "pack": "24's",
-    "id": "p1087"
+    "pack": "24's"
   },
   {
+    "id": "p1088",
     "slug": "panadol-baby-infant-suspension-100ml",
     "name": "Panadol Baby& Infant Suspension 100ml",
     "brand": "PANADOL",
@@ -766,10 +767,10 @@
     "image": "images/products/panadol-baby-infant-suspension-100ml.webp",
     "description": "Panadol Baby & Infant contains Paracetamol 120mg in each 5 ml. Paracetamol is an antipyretic (fever reliever) and analgesic (pain reliever). It helps in relieving pain of teething,sore throat and fever associated with colds and flu, childhood infections like chicken pox, whooping cough, measles and mumps.",
     "generic": "100ml",
-    "pack": "100ml",
-    "id": "p1088"
+    "pack": "100ml"
   },
   {
+    "id": "p1089",
     "slug": "parafast-1g-tablets-8s",
     "name": "Parafast 1g Tablets 8's",
     "brand": "PARAFAST",
@@ -780,10 +781,10 @@
     "image": "images/products/parafast-1g-tablets-8s.webp",
     "description": "Parafast contains Paracetamol 1000 mg effervescent. It is used for the relief of headache including migraine, neuralgia, toothache, period pain, and rheumatic aches and pains. Symptomatic relief of colds, influenza and sore throats.",
     "generic": "1g",
-    "pack": "1g",
-    "id": "p1089"
+    "pack": "1g"
   },
   {
+    "id": "p1090",
     "slug": "calpol-infant-suspension-60ml",
     "name": "Calpol Infant Suspension 60ml",
     "brand": "CALPOL",
@@ -794,10 +795,10 @@
     "image": "images/products/calpol-infant-suspension-60ml.webp",
     "description": "Calpol contains Paracetamol 120 mg in each 5 ml.Paracetamol is an antipyretic (fever reliever) and analgesic(pain reliever).It helps in relieving pain of teething,sore throat and fever associated with colds and flu, childhood infections like chicken pox, whooping cough, measles and mumps.",
     "generic": "60ml",
-    "pack": "60ml",
-    "id": "p1090"
+    "pack": "60ml"
   },
   {
+    "id": "p1091",
     "slug": "panadol-extra-tablets-20s",
     "name": "Panadol Extra Tablets 20's",
     "brand": "PANADOL",
@@ -808,10 +809,10 @@
     "image": "images/products/panadol-extra-tablets-20s.webp",
     "description": "Panadol Extra contains Paracetamol 500mg and Caffeine 65mg. A mild analgesic and antipyretic formulated to give extra pain relief. The tablets are recommended for the treatment of most painful and febrile conditions, headache, including migraine, backache, toothache, rheumatic pain and dysmenorrhoea, and the relief of the symptoms of colds",
     "generic": "",
-    "pack": "20's",
-    "id": "p1091"
+    "pack": "20's"
   },
   {
+    "id": "p1092",
     "slug": "panadol-baby-and-infant-suspension-60ml",
     "name": "Panadol Baby And Infant Suspension 60ml",
     "brand": "PANADOL",
@@ -820,12 +821,12 @@
     "prescription": false,
     "inStock": true,
     "image": "images/products/panadol-baby-and-infant-suspension-60ml.webp",
-    "description": "Panadol Baby & InfantÂ contains paracetamol, which is recommended as first-line treatment for fever and mild-to-moderate pain in children. It starts to relieve fever within 15 -30 minutes of dosing.",
+    "description": "Panadol Baby & Infant\u00c2 contains paracetamol, which is recommended as first-line treatment for fever and mild-to-moderate pain in children. It starts to relieve fever within 15 -30 minutes of dosing.",
     "generic": "60ml",
-    "pack": "60ml",
-    "id": "p1092"
+    "pack": "60ml"
   },
   {
+    "id": "p1093",
     "slug": "ace-paracetamol-suppository-125mg-10s",
     "name": "Ace Paracetamol Suppository 125mg 10's",
     "brand": "ACE",
@@ -834,12 +835,12 @@
     "prescription": false,
     "inStock": true,
     "image": "images/products/ace-paracetamol-suppository-125mg-10s.webp",
-    "description": "AceÂ® Suppository (125 mg): Each suppository contains 125 mg Paracetamol BP. AceÂ® is the formulation of Paracetamol, which is one of the safest and most widely used analgesic and antipyretic. It produces analgesic action by elevation of the pain threshold and antipyresis through action on the hypothalamic heat regulating centre.",
+    "description": "Ace\u00c2\u00ae Suppository (125 mg): Each suppository contains 125 mg Paracetamol BP. Ace\u00c2\u00ae is the formulation of Paracetamol, which is one of the safest and most widely used analgesic and antipyretic. It produces analgesic action by elevation of the pain threshold and antipyresis through action on the hypothalamic heat regulating centre.",
     "generic": "125mg",
-    "pack": "10's",
-    "id": "p1093"
+    "pack": "10's"
   },
   {
+    "id": "p1094",
     "slug": "panadol-advance-500mg-tablets-20s",
     "name": "Panadol Advance 500mg Tablets 20's",
     "brand": "PANADOL",
@@ -850,10 +851,10 @@
     "image": "images/products/panadol-advance-500mg-tablets-20s.webp",
     "description": "Panadol Advance Tablets contains Paracetamol 500mg. It is a mild analgesic (pain reliever) and antipyretic (fever reliever) recommended for the treatment of headaches including migraine and tension headaches ,toothaches,muscle pains,sore throat pains,dysmenorrhoea, aches and pains of colds and flu.",
     "generic": "500mg",
-    "pack": "20's",
-    "id": "p1094"
+    "pack": "20's"
   },
   {
+    "id": "p1095",
     "slug": "cetamol-500mg-tablets-100s",
     "name": "Cetamol 500mg Tablets 100's",
     "brand": "CETAMOL",
@@ -864,10 +865,10 @@
     "image": "images/products/cetamol-500mg-tablets-100s.webp",
     "description": "Cetamol Tablets contains Paracetamol 500mg. It is a mild analgesic (pain reliever) and anti-pyretic (fever reliever) recommended for the treatment of headaches including migraine and tension headaches ,toothaches,muscle pains,sore throat pains, dysmenorrhoea, aches and pains of colds and flu.",
     "generic": "500mg",
-    "pack": "100's",
-    "id": "p1095"
+    "pack": "100's"
   },
   {
+    "id": "p1097",
     "slug": "cetamol-syrup-100ml",
     "name": "Cetamol Syrup 100ml",
     "brand": "CETAMOL",
@@ -878,52 +879,52 @@
     "image": "images/products/cetamol-syrup-100ml.webp",
     "description": "Cetamol syrup contains paracetamol which is an analgesic (pain reliever) and anti-pyretic (fever reliever). It also relieves minor aches and pains due to headaches, common cold, toothache, flu and sore throat.",
     "generic": "100ml",
-    "pack": "100ml",
-    "id": "p1097"
+    "pack": "100ml"
   },
   {
+    "id": "p1102",
     "slug": "voltaren-retard-100mg-tablets-30s",
     "name": "Voltaren Retard 100mg Tablets 30's",
     "brand": "VOLTAREN",
-    "category": "Pain & Fever",
+    "category": "Arthritis",
     "price": 2925,
     "prescription": true,
     "inStock": true,
     "image": "images/products/voltaren-retard-100mg-tablets-30s.webp",
     "description": "Voltaren Retard 100 mg tablets contains Diclofenac 100 mg which is used for pain relief. It relieves pain in conditions like headache, mild migraine, muscle pain, dental pain, rheumatoid arthritis, ankylosing spondylitis, osteoarthritis, or painful menses. It is a non-steroidal anti-inflammatory drugs (NSAID). It works by blocking the release of certain chemical messengers that cause pain and inflammation (redness and swelling).",
     "generic": "100mg",
-    "pack": "30's",
-    "id": "p1102"
+    "pack": "30's"
   },
   {
+    "id": "p1103",
     "slug": "voltaren-sr-75mg-tablets-30s",
     "name": "Voltaren SR 75mg Tablets 30's",
     "brand": "VOLTAREN",
-    "category": "Pain & Fever",
+    "category": "Arthritis",
     "price": 2745,
     "prescription": true,
     "inStock": true,
     "image": "images/products/voltaren-sr-75mg-tablets-30s.webp",
     "description": "Voltaren SR 75mg tablets contains Diclofenac 75mg which is used for pain relief. It relieves pain in conditions like headache, mild migraine, muscle pain, dental pain, rheumatoid arthritis, ankylosing spondylitis, osteoarthritis, or painful menses.Its a non-steroidal anti-inflammatory drugs (NSAID). It works by blocking the release of certain chemical messengers that cause pain and inflammation (redness and swelling).",
     "generic": "75mg",
-    "pack": "30's",
-    "id": "p1103"
+    "pack": "30's"
   },
   {
+    "id": "p1112",
     "slug": "piroxicam-20mg-capsules-100s",
     "name": "Piroxicam 20mg Capsules 100's",
     "brand": "PIROXICAM",
-    "category": "Pain & Fever",
+    "category": "Arthritis",
     "price": 75,
     "prescription": true,
     "inStock": true,
     "image": "images/products/piroxicam-20mg-capsules-100s.webp",
     "description": "Piroxicam is used to relieve pain, tenderness, swelling, and stiffness caused by osteoarthritis (arthritis caused by a breakdown of the lining of the joints) and rheumatoid arthritis (arthritis caused by swelling of the lining of the joints). Piroxicam is in a class of medications called NSAIDs.",
     "generic": "20mg",
-    "pack": "100's",
-    "id": "p1112"
+    "pack": "100's"
   },
   {
+    "id": "p1113",
     "slug": "ibuprofen-200mg-tablets-100s",
     "name": "Ibuprofen 200mg Tablets 100's",
     "brand": "IBUPROFEN",
@@ -934,10 +935,10 @@
     "image": "images/products/ibuprofen-200mg-tablets-100s.webp",
     "description": "The name of your medicine is Ibuprofen tablets. The active ingredient in your medicine is ibuprofen. Ibuprofen belongs to a group of medicines called Non-Steroidal Anti-inflammatory Drugs (NSAIDs). Ibuprofen works by reducing inflammation and relieving pain including period pain, nerve related pain (neuralgia), dental pain, headaches and migraine, backache, swelling and stiffness in the joints and muscles (rheumatic and muscular pain), fever and cold and flu symptoms.",
     "generic": "200mg",
-    "pack": "100's",
-    "id": "p1113"
+    "pack": "100's"
   },
   {
+    "id": "p1115",
     "slug": "zyrtec-10mg-tablets-30s",
     "name": "Zyrtec 10mg Tablets 30's",
     "brand": "ZYRTEC",
@@ -948,10 +949,10 @@
     "image": "images/products/zyrtec-10mg-tablets-30s.webp",
     "description": "Zyrtec 10 mg Tablet contains cetirizine which is used in the treatment of allergy symptoms. It is an antihistamine which treats allergy symptoms such as such as itching, swelling, and rashes by blocking the effects of a chemical messenger (histamine) in the body.",
     "generic": "10mg",
-    "pack": "30's",
-    "id": "p1115"
+    "pack": "30's"
   },
   {
+    "id": "p1116",
     "slug": "zyrtec-10mg-tablets-10s",
     "name": "Zyrtec 10mg Tablets 10's",
     "brand": "ZYRTEC",
@@ -962,10 +963,10 @@
     "image": "images/products/zyrtec-10mg-tablets-10s.webp",
     "description": "Zyrtec 10 mg Tablet contains cetirizine which is used in the treatment of allergy symptoms. It is an antihistamine which treats allergy symptoms such as such as itching, swelling, and rashes by blocking the effects of a chemical messenger (histamine) in the body.",
     "generic": "10mg",
-    "pack": "10's",
-    "id": "p1116"
+    "pack": "10's"
   },
   {
+    "id": "p1117",
     "slug": "zyrtec-oral-solution-1mgml-75ml",
     "name": "Zyrtec Oral Solution 1mg/ml 75ml",
     "brand": "ZYRTEC",
@@ -976,10 +977,10 @@
     "image": "images/products/zyrtec-oral-solution-1mgml-75ml.webp",
     "description": "Zyrtec Oral Solution contains Cetirizine which is an antihistamine used to relieve allergy symptoms such as watery eyes, runny nose, itching eyes/nose, sneezing, hives, and itching. It works by blocking a certain natural substance (histamine) that your body makes during an allergic reaction.",
     "generic": "1mg",
-    "pack": "75ml",
-    "id": "p1117"
+    "pack": "75ml"
   },
   {
+    "id": "p1118",
     "slug": "piriton-syrup-100ml",
     "name": "Piriton Syrup 100ml",
     "brand": "PIRITON",
@@ -990,10 +991,10 @@
     "image": "images/products/piriton-syrup-100ml.webp",
     "description": "Piriton Syrup contains chlorpheniramine. Each 5 ml of syrup contains 2 mg of chlorpheniramine maleate. It is is indicated for symptomatic control of all allergic conditions responsive to antihistamines, including hay fever, vasomotor rhinitis, urticaria, angioneurotic oedema, food allergy, drug and serum reactions, insect bites. Also indicated for the symptomatic relief of itch associated with chickenpox.",
     "generic": "100ml",
-    "pack": "100ml",
-    "id": "p1118"
+    "pack": "100ml"
   },
   {
+    "id": "p1119",
     "slug": "piriton-expectorant-linctus-100ml",
     "name": "Piriton Expectorant Linctus 100ml",
     "brand": "PIRITON",
@@ -1004,10 +1005,10 @@
     "image": "images/products/piriton-expectorant-linctus-100ml.webp",
     "description": "Piriton Expectorant linctus contains Chlorpheniramine 2.5mg, Ammonium Chloride 125mg and Sodium Citrate 55mg.Its used to treat cough. Chlorpheniramine is an antiallergic which relieves allergy symptoms like runny nose, watery eyes and sneezing. Ammonium chloride is an expectorant which decreases the stickiness of mucus (phlegm) and helps in its removal from the airways. Sodium citrate is a mucolytic which thins and loosens mucus (phlegm), making it easier to cough out.",
     "generic": "100ml",
-    "pack": "100ml",
-    "id": "p1119"
+    "pack": "100ml"
   },
   {
+    "id": "p1120",
     "slug": "neilmed-nasamist-isotonic-nasal-spray-125ml",
     "name": "Neilmed Nasamist Isotonic Nasal spray 125ml",
     "brand": "NEILMED",
@@ -1018,10 +1019,10 @@
     "image": "images/products/neilmed-nasamist-isotonic-nasal-spray-125ml.webp",
     "description": "NeilMed NasaMist Isotonic Sterile Saline Spray Non-burning sterile mist for delicate nasal passages Use For: Dry Nasal Passages | Sinus | Allergy | Cold | Stuffiness",
     "generic": "125ml",
-    "pack": "125ml",
-    "id": "p1120"
+    "pack": "125ml"
   },
   {
+    "id": "p1121",
     "slug": "lemsip-cold-flu-sachets-lemon-10s",
     "name": "Lemsip Cold & Flu Sachets Lemon 10's",
     "brand": "LEMSIP ",
@@ -1032,10 +1033,10 @@
     "image": "images/products/lemsip-cold-flu-sachets-lemon-10s.webp",
     "description": "Lemsip Cold & Flu Lemon Powder for Oral Solution contains a combination of active ingredients which are effective in relieving the symptoms associated with colds and flu, including relief of aches and pains, sore throats and headaches.",
     "generic": "",
-    "pack": "10's",
-    "id": "p1121"
+    "pack": "10's"
   },
   {
+    "id": "p1122",
     "slug": "lemsip-max-cold-flu-lemon-sachets-10s",
     "name": "Lemsip Max Cold & Flu Lemon Sachets 10's",
     "brand": "LEMSIP ",
@@ -1046,10 +1047,10 @@
     "image": "images/products/lemsip-max-cold-flu-lemon-sachets-10s.webp",
     "description": "Lemsip Max Cold & Flu sachets help treat the symptoms of cold and flu. Lemsip Max Cold & Flu contains a combination of ingredients which are effective in relieving the symptoms associated with cold and flu.",
     "generic": "",
-    "pack": "10's",
-    "id": "p1122"
+    "pack": "10's"
   },
   {
+    "id": "p1123",
     "slug": "nurofen-cold-flu-tablets-24s",
     "name": "Nurofen Cold & Flu Tablets 24's",
     "brand": "NUROFEN",
@@ -1060,10 +1061,10 @@
     "image": "images/products/nurofen-cold-flu-tablets-24s.webp",
     "description": "Nurofen Cold and flu contains Ibuprofen 200mg and Pseudoephedrine 5mg which is used for relief from the symptoms of Cold and Flu including: aches and pains, headache, fever, sore throat, nasal congestion (blocked nose and sinuses). Pseudoephedrine is a strong non-drowsy decongestant used to give relief from cold or flu symptoms while ibuprofen eases aches and reduces fever.",
     "generic": "",
-    "pack": "24's",
-    "id": "p1123"
+    "pack": "24's"
   },
   {
+    "id": "p1124",
     "slug": "lemsip-max-coldflu-sachet-bcurrant-10s",
     "name": "Lemsip Max Cold&Flu Sachet B/Currant 10's",
     "brand": "LEMSIP ",
@@ -1074,10 +1075,10 @@
     "image": "images/products/lemsip-max-coldflu-sachet-bcurrant-10s.webp",
     "description": "Lemsip Max Cold & Flu blackcurrant flavour provides relief from fever, headache, sore throat and body aches and pains. This packet contains ten Blackcurrant flavoured Lemsip sachets.",
     "generic": "",
-    "pack": "10's",
-    "id": "p1124"
+    "pack": "10's"
   },
   {
+    "id": "p1125",
     "slug": "xylolin-005-paed-nasal-spray-10ml",
     "name": "Xylolin 0.05% Paed. Nasal Spray 10ml",
     "brand": "XYLOLIN",
@@ -1088,10 +1089,10 @@
     "image": "images/products/xylolin-005-paed-nasal-spray-10ml.webp",
     "description": "Xylolin 0.05% paediatric contains Xylometazoline (0.05%) which is used in the treatment of nasal congestion. It treats congestion associated with allergies, hay fever, sinus irritation and common cold. It works by narrowing the small blood vessels in the inner surface of the nose. This provides temporary relief from congestion or stuffiness in the nose.",
     "generic": "10ml",
-    "pack": "10ml",
-    "id": "p1125"
+    "pack": "10ml"
   },
   {
+    "id": "p1126",
     "slug": "synolin-saline-nasal-spray-with-aspirator-20ml",
     "name": "Synolin Saline Nasal Spray With Aspirator 20ml",
     "brand": "SYNOLIN",
@@ -1102,10 +1103,10 @@
     "image": "images/products/synolin-saline-nasal-spray-with-aspirator-20ml.webp",
     "description": "Synolin is an alcohol free saline formula containing 0.9% sodium chloride.Synolin nasal spray cleanses the nasal cavities by thinning and washing-out excess mucus and mucus-trapped impurities such as pathogens, allergens and pollutants, helping to keep the nose healthy and preventing secondary ENT infections.Synolin nasal spray helps relieve nasal symptoms such as obstruction and mucus discharge caused by common cold and allergies, helping to improve nasal breathing. It also moistens nasal mucos",
     "generic": "20ml",
-    "pack": "20ml",
-    "id": "p1126"
+    "pack": "20ml"
   },
   {
+    "id": "p1127",
     "slug": "xylolin-01-adult-nasal-spray-10ml",
     "name": "Xylolin 0.1% Adult Nasal Spray 10ml",
     "brand": "XYLOLIN",
@@ -1116,10 +1117,10 @@
     "image": "images/products/xylolin-01-adult-nasal-spray-10ml.webp",
     "description": "Xylolin 0.1% Adult contains Xylometazoline (0.1%) which is used in the treatment of nasal congestion. It treats congestion associated with allergies, hay fever, sinus irritation and common cold. It works by narrowing the small blood vessels in the inner surface of the nose. This provides temporary relief from congestion or stuffiness in the nose.",
     "generic": "10ml",
-    "pack": "10ml",
-    "id": "p1127"
+    "pack": "10ml"
   },
   {
+    "id": "p1128",
     "slug": "delmar-hypertonic-nasal-spray-50ml",
     "name": "Delmar Hypertonic Nasal Spray 50ml",
     "brand": "DELMAR",
@@ -1130,10 +1131,10 @@
     "image": "images/products/delmar-hypertonic-nasal-spray-50ml.webp",
     "description": "Delmar Hypertonic nasal spray solution is intended for people who present impaired physiological function of the nasal mucosa Delmar Hypertonic nasal spray is a hypertonic seawater solution, with a salt concentration which is higher than the concentration within our body cells. Delmar Hypertonic nasal spray solution naturally, quickly and easily provides relief in nasal congestion via the natural mechanism of osmosis.",
     "generic": "50ml",
-    "pack": "50ml",
-    "id": "p1128"
+    "pack": "50ml"
   },
   {
+    "id": "p1130",
     "slug": "sterimar-baby-nasal-hygine-0-3yrs-isotonic-50ml",
     "name": "Sterimar Baby Nasal Hygine 0-3yrs Isotonic 50ml",
     "brand": "STERIMAR",
@@ -1142,12 +1143,12 @@
     "prescription": false,
     "inStock": true,
     "image": "images/products/sterimar-baby-nasal-hygine-0-3yrs-isotonic-50ml.webp",
-    "description": "StÃ©rimar Baby is a pure, gentle and natural seawater nasal spray that is safe to use for babies. It uses fine droplets of sea water to soften and loose nasal mucus to clear the the nasal passages, relieving the blocked nose. Clears and unblocks nasal passages from mucus and impurities, Aids in natural breathing, Stimulates the natural defences of the nasal lining and Safe to use in babies 0-3 years of age.",
+    "description": "St\u00c3\u00a9rimar Baby is a pure, gentle and natural seawater nasal spray that is safe to use for babies. It uses fine droplets of sea water to soften and loose nasal mucus to clear the the nasal passages, relieving the blocked nose. Clears and unblocks nasal passages from mucus and impurities, Aids in natural breathing, Stimulates the natural defences of the nasal lining and Safe to use in babies 0-3 years of age.",
     "generic": "50ml",
-    "pack": "50ml",
-    "id": "p1130"
+    "pack": "50ml"
   },
   {
+    "id": "p1131",
     "slug": "deep-freeze-cold-spray-150ml",
     "name": "Deep Freeze Cold Spray 150ml",
     "brand": "DEEP FREEZE",
@@ -1156,12 +1157,12 @@
     "prescription": false,
     "inStock": true,
     "image": "images/products/deep-freeze-cold-spray-150ml.webp",
-    "description": "Deep Freeze Spray contains Levomenthol with an instant burst of cooling pain relief ideal for fresh impact injuries. Fast acting cooling pain relief for; • Inflammation & Swelling • Sprains & Strains • Minor sports injuries • Muscle & Joint pain Can also be used after exercise/ game.",
+    "description": "Deep Freeze Spray contains Levomenthol with an instant burst of cooling pain relief ideal for fresh impact injuries. Fast acting cooling pain relief for; \u2022 Inflammation & Swelling \u2022 Sprains & Strains \u2022 Minor sports injuries \u2022 Muscle & Joint pain Can also be used after exercise/ game.",
     "generic": "150ml",
-    "pack": "150ml",
-    "id": "p1131"
+    "pack": "150ml"
   },
   {
+    "id": "p1132",
     "slug": "delmar-isotonic-nasal-spray-50ml",
     "name": "Delmar Isotonic Nasal Spray 50ml",
     "brand": "DELMAR",
@@ -1172,24 +1173,24 @@
     "image": "images/products/delmar-isotonic-nasal-spray-50ml.webp",
     "description": "",
     "generic": "50ml",
-    "pack": "50ml",
-    "id": "p1132"
+    "pack": "50ml"
   },
   {
+    "id": "p1133",
     "slug": "deep-freeze-cold-gel-100g",
     "name": "Deep Freeze Cold Gel 100g",
     "brand": "DEEP FREEZE",
-    "category": "Cold & Flu",
+    "category": "Arthritis",
     "price": 694,
     "prescription": false,
     "inStock": true,
     "image": "images/products/deep-freeze-cold-gel-100g.webp",
-    "description": "Deep Freeze Cold Gel contains Levomenthol with a penetrative cooling action that goes deep down to relieve the aches and pains of overworked muscles, tendons and joints. Recommended Cooling Pain Relief for; • Muscle & Joint • Back pain in pregnancy • Inflammation & Swelling • Sprains & strains Can also be used after exercise/ game.",
+    "description": "Deep Freeze Cold Gel contains Levomenthol with a penetrative cooling action that goes deep down to relieve the aches and pains of overworked muscles, tendons and joints. Recommended Cooling Pain Relief for; \u2022 Muscle & Joint \u2022 Back pain in pregnancy \u2022 Inflammation & Swelling \u2022 Sprains & strains Can also be used after exercise/ game.",
     "generic": "100g",
-    "pack": "100g",
-    "id": "p1133"
+    "pack": "100g"
   },
   {
+    "id": "p1134",
     "slug": "flamingo-hot-and-cold-pack-1014-universal",
     "name": "Flamingo Hot And Cold Pack 1014 Universal",
     "brand": "FLAMINGO",
@@ -1200,10 +1201,10 @@
     "image": "images/products/flamingo-hot-and-cold-pack-1014-universal.webp",
     "description": "",
     "generic": "",
-    "pack": "",
-    "id": "p1134"
+    "pack": ""
   },
   {
+    "id": "p1135",
     "slug": "otrivin-nasal-drops-infant-005-10ml",
     "name": "Otrivin Nasal Drops Infant 0.05% 10ml",
     "brand": "OTRIVIN",
@@ -1214,10 +1215,10 @@
     "image": "images/products/otrivin-nasal-drops-infant-005-10ml.webp",
     "description": "Otrivin Nasal drops contain Xylometazoline hydrochloride 0.05 % which provides effective relief from the blocked nose in children. It helps in moisturising dry nose and clears excess mucous from nasal cavity. Otrivin has a vasoconstrictor action,which helps in decongestion of the nasal and pharyngeal mucosa and reduces breathing difficulties. It provides long lasting relief and is safe for children.",
     "generic": "10ml",
-    "pack": "10ml",
-    "id": "p1135"
+    "pack": "10ml"
   },
   {
+    "id": "p1136",
     "slug": "nasosal-nasal-drops-10ml",
     "name": "Nasosal Nasal Drops 10ml",
     "brand": "NASOSAL NASAL",
@@ -1228,10 +1229,10 @@
     "image": "images/products/nasosal-nasal-drops-10ml.webp",
     "description": "Nasosal Drops contains saline solution which moistens the nasal lining and helps unblock the nose by thinning the mucus build-up. Because the saline solution of Nasosal Drops is sterile, it is also safe for newborn babies. Blocked noses can be very frustrating and uncomfortable in babies and young children, making it difficult for them to sleep and eat. Nasosal Drops start working instantly to quickly ease nasal congestion in babies and children, helping to restore easy breathing, feeding and sl",
     "generic": "10ml",
-    "pack": "10ml",
-    "id": "p1136"
+    "pack": "10ml"
   },
   {
+    "id": "p1137",
     "slug": "otrivin-adult-nasal-drops-010-10ml",
     "name": "Otrivin Adult Nasal Drops 0.10% 10ml",
     "brand": "OTRIVIN",
@@ -1242,10 +1243,10 @@
     "image": "images/products/otrivin-adult-nasal-drops-010-10ml.webp",
     "description": "Otrivin Adult 0.1% Nasal Drops provides effective relief from the nasal congestion caused due to colds, allergies and hay fever. It helps in clearing nasal passages by removing excess mucus accumulated due to cold. It helps in reducing swelling and congestion when applied to mucous membranes and reduces breathing difficulties.",
     "generic": "10ml",
-    "pack": "10ml",
-    "id": "p1137"
+    "pack": "10ml"
   },
   {
+    "id": "p1138",
     "slug": "synolin-saline-nasal-spray-20ml",
     "name": "Synolin Saline Nasal Spray 20ml",
     "brand": "SYNOLIN",
@@ -1256,10 +1257,10 @@
     "image": "images/products/synolin-saline-nasal-spray-20ml.webp",
     "description": "Synolin is an alcohol free saline formula containing 0.9% sodium chloride.Synolin nasal spray cleanses the nasal cavities by thinning and washing-out excess mucus and mucus-trapped impurities such as pathogens, allergens and pollutants, helping to keep the nose healthy and preventing secondary ENT infections.Synolin nasal spray helps relieve nasal symptoms such as obstruction and mucus discharge caused by common cold and allergies, helping to improve nasal breathing. It also moistens nasal mucos",
     "generic": "20ml",
-    "pack": "20ml",
-    "id": "p1138"
+    "pack": "20ml"
   },
   {
+    "id": "p1139",
     "slug": "flamingo-hot-and-cold-eye-mask-1006-universal",
     "name": "Flamingo Hot And Cold Eye Mask 1006 Universal",
     "brand": "FLAMINGO",
@@ -1270,24 +1271,24 @@
     "image": "images/products/flamingo-hot-and-cold-eye-mask-1006-universal.webp",
     "description": "",
     "generic": "",
-    "pack": "",
-    "id": "p1139"
+    "pack": ""
   },
   {
+    "id": "p1140",
     "slug": "deep-freeze-cold-gel-35g",
     "name": "Deep Freeze Cold Gel 35g",
     "brand": "DEEP FREEZE",
-    "category": "Cold & Flu",
+    "category": "Arthritis",
     "price": 375,
     "prescription": false,
     "inStock": true,
     "image": "images/products/deep-freeze-cold-gel-35g.webp",
-    "description": "Deep Freeze Cold Gel contains Levomenthol with a penetrative cooling action that goes deep down to relieve the aches and pains of overworked muscles, tendons and joints. Recommended Cooling Pain Relief for; • Muscle & Joint • Back pain in pregnancy • Inflammation & Swelling • Sprains & strains Can also be used after exercise/ game.",
+    "description": "Deep Freeze Cold Gel contains Levomenthol with a penetrative cooling action that goes deep down to relieve the aches and pains of overworked muscles, tendons and joints. Recommended Cooling Pain Relief for; \u2022 Muscle & Joint \u2022 Back pain in pregnancy \u2022 Inflammation & Swelling \u2022 Sprains & strains Can also be used after exercise/ game.",
     "generic": "35g",
-    "pack": "35g",
-    "id": "p1140"
+    "pack": "35g"
   },
   {
+    "id": "p1141",
     "slug": "tropical-cold-pressed-virgin-coconut-oil-250ml",
     "name": "Tropical Cold Pressed Virgin Coconut oil 250ml",
     "brand": "ALISON",
@@ -1298,10 +1299,10 @@
     "image": "images/products/tropical-cold-pressed-virgin-coconut-oil-250ml.webp",
     "description": "",
     "generic": "250ml",
-    "pack": "250ml",
-    "id": "p1141"
+    "pack": "250ml"
   },
   {
+    "id": "p1142",
     "slug": "lemsip-max-cold-flu-bcurrant-sachets-5s",
     "name": "Lemsip Max Cold & Flu B/Currant Sachets 5's",
     "brand": "LEMSIP ",
@@ -1312,10 +1313,10 @@
     "image": "images/products/lemsip-max-cold-flu-bcurrant-sachets-5s.webp",
     "description": "Lemsip Max Cold and Flu Blackcurrant. Therapeutic indications: For relief of the symptoms of colds and influenza, including the relief of aches and pains, sore throat, headache, nasal congestion and lowering of temperature. Active Ingredients Paracetamol: 1000.00 Phenylephrine hydrochloride: 12.20 Equivalent to phenylephrine (base) 10.0 mg. Excipient(s) with known effect: Aspartame Sodium Sucrose Phenylephrine hydrochloride 12.20 Equivalent to phenylephrine (base) 10.0 mg. Excipient(s) with know",
     "generic": "",
-    "pack": "5's",
-    "id": "p1142"
+    "pack": "5's"
   },
   {
+    "id": "p1143",
     "slug": "deep-freeze-pain-relief-cold-patch",
     "name": "Deep Freeze Pain Relief Cold Patch",
     "brand": "DEEP FREEZE",
@@ -1326,10 +1327,10 @@
     "image": "images/products/deep-freeze-pain-relief-cold-patch.webp",
     "description": "Deep Freeze Patches offer scientifically proven, fast acting, long lasting, cooling pain relief for up to 12 hours. Scientifically proven cooling pain relief: Arthritis, Muscle & Joint pain Muscular back pain Inflammation & Swelling Sprains & Strains Post exercise recovery.",
     "generic": "",
-    "pack": "",
-    "id": "p1143"
+    "pack": ""
   },
   {
+    "id": "p1144",
     "slug": "synolin-saline-nasal-drops-15ml",
     "name": "Synolin Saline Nasal Drops 15ml",
     "brand": "SYNOLIN",
@@ -1340,10 +1341,10 @@
     "image": "images/products/synolin-saline-nasal-drops-15ml.webp",
     "description": "Synolin is an alcohol free saline formula containing 0.9% sodium chloride.Synolin nasal drops cleanses the nasal cavities by thinning and washing-out excess mucus and mucus-trapped impurities such as pathogens, allergens and pollutants, helping to keep the nose healthy and preventing secondary ENT infections.Synolin nasal drops helps relieve nasal symptoms such as obstruction and mucus discharge caused by common cold and allergies, helping to improve nasal breathing. It also moistens nasal mucos",
     "generic": "15ml",
-    "pack": "15ml",
-    "id": "p1144"
+    "pack": "15ml"
   },
   {
+    "id": "p1145",
     "slug": "snip-cold-cold-tablets-20s",
     "name": "Snip Cold & Cold Tablets 20's",
     "brand": "SNIP",
@@ -1352,12 +1353,12 @@
     "prescription": false,
     "inStock": true,
     "image": "images/products/snip-cold-cold-tablets-20s.webp",
-    "description": "SNIP isÂ indicated to relief the symptoms associated with cold and flu, such as: cough, nasal congestion, rhinitis, sneeze, fever, light to severe pain of different origin. SNIP is also indicated for alleviating symptoms of hay fever and other allergies of upper respiratory tract associated with fever.",
+    "description": "SNIP is\u00c2 indicated to relief the symptoms associated with cold and flu, such as: cough, nasal congestion, rhinitis, sneeze, fever, light to severe pain of different origin. SNIP is also indicated for alleviating symptoms of hay fever and other allergies of upper respiratory tract associated with fever.",
     "generic": "",
-    "pack": "20's",
-    "id": "p1145"
+    "pack": "20's"
   },
   {
+    "id": "p1146",
     "slug": "fricks-isotonic-nasal-spray",
     "name": "Fricks Isotonic Nasal Spray",
     "brand": "BLISS",
@@ -1366,12 +1367,12 @@
     "prescription": false,
     "inStock": true,
     "image": "images/products/fricks-isotonic-nasal-spray.webp",
-    "description": "Fricks isotonic Spray Contains isotonic Saline - That Helps In Adding Moisture To The Inside of The Nose To Lessen Irritation and Dryness,Â It Also Softens Dried-Up Mucus Inside The Nose.Improves Mucociliary Clearance, Improves Mucus Gelling: Eases Coughing and Swallowing of The Mucus, Helps Clear Thick Secretions, Washing Away Potential Allergens and Irritants (E.G. Air Pollutants), Lowers Viral Load and Less Transmission, Improves Nasal Congestion and Rhinorrhoea andÂ Improves Sleep Quality. Â",
+    "description": "Fricks isotonic Spray Contains isotonic Saline - That Helps In Adding Moisture To The Inside of The Nose To Lessen Irritation and Dryness,\u00c2 It Also Softens Dried-Up Mucus Inside The Nose.Improves Mucociliary Clearance, Improves Mucus Gelling: Eases Coughing and Swallowing of The Mucus, Helps Clear Thick Secretions, Washing Away Potential Allergens and Irritants (E.G. Air Pollutants), Lowers Viral Load and Less Transmission, Improves Nasal Congestion and Rhinorrhoea and\u00c2 Improves Sleep Quality. \u00c2",
     "generic": "",
-    "pack": "",
-    "id": "p1146"
+    "pack": ""
   },
   {
+    "id": "p1147",
     "slug": "novorin-nasal-drops-15ml",
     "name": "Novorin Nasal Drops 15ml",
     "brand": "NOVORIN",
@@ -1382,10 +1383,10 @@
     "image": "images/products/novorin-nasal-drops-15ml.webp",
     "description": "Novorin saline nasal preparations are salt-water solutions used to help unblock a congested nose. Saline nasal drops are used to treat a blocked nose (nasal congestion) in people with colds. It can help to thin the mucous and reduce the amount of secretion from the nose.",
     "generic": "15ml",
-    "pack": "15ml",
-    "id": "p1147"
+    "pack": "15ml"
   },
   {
+    "id": "p1154",
     "slug": "avamys-nasal-spray-275mcg-120-doses",
     "name": "Avamys Nasal spray 27.5mcg 120 Doses",
     "brand": "AVAMYS",
@@ -1396,10 +1397,10 @@
     "image": "images/products/avamys-nasal-spray-275mcg-120-doses.webp",
     "description": "Avamys Nasal spray contains Fluticasone propionate (0.05% w/w) which is used in the treatment of sneezing and runny nose due to allergies. AVAMYS is used to treat symptoms of allergic rhinitis including stuffy, runny or itchy nose, sneezing, and watery, itchy or red eyes. The effects are usually feltwithin the first day, although some people will not feel the effects until several days after first taking it. This medicine belongs to a group of medicines known as corticosteroids, frequentlycalled",
     "generic": "27.5mcg",
-    "pack": "",
-    "id": "p1154"
+    "pack": ""
   },
   {
+    "id": "p1163",
     "slug": "benylin-day-and-night-cold-flu-16s",
     "name": "Benylin Day and Night Cold & Flu 16's",
     "brand": "BENYLIN",
@@ -1410,10 +1411,10 @@
     "image": "images/products/benylin-day-and-night-cold-flu-16s.webp",
     "description": "Benylin day and night contains diphenhydramine,pseudoephedrine and paracetamol.Benylin day and night tablets help reduce temperature, relieve aches and pains, help clear congestion and so make it easier to nod off at night.Diphenhydramine helps to relieve a runny nose, whilst pseudoephedrine causes the blood vessels in the nasal and sinus passages to contract and narrow, reducing congestion and the production of excess mucus.Paracetamol helps bring down a fever and provide relief from headaches",
     "generic": "",
-    "pack": "16's",
-    "id": "p1163"
+    "pack": "16's"
   },
   {
+    "id": "p1164",
     "slug": "benylin-4-flu-tablets-24s",
     "name": "Benylin 4 Flu Tablets 24's",
     "brand": "BENYLIN 4 FLU",
@@ -1424,10 +1425,10 @@
     "image": "images/products/benylin-4-flu-tablets-24s.webp",
     "description": "Benylin 4 flu tablets contains Diphenhydramine 12.5mg,Pseudoephedrine 22.5mg and paracetamol 500mg .Diphenhydramine helps to relieve a cough and a runny nose,pseudoephedrine causes the blood vessels in the nasal and sinus passages to contract and narrow, reducing congestion and the production of excess mucus.Paracetamol helps bring down a fever and provide relief from headaches or bodily aches and pains.",
     "generic": "",
-    "pack": "24's",
-    "id": "p1164"
+    "pack": "24's"
   },
   {
+    "id": "p1165",
     "slug": "benylin-mucus-cough-cold-relief-tablets-16s",
     "name": "Benylin Mucus Cough & Cold Relief Tablets 16's",
     "brand": "BENYLIN",
@@ -1438,10 +1439,10 @@
     "image": "images/products/benylin-mucus-cough-cold-relief-tablets-16s.webp",
     "description": "A tablet that gives you all-in-one relief from your mucus symptoms, it gets to work on nasal mucus and also loosens chest mucus making it easier to cough up. It also relieves pain and fever. How it works: Guaifenesin loosens and thins chest mucus, making it easier for you to cough up and lightens the weighty feeling on your chest. Phenylephrine is a nasal decongestant which helps reduce swelling in the passages of the nose and mucus production so that you can breathe more easily. Paracetamol rel",
     "generic": "",
-    "pack": "16's",
-    "id": "p1165"
+    "pack": "16's"
   },
   {
+    "id": "p1166",
     "slug": "strepsils-sore-throat-cough-24s",
     "name": "Strepsils Sore Throat & Cough 24's",
     "brand": "STREPSILS",
@@ -1450,12 +1451,12 @@
     "prescription": false,
     "inStock": true,
     "image": "images/products/strepsils-sore-throat-cough-24s.webp",
-    "description": "Strepsils Sore Throat & Cough Lozenges contain two active ingredients that help to calm and soothe symptoms assocaited with sore throats and coughs. These Strepsils lozenges contain aÂ mild antisepticÂ that is designed to kill bacteria associated with mouth and throat infections.",
+    "description": "Strepsils Sore Throat & Cough Lozenges contain two active ingredients that help to calm and soothe symptoms assocaited with sore throats and coughs. These Strepsils lozenges contain a\u00c2 mild antiseptic\u00c2 that is designed to kill bacteria associated with mouth and throat infections.",
     "generic": "",
-    "pack": "24's",
-    "id": "p1166"
+    "pack": "24's"
   },
   {
+    "id": "p1167",
     "slug": "benylin-cold-flu-max-strength-capsules-16s",
     "name": "Benylin Cold & Flu Max Strength Capsules 16's",
     "brand": "BENYLIN",
@@ -1464,12 +1465,12 @@
     "prescription": false,
     "inStock": true,
     "image": "images/products/benylin-cold-flu-max-strength-capsules-16s.webp",
-    "description": "BENYLINÂ®Â Cold & Flu Max Strength Capsules contain an analgesic and decongestant which help relieve cold and flu symptoms. This includes easing headaches, aches and pains, sore throats, reducing fevers and helping to unblock airways. They also help with fatigue and drowsiness so that you can get on with your day.",
+    "description": "BENYLIN\u00c2\u00ae\u00c2 Cold & Flu Max Strength Capsules contain an analgesic and decongestant which help relieve cold and flu symptoms. This includes easing headaches, aches and pains, sore throats, reducing fevers and helping to unblock airways. They also help with fatigue and drowsiness so that you can get on with your day.",
     "generic": "",
-    "pack": "16's",
-    "id": "p1167"
+    "pack": "16's"
   },
   {
+    "id": "p1168",
     "slug": "benylin-4-flu-200ml",
     "name": "Benylin 4 Flu 200ml",
     "brand": "BENYLIN",
@@ -1480,10 +1481,10 @@
     "image": "images/products/benylin-4-flu-200ml.webp",
     "description": "Benylin 4 flu liquid is used to relieve cold and flu symptoms.It contains paracetamol, an analgesic which helps to relieve aches and pains and fever (high temperature), diphenhydramine, an antihistamine which helps dry secretions and relieve coughing and pseudoephedrine, a decongestant which helps unblock stuffy noses.",
     "generic": "200ml",
-    "pack": "200ml",
-    "id": "p1168"
+    "pack": "200ml"
   },
   {
+    "id": "p1169",
     "slug": "benylin-original-100ml",
     "name": "Benylin Original 100ml",
     "brand": "BENYLIN",
@@ -1492,12 +1493,12 @@
     "prescription": false,
     "inStock": true,
     "image": "images/products/benylin-original-100ml.webp",
-    "description": "Benylin Original Effective Cough Relief – 100ml provides effective and fast relief from the symptoms of cough and catarrh",
+    "description": "Benylin Original Effective Cough Relief, 100ml provides effective and fast relief from the symptoms of cough and catarrh",
     "generic": "100ml",
-    "pack": "100ml",
-    "id": "p1169"
+    "pack": "100ml"
   },
   {
+    "id": "p1171",
     "slug": "benylin-paediatric-syrup-100ml",
     "name": "Benylin Paediatric Syrup 100ml",
     "brand": "BENYLIN",
@@ -1506,12 +1507,12 @@
     "prescription": false,
     "inStock": true,
     "image": "images/products/benylin-paediatric-syrup-100ml.webp",
-    "description": "Benylin Paediatric Syrup – 100ml provides effective relief of cough, hay fever and allergies in children above the age of 2 years.",
+    "description": "Benylin Paediatric Syrup, 100ml provides effective relief of cough, hay fever and allergies in children above the age of 2 years.",
     "generic": "100ml",
-    "pack": "100ml",
-    "id": "p1171"
+    "pack": "100ml"
   },
   {
+    "id": "p1172",
     "slug": "benylin-wet-cough-menthol-100ml",
     "name": "Benylin Wet Cough Menthol 100ml",
     "brand": "BENYLIN",
@@ -1520,12 +1521,12 @@
     "prescription": false,
     "inStock": true,
     "image": "images/products/benylin-wet-cough-menthol-100ml.webp",
-    "description": "Benylin Original Effective Cough Relief – 200ml provides effective and fast relief from the symptoms of cough and catarrh",
+    "description": "Benylin Original Effective Cough Relief, 200ml provides effective and fast relief from the symptoms of cough and catarrh",
     "generic": "100ml",
-    "pack": "100ml",
-    "id": "p1172"
+    "pack": "100ml"
   },
   {
+    "id": "p1173",
     "slug": "benylin-dry-cough-100ml",
     "name": "Benylin Dry Cough 100ml",
     "brand": "BENYLIN",
@@ -1536,10 +1537,10 @@
     "image": "images/products/benylin-dry-cough-100ml.webp",
     "description": "Benylin dry cough contains dextromethorphan hydrobromide, which is a type of medicine called a cough suppressant. It works by blocking the cough reflex.",
     "generic": "100ml",
-    "pack": "100ml",
-    "id": "p1173"
+    "pack": "100ml"
   },
   {
+    "id": "p1174",
     "slug": "benylin-4-flu-100ml",
     "name": "Benylin 4 Flu 100ml",
     "brand": "BENYLIN",
@@ -1550,10 +1551,10 @@
     "image": "images/products/benylin-4-flu-100ml.webp",
     "description": "Benylin 4 flu liquid is used to relieve cold and flu symptoms.It contains paracetamol, an analgesic which helps to relieve aches and pains and fever (high temperature), diphenhydramine, an antihistamine which helps dry secretions and relieve coughing and pseudoephedrine, a decongestant which helps unblock stuffy noses.",
     "generic": "100ml",
-    "pack": "100ml",
-    "id": "p1174"
+    "pack": "100ml"
   },
   {
+    "id": "p1175",
     "slug": "ascoril-expectorant-200ml",
     "name": "Ascoril Expectorant 200ml",
     "brand": "ASCORIL",
@@ -1564,10 +1565,10 @@
     "image": "images/products/ascoril-expectorant-200ml.webp",
     "description": "Ascoril Expectorant contains Bromhexine, Guaifenesin, Menthol and Terbutaline as active ingredients. It is indicated for symptomatic relief of productive cough associated w/ resp disorders e.g, acute bronchitis, acute exacerbation of chronic bronchitis, pneumonia & asthmatic bronchitis. Ascoril Expectorant works by increasing the viscid or excessive mucus in respiratory tract thus making phlegm thinner; temporarily relieving minor pain; relaxing and opening the airways; reducing the phlegm in th",
     "generic": "200ml",
-    "pack": "200ml",
-    "id": "p1175"
+    "pack": "200ml"
   },
   {
+    "id": "p1176",
     "slug": "vicks-inhaler-05ml",
     "name": "Vicks Inhaler 0.5ml",
     "brand": "VICKS",
@@ -1576,12 +1577,12 @@
     "prescription": false,
     "inStock": true,
     "image": "images/products/vicks-inhaler-05ml.webp",
-    "description": "Vicks InhalerÂ provides temporary relief of nasal congestion due to cold symptoms, hay fever, or upper respiratory allergy symptoms by helping to shrink swollen sinus membranes. Warning: Always read the label and follow the directions for use.",
+    "description": "Vicks Inhaler\u00c2 provides temporary relief of nasal congestion due to cold symptoms, hay fever, or upper respiratory allergy symptoms by helping to shrink swollen sinus membranes. Warning: Always read the label and follow the directions for use.",
     "generic": "0.5ml",
-    "pack": "5ml",
-    "id": "p1176"
+    "pack": "5ml"
   },
   {
+    "id": "p1177",
     "slug": "ascoril-dry-cough-cold-syrup-100ml",
     "name": "Ascoril Dry Cough & Cold Syrup 100ml",
     "brand": "ASCORIL-D",
@@ -1592,10 +1593,10 @@
     "image": "images/products/ascoril-dry-cough-cold-syrup-100ml.webp",
     "description": "Ascoril Cough Syrup contains Ambroxol, Guaifenesin and Levosalbutamol as its active ingredients. Ascoril syrup is expectorant syrup which works by thinning the mucus present in the airways of the lungs thereby, providing relief from dry cough.",
     "generic": "100ml",
-    "pack": "100ml",
-    "id": "p1177"
+    "pack": "100ml"
   },
   {
+    "id": "p1178",
     "slug": "hactosec-6mgml-dry-cough-syrup-150ml",
     "name": "Hactosec 6mg/ml Dry Cough Syrup 150ml",
     "brand": "DAFRA PHARMA",
@@ -1604,12 +1605,12 @@
     "prescription": false,
     "inStock": true,
     "image": "images/products/hactosec-6mgml-dry-cough-syrup-150ml.webp",
-    "description": "Hactosec is indicated Â for the Symptomatic treatment of dry cough (non-productive, disturbing cough).",
+    "description": "Hactosec is indicated \u00c2 for the Symptomatic treatment of dry cough (non-productive, disturbing cough).",
     "generic": "6mg",
-    "pack": "150ml",
-    "id": "p1178"
+    "pack": "150ml"
   },
   {
+    "id": "p1179",
     "slug": "actifed-wet-cough-and-cold-syrup-100ml",
     "name": "Actifed Wet Cough And Cold Syrup 100ml",
     "brand": "ACTIFED",
@@ -1620,10 +1621,10 @@
     "image": "images/products/actifed-wet-cough-and-cold-syrup-100ml.webp",
     "description": "Actifed wet cough and cold Syrup contains Guaiphenesin, Pseudoephedrine and Tripolidine.It works by thinning the mucus in the air passages causing narrowing of the blood vessels and reducing swelling in the nasal passages. Actifed wet cough and cold Syrup is used in the treatment of cough, congestion, commoncold, bronchitis, breathing illnesses, cold, allergies, high fever, sinus congestion and pressure, respiratory allergies, runny nose, itching, watery eyes, sneezing, itching of the nose or th",
     "generic": "100ml",
-    "pack": "100ml",
-    "id": "p1179"
+    "pack": "100ml"
   },
   {
+    "id": "p1180",
     "slug": "flugone-dm-cough-syrup-120ml",
     "name": "Flugone Dm Cough Syrup 120ml",
     "brand": "FLUGONE",
@@ -1634,10 +1635,10 @@
     "image": "images/products/flugone-dm-cough-syrup-120ml.webp",
     "description": "Flugone is an antihistamine. It works by blocking the action of histamine, which helps reduce symptoms such as watery eyes and sneezing. Flugone Suspension is used for the treatment, control, prevention, & improvement of the following diseases, conditions and symptoms: Common cold, Cold, Allergies due to food, Allergy, Hay fever, Watery eyes, Itchy throat/skin and rhinitis.",
     "generic": "120ml",
-    "pack": "120ml",
-    "id": "p1180"
+    "pack": "120ml"
   },
   {
+    "id": "p1181",
     "slug": "flemnil-expectorant-120ml",
     "name": "Flemnil Expectorant 120ml",
     "brand": "FLEMNIL",
@@ -1648,10 +1649,10 @@
     "image": "images/products/flemnil-expectorant-120ml.webp",
     "description": "Flemnil expectorant contains Guaifenesin 50 mg and Phenylephrine 2.5 mg and Bromhexine 4 mg. Guaifenesin is an expectorant which decreases the stickiness of mucus (phlegm) and helps in its removal from the airways. Phenylephrine is a decongestant which narrows the small blood vessels providing relief from congestion or stuffiness in the nose. Bromhexine is a mucolytic which thins and loosens mucus (phlegm), making it easier to cough out.",
     "generic": "120ml",
-    "pack": "120ml",
-    "id": "p1181"
+    "pack": "120ml"
   },
   {
+    "id": "p1182",
     "slug": "herbikof-cough-syrup-100ml",
     "name": "Herbikof Cough Syrup 100ml",
     "brand": "HERBIKOF",
@@ -1662,10 +1663,10 @@
     "image": "images/products/herbikof-cough-syrup-100ml.webp",
     "description": "Herbal medicine that helps soothe throat irritation, reduce inflammation and acts as a natural expectorant to clear mucus from the airways. Alleviates both dry and productive coughs. Promotes respiratory health, eases congestion and provides relief from cold and cough symptoms.",
     "generic": "100ml",
-    "pack": "100ml",
-    "id": "p1182"
+    "pack": "100ml"
   },
   {
+    "id": "p1183",
     "slug": "ascoril-expectorant-100ml",
     "name": "Ascoril Expectorant 100ml",
     "brand": "ASCORIL",
@@ -1676,10 +1677,10 @@
     "image": "images/products/ascoril-expectorant-100ml.webp",
     "description": "Ascoril is an expectorant drug that contains Levosalbutamol, Ambroxol and Guaifenesin as its active ingredients.",
     "generic": "100ml",
-    "pack": "100ml",
-    "id": "p1183"
+    "pack": "100ml"
   },
   {
+    "id": "p1184",
     "slug": "zecuf-cough-lozenges-lemon-20s",
     "name": "Zecuf Cough Lozenges Lemon 20's",
     "brand": "ZECUF",
@@ -1688,12 +1689,12 @@
     "prescription": false,
     "inStock": true,
     "image": "images/products/zecuf-cough-lozenges-lemon-20s.webp",
-    "description": "Zecuf lozenges areÂ herbal cough lozenges that treat a sore throat caused by respiratory infections and hoarseness. Furthermore, it cleans the throat and soothes breathing. Zecuf herbal Lozenges delivers directly at the infected site offers rapid onset of action and offers longer soothing effect in the infected region.",
+    "description": "Zecuf lozenges are\u00c2 herbal cough lozenges that treat a sore throat caused by respiratory infections and hoarseness. Furthermore, it cleans the throat and soothes breathing. Zecuf herbal Lozenges delivers directly at the infected site offers rapid onset of action and offers longer soothing effect in the infected region.",
     "generic": "",
-    "pack": "20's",
-    "id": "p1184"
+    "pack": "20's"
   },
   {
+    "id": "p1185",
     "slug": "trimex-expectorant-diabetic-100ml",
     "name": "Trimex Expectorant Diabetic 100ml",
     "brand": "TRIMEX",
@@ -1704,10 +1705,10 @@
     "image": "images/products/trimex-expectorant-diabetic-100ml.webp",
     "description": "Trimex Expectorant Diabetic is indicated for dry irritating coughs in diabetic patients. Preparations containing narcotic should be used for short term if possible as addiction and dependency may occur. Pholcodeine is less addictive, causes less drowsiness and dependency as compared to codeine and dextromethorphan. Class: Mucolytics/expectorants (Respiratory system drugs). Indications/Uses: Respiratory disease with excessive mucous secretion.",
     "generic": "100ml",
-    "pack": "100ml",
-    "id": "p1185"
+    "pack": "100ml"
   },
   {
+    "id": "p1186",
     "slug": "zecuf-herbal-cough-syrup-100ml",
     "name": "Zecuf Herbal Cough Syrup 100ml",
     "brand": "ZECUF",
@@ -1718,10 +1719,10 @@
     "image": "images/products/zecuf-herbal-cough-syrup-100ml.webp",
     "description": "Zecuf is a natural and herbal composition that is recommended for the treatment of various types of cough including seasonal cough, asthmatic cough, whooping cough, smoker's cough and allergic cough. It is also used as a remedy for tonsillitis, pharyngitis, laryngitis and general cough",
     "generic": "100ml",
-    "pack": "100ml",
-    "id": "p1186"
+    "pack": "100ml"
   },
   {
+    "id": "p1187",
     "slug": "zecuf-herbal-cough-remedy-sugar-free-100ml",
     "name": "Zecuf Herbal Cough Remedy Sugar Free 100ml",
     "brand": "ZECUF",
@@ -1730,12 +1731,12 @@
     "prescription": false,
     "inStock": true,
     "image": "images/products/zecuf-herbal-cough-remedy-sugar-free-100ml.webp",
-    "description": "Zecuf Sugar Free Cough Syrup isÂ a pure herbal cough formulation that is soothing and cooling. It is useful in all types of cough irrespective of its origin and stage. It is free from alcohol, sedatives and addictive drugs. This product contains herbal ingredients and is used in the treatment of cough.",
+    "description": "Zecuf Sugar Free Cough Syrup is\u00c2 a pure herbal cough formulation that is soothing and cooling. It is useful in all types of cough irrespective of its origin and stage. It is free from alcohol, sedatives and addictive drugs. This product contains herbal ingredients and is used in the treatment of cough.",
     "generic": "100ml",
-    "pack": "100ml",
-    "id": "p1187"
+    "pack": "100ml"
   },
   {
+    "id": "p1188",
     "slug": "zecuf-cough-lozenges-orange-20s",
     "name": "Zecuf Cough Lozenges Orange 20's",
     "brand": "ZECUF",
@@ -1744,12 +1745,12 @@
     "prescription": false,
     "inStock": true,
     "image": "images/products/zecuf-cough-lozenges-orange-20s.webp",
-    "description": "Zecuf lozenges areÂ herbal cough lozenges that treat a sore throat caused by respiratory infections and hoarseness. Furthermore, it cleans the throat and soothes breathing. Zecuf herbal Lozenges delivers directly at the infected site offers rapid onset of action and offers longer soothing effect in the infected region.",
+    "description": "Zecuf lozenges are\u00c2 herbal cough lozenges that treat a sore throat caused by respiratory infections and hoarseness. Furthermore, it cleans the throat and soothes breathing. Zecuf herbal Lozenges delivers directly at the infected site offers rapid onset of action and offers longer soothing effect in the infected region.",
     "generic": "",
-    "pack": "20's",
-    "id": "p1188"
+    "pack": "20's"
   },
   {
+    "id": "p1189",
     "slug": "zecuf-cough-lozenges-pineapple-20s",
     "name": "Zecuf Cough Lozenges Pineapple 20's",
     "brand": "ZECUF",
@@ -1758,12 +1759,12 @@
     "prescription": false,
     "inStock": true,
     "image": "images/products/zecuf-cough-lozenges-pineapple-20s.webp",
-    "description": "Zecuf lozenges areÂ herbal cough lozenges that treat a sore throat caused by respiratory infections and hoarseness. Furthermore, it cleans the throat and soothes breathing. Zecuf herbal Lozenges delivers directly at the infected site offers rapid onset of action and offers longer soothing effect in the infected region.",
+    "description": "Zecuf lozenges are\u00c2 herbal cough lozenges that treat a sore throat caused by respiratory infections and hoarseness. Furthermore, it cleans the throat and soothes breathing. Zecuf herbal Lozenges delivers directly at the infected site offers rapid onset of action and offers longer soothing effect in the infected region.",
     "generic": "",
-    "pack": "20's",
-    "id": "p1189"
+    "pack": "20's"
   },
   {
+    "id": "p1190",
     "slug": "zecuf-cough-lozenges-strawberry-20s",
     "name": "Zecuf Cough Lozenges Strawberry 20's",
     "brand": "ZECUF",
@@ -1772,12 +1773,12 @@
     "prescription": false,
     "inStock": true,
     "image": "images/products/zecuf-cough-lozenges-strawberry-20s.webp",
-    "description": "Zecuf lozenges areÂ herbal cough lozenges that treat a sore throat caused by respiratory infections and hoarseness. Furthermore, it cleans the throat and soothes breathing. Zecuf herbal Lozenges delivers directly at the infected site offers rapid onset of action and offers longer soothing effect in the infected region.",
+    "description": "Zecuf lozenges are\u00c2 herbal cough lozenges that treat a sore throat caused by respiratory infections and hoarseness. Furthermore, it cleans the throat and soothes breathing. Zecuf herbal Lozenges delivers directly at the infected site offers rapid onset of action and offers longer soothing effect in the infected region.",
     "generic": "",
-    "pack": "20's",
-    "id": "p1190"
+    "pack": "20's"
   },
   {
+    "id": "p1191",
     "slug": "trimex-expectorant-paediatric-100ml",
     "name": "Trimex Expectorant Paediatric 100ml",
     "brand": "TRIMEX",
@@ -1786,12 +1787,12 @@
     "prescription": false,
     "inStock": true,
     "image": "images/products/trimex-expectorant-paediatric-100ml.webp",
-    "description": "Trimex Paediatric expectorant syrupÂ contains chlorpheniramine( a sedating antihistamine), pseudoephedrine( a decongestant) and Guaifenesin ( an expectorant). it is recommended for relief of chesty coughs by loosening and expelling stubborn airway mucus.",
+    "description": "Trimex Paediatric expectorant syrup\u00c2 contains chlorpheniramine( a sedating antihistamine), pseudoephedrine( a decongestant) and Guaifenesin ( an expectorant). it is recommended for relief of chesty coughs by loosening and expelling stubborn airway mucus.",
     "generic": "100ml",
-    "pack": "100ml",
-    "id": "p1191"
+    "pack": "100ml"
   },
   {
+    "id": "p1192",
     "slug": "trimex-expectorant-adult-100ml",
     "name": "Trimex Expectorant Adult 100ml",
     "brand": "TRIMEX",
@@ -1802,10 +1803,10 @@
     "image": "images/products/trimex-expectorant-adult-100ml.webp",
     "description": "Trimex Expectorant contains chlorpheniramine ,pseudo-ephedrine and guaifenesin. Trimex Expectorant is indicated for the effective relief of chesty coughs. It works by loosening and removing stubborn bronchial mucus. It also helps to relief nasal congestion.",
     "generic": "100ml",
-    "pack": "100ml",
-    "id": "p1192"
+    "pack": "100ml"
   },
   {
+    "id": "p1193",
     "slug": "bromsal-expectorant-100ml",
     "name": "Bromsal Expectorant 100ml",
     "brand": "BROMSAL",
@@ -1816,10 +1817,10 @@
     "image": "images/products/bromsal-expectorant-100ml.webp",
     "description": "Bromsal Syrup is a combination medicine used in the treatment of cough. It thins mucus in the nose, windpipe and lungs, making it easier to cough out. It also provides relief from runny nose, sneezing, itching, and watery eyes. Bromsal Syrup is taken with or without food in a dose and duration as advised by the doctor. The dose you are given will depend on your condition and how you respond to the medicine. You should keep taking this medicine for as long as your doctor recommends. If you stop t",
     "generic": "100ml",
-    "pack": "100ml",
-    "id": "p1193"
+    "pack": "100ml"
   },
   {
+    "id": "p1194",
     "slug": "delased-dry-cough-non-drowsy-100ml",
     "name": "Delased Dry Cough Non-Drowsy 100ml",
     "brand": "DELASED ",
@@ -1830,10 +1831,10 @@
     "image": "images/products/delased-dry-cough-non-drowsy-100ml.webp",
     "description": "DELASED DRY COUGH NON-DROWSY 100ML contains per 5mls Guaifenesin 100mg and Menthol 1.1mg. It is indicated for the effective management of chesty coughs by loosening and removing stubborn bronchial mucus.",
     "generic": "100ml",
-    "pack": "100ml",
-    "id": "p1194"
+    "pack": "100ml"
   },
   {
+    "id": "p1195",
     "slug": "cadistin-expectorant-100ml",
     "name": "Cadistin Expectorant 100ml",
     "brand": "CADISTIN",
@@ -1844,10 +1845,10 @@
     "image": "images/products/cadistin-expectorant-100ml.webp",
     "description": "Cadistin expectorant contains Guaifenesin 80mg ,Ammonium Chloride 100mg Chlorpheniramine Maleate 2mg and Sodium Citrate 44mg.It is used in the treatment of cough.",
     "generic": "100ml",
-    "pack": "100ml",
-    "id": "p1195"
+    "pack": "100ml"
   },
   {
+    "id": "p1196",
     "slug": "delased-chesty-cough-100ml",
     "name": "Delased Chesty Cough 100ml",
     "brand": "DELASED ",
@@ -1858,10 +1859,10 @@
     "image": "images/products/delased-chesty-cough-100ml.webp",
     "description": "Delased for chesty coughs is a pleasant tasting , brown coloured syrup. It immedietely soothes and eases irritation caused by coughs. It loosens phlegm, clears bronchial and nasal congestion , making coughs more productive. Its effective combination of active ingridients provides soothing relief in chesty coughs.",
     "generic": "100ml",
-    "pack": "100ml",
-    "id": "p1196"
+    "pack": "100ml"
   },
   {
+    "id": "p1197",
     "slug": "delased-dry-cough-100ml",
     "name": "Delased Dry Cough 100ml",
     "brand": "DELASED ",
@@ -1872,10 +1873,10 @@
     "image": "images/products/delased-dry-cough-100ml.webp",
     "description": "Delased Dry Cough Syrup contains Diphenhydramine hydrochloride 14mg, Dextromethorphan HBr 6.5mg, Sodium Citrate 57mg and Menthol 2mg.",
     "generic": "100ml",
-    "pack": "100ml",
-    "id": "p1197"
+    "pack": "100ml"
   },
   {
+    "id": "p1198",
     "slug": "delased-chesty-cough-non-drowsy-100ml",
     "name": "Delased Chesty Cough Non Drowsy 100ml",
     "brand": "DELASED ",
@@ -1886,94 +1887,94 @@
     "image": "images/products/delased-chesty-cough-non-drowsy-100ml.webp",
     "description": "Delased Chesty Cough Non-drowsy Syrup contains per 5mls Guaifenesin 100mg and Menthol 1.1mg. It is indicated for the effective management of chesty coughs by loosening and removing stubborn bronchial mucus. This combination product is used for the temporary treatment of cough, stuffy nose, and sinus pain/pressure caused by infection (such as the common cold, flu) or other breathing illnesses (such as hay fever, bronchitis). This product contains a decongestant (such as pseudoephedrine, phenyleph",
     "generic": "100ml",
-    "pack": "100ml",
-    "id": "p1198"
+    "pack": "100ml"
   },
   {
+    "id": "p1199",
     "slug": "symbicort-inhaler-160mcg45mcg-60-doses",
     "name": "Symbicort Inhaler 160mcg/4.5mcg 60 Doses",
     "brand": "ASTRAZENECA",
-    "category": "Cough & Throat",
+    "category": "Asthma",
     "price": 3255,
     "prescription": true,
     "inStock": true,
     "image": "images/products/symbicort-inhaler-160mcg45mcg-60-doses.webp",
     "description": "Symbicort Inhaler 160/4.5 mcg contains Formoterol 4.5mcg and Budesonide 160mcg used in the treatment of asthma and chronic obstructive pulmonary disease. Formoterol is a long-acting bronchodilator which works by relaxing the muscles in the airways and widens the airways. Budesonide is a steroid. It works by stopping the release of certain chemical messengers that cause inflammation (swelling) of the airways. Together, they make breathing easier.",
     "generic": "160mcg",
-    "pack": "",
-    "id": "p1199"
+    "pack": ""
   },
   {
+    "id": "p1200",
     "slug": "foralin-400mcg-inhaler-120-doses",
     "name": "Foralin 400mcg Inhaler 120 Doses",
     "brand": "FORALIN",
-    "category": "Cough & Throat",
+    "category": "Asthma",
     "price": 2730,
     "prescription": true,
     "inStock": true,
     "image": "images/products/foralin-400mcg-inhaler-120-doses.webp",
     "description": "Foralin 400mcg Inhaler is used in the treatment of asthma and chronic obstructive pulmonary disorder.Formoterol is a long-acting bronchodilator which works by relaxing the muscles in the airways and widens the airways. Budesonide is a steroid. It works by stopping the release of certain chemical messengers that cause inflammation (swelling) of the airways. Together, they make breathing easier.",
     "generic": "400mcg",
-    "pack": "",
-    "id": "p1200"
+    "pack": ""
   },
   {
+    "id": "p1201",
     "slug": "symbicort-inhaler-160mcg45mcg-120doses",
     "name": "Symbicort Inhaler 160mcg/4.5mcg 120Doses",
     "brand": "ASTRAZENECA",
-    "category": "Cough & Throat",
+    "category": "Asthma",
     "price": 1954,
     "prescription": true,
     "inStock": true,
     "image": "images/products/symbicort-inhaler-160mcg45mcg-120doses.webp",
     "description": "Symbicort Inhaler 160/4.5 mcg contains Formoterol 4.5mcg and Budesonide 160mcg used in the treatment of asthma and chronic obstructive pulmonary disease. Formoterol is a long-acting bronchodilator which works by relaxing the muscles in the airways and widens the airways. Budesonide is a steroid. It works by stopping the release of certain chemical messengers that cause inflammation (swelling) of the airways. Together, they make breathing easier.",
     "generic": "160mcg",
-    "pack": "",
-    "id": "p1201"
+    "pack": ""
   },
   {
+    "id": "p1203",
     "slug": "foralin-200mcg-inhaler-120-doses",
     "name": "Foralin 200mcg Inhaler 120 Doses",
     "brand": "FORALIN",
-    "category": "Cough & Throat",
+    "category": "Asthma",
     "price": 1778,
     "prescription": true,
     "inStock": true,
     "image": "images/products/foralin-200mcg-inhaler-120-doses.webp",
     "description": "Foralin 200mcg Inhaler contains Formoterol 6mcg and Budesonide 200mcg.Foralin Inhaler is used in the treatment of asthma and chronic obstructive pulmonary disorder.Formoterol is a long-acting bronchodilator which works by relaxing the muscles in the airways and widens the airways. Budesonide is a steroid. It works by stopping the release of certain chemical messengers that cause inflammation (swelling) of the airways. Together, they make breathing easier.",
     "generic": "200mcg",
-    "pack": "",
-    "id": "p1203"
+    "pack": ""
   },
   {
+    "id": "p1205",
     "slug": "formonide-4006mcg-inhaler",
     "name": "Formonide 400/6mcg Inhaler",
     "brand": "FORMONIDE",
-    "category": "Cough & Throat",
+    "category": "Asthma",
     "price": 1556,
     "prescription": true,
     "inStock": true,
     "image": "images/products/formonide-4006mcg-inhaler.webp",
     "description": "Formonide 400 Inhaler is a combination of two medicines in one inhaler. It relieves the long-term symptoms of asthma and COPD, making breathing easier. It works by inhibiting the release of certain chemical messengers that cause inflammation (swelling) and relaxes the muscles in the airways.",
     "generic": "6mcg",
-    "pack": "",
-    "id": "p1205"
+    "pack": ""
   },
   {
+    "id": "p1212",
     "slug": "aerovent-inhaler-200-doses",
     "name": "Aerovent Inhaler 200 Doses",
     "brand": "AEROVENT ",
-    "category": "Cough & Throat",
+    "category": "Asthma",
     "price": 998,
     "prescription": true,
     "inStock": true,
     "image": "images/products/aerovent-inhaler-200-doses.webp",
     "description": "Aerovent Inhaler is a combination of two medicines: Salbutamol and Beclometasone. Salbutamol is a bronchodilator which works by relaxing the muscles in the airways and widens the airways. Beclometasone is a steroid. It acts by stopping the release of certain natural substances in body that are responsible for inflammation (swelling) of the airways. Together, they make breathing easier.",
     "generic": "",
-    "pack": "",
-    "id": "p1212"
+    "pack": ""
   },
   {
+    "id": "p1215",
     "slug": "benylin-with-codeine-cough-syrup-100ml",
     "name": "Benylin with Codeine Cough syrup 100ml",
     "brand": "BENYLIN",
@@ -1984,10 +1985,10 @@
     "image": "images/products/benylin-with-codeine-cough-syrup-100ml.webp",
     "description": "Benylin with codeine cough syrup contains Diphenhydramine, ammonium chloride and codeine. This combination relieves congestion, dries a runny nose and post-nasal drip, thins mucus to relief coughing and also suppresses the cough reflex centrally. Diphenhydramine is an antihistamine that relieves congestion and post-nasal drips, while ammonium chloride is the expectorant which thins mucus. Codeine suppresses the cough reflex by calming the part of the brain that regulates coughing.",
     "generic": "100ml",
-    "pack": "100ml",
-    "id": "p1215"
+    "pack": "100ml"
   },
   {
+    "id": "p1225",
     "slug": "apydyl-h-cough-syrup-100mls",
     "name": "Apydyl H  cough syrup 100mls",
     "brand": "",
@@ -1998,24 +1999,24 @@
     "image": "images/products/apydyl-h-cough-syrup-100mls.webp",
     "description": "",
     "generic": "100ml",
-    "pack": "",
-    "id": "p1225"
+    "pack": ""
   },
   {
+    "id": "p1226",
     "slug": "salbutamol-syrup-100ml",
     "name": "Salbutamol Syrup 100ml",
     "brand": "SALBUTAMOL",
-    "category": "Cough & Throat",
+    "category": "Asthma",
     "price": 42,
     "prescription": true,
     "inStock": true,
     "image": "images/products/salbutamol-syrup-100ml.webp",
-    "description": "Salbutamol isÂ a selective Î²2-agonist bronchodilator which provides short acting bronchodilation in reversible airways obstruction. Salbutamol is used to rapidly treat asthma, bronchospasm and reversible airways obstruction by widening the airways of the lungs.",
+    "description": "Salbutamol is\u00c2 a selective \u00ce\u00b22-agonist bronchodilator which provides short acting bronchodilation in reversible airways obstruction. Salbutamol is used to rapidly treat asthma, bronchospasm and reversible airways obstruction by widening the airways of the lungs.",
     "generic": "100ml",
-    "pack": "100ml",
-    "id": "p1226"
+    "pack": "100ml"
   },
   {
+    "id": "p1227",
     "slug": "gaviscon-infant-sachets-30s",
     "name": "Gaviscon Infant Sachets 30's",
     "brand": "GAVISCON",
@@ -2026,10 +2027,10 @@
     "image": "images/products/gaviscon-infant-sachets-30s.webp",
     "description": "Provides fast, soothing and long lasting relief from the pain and discomfort of heartburn and acid indigestion for your children. It can be used to treat gastric reflux (a condition where the acid stomach contents flow upwards into the food pipe) and flatulence caused by gastric re flux.",
     "generic": "",
-    "pack": "30's",
-    "id": "p1227"
+    "pack": "30's"
   },
   {
+    "id": "p1228",
     "slug": "buscopan-plus-tablets-40s",
     "name": "Buscopan Plus Tablets 40's",
     "brand": "BUSCOPAN",
@@ -2040,10 +2041,10 @@
     "image": "images/products/buscopan-plus-tablets-40s.webp",
     "description": "Buscopan Plus contains two medications: Hyoscine Butylbromide and Paracetamol. Buscopan works by relaxing the muscles of the stomach and intestines as paracetamol relieves the pain. It is used to treat pain and discomfort caused by abdominal cramps, menstrual cramps and preventing bladder spasms.",
     "generic": "",
-    "pack": "40's",
-    "id": "p1228"
+    "pack": "40's"
   },
   {
+    "id": "p1230",
     "slug": "buscopan-10mg-tablets-50s",
     "name": "Buscopan 10mg Tablets 50's",
     "brand": "BUSCOPAN",
@@ -2054,10 +2055,10 @@
     "image": "images/products/buscopan-10mg-tablets-50s.webp",
     "description": "Buscopan contains hyoscine butylbromide. Buscopan is used for the treatment of pain due to smooth muscle spasm. It is used to relieve cramps in the muscles of stomach, intestine, bladder and ureter. It can also be used to relieve the symptoms of Irritable Bowel Syndrome (IBS).",
     "generic": "10mg",
-    "pack": "50's",
-    "id": "p1230"
+    "pack": "50's"
   },
   {
+    "id": "p1232",
     "slug": "gaviscon-double-action-tablets-24s",
     "name": "Gaviscon Double Action Tablets 24's",
     "brand": "GAVISCON",
@@ -2068,10 +2069,10 @@
     "image": "images/products/gaviscon-double-action-tablets-24s.webp",
     "description": "Gaviscon double action tablets; Helps relief from heartburn and indigestion. Symptoms treated: Burning in chest Bloating Sour taste in the mouth",
     "generic": "",
-    "pack": "24's",
-    "id": "p1232"
+    "pack": "24's"
   },
   {
+    "id": "p1233",
     "slug": "ors-hydration-tablets-sport-mixed-berry-20s",
     "name": "ORS Hydration Tablets (Sport) Mixed Berry 20's",
     "brand": "ORS",
@@ -2082,10 +2083,10 @@
     "image": "images/products/ors-hydration-tablets-sport-mixed-berry-20s.webp",
     "description": "During exercise, body fluid (containing electrolytes, salts, and minerals) is lost more quickly. ORS Sport replenishes this fluid and restores hydration levels. With the addition of Magnesium and Vitamin D to help assist in normal muscle function and recovery post-exercise. Reduced hydration levels result in loss of fluids and vital components. During this state, very little sodium is lost causing low sodium levels within the body. Sodium is absorbed better in the presence of glucose and electro",
     "generic": "",
-    "pack": "20's",
-    "id": "p1233"
+    "pack": "20's"
   },
   {
+    "id": "p1234",
     "slug": "ors-hydration-tablets-sport-orange-20s",
     "name": "ORS Hydration Tablets (Sport) Orange 20's",
     "brand": "ORS",
@@ -2096,10 +2097,10 @@
     "image": "images/products/ors-hydration-tablets-sport-orange-20s.webp",
     "description": "",
     "generic": "",
-    "pack": "20's",
-    "id": "p1234"
+    "pack": "20's"
   },
   {
+    "id": "p1235",
     "slug": "gaviscon-peppermint-tablets-24s",
     "name": "Gaviscon Peppermint Tablets 24's",
     "brand": "GAVISCON",
@@ -2110,10 +2111,10 @@
     "image": "images/products/gaviscon-peppermint-tablets-24s.webp",
     "description": "Gaviscon Peppermint Chewable Tablets help to provide fast, long lasting effective relief from symptoms of heartburn and acid indigestion. A peppermint flavoured chewable tablet provides fast relief from symptoms of acid indigestion and heartburn, such as pain and discomfort. Gaviscon tablets work by providing a protective barrier in the stomach to ensure contents stay in the stomach. Gaviscon tablets are chewable tablet which can help ease heartburn and acid reflux.These are handy to have when o",
     "generic": "",
-    "pack": "24's",
-    "id": "p1235"
+    "pack": "24's"
   },
   {
+    "id": "p1236",
     "slug": "maalox-plus-suspension-250ml",
     "name": "Maalox Plus Suspension 250ml",
     "brand": "MAALOX",
@@ -2124,10 +2125,10 @@
     "image": "images/products/maalox-plus-suspension-250ml.webp",
     "description": "Maalox Suspension contains Simethicone,Aluminium and Magnesium provides fast, effecting relief from heartburn/hyper acidity/ indigestion/burning sensations in the stomach or chest area and bloating or gas pain that may occur after a meal. Maalox Suspension is an antacid suspension that relieves your symptoms in two different ways: Antacid - Neutralizes excess stomach acid. Anti-gas Ingredient - reduces gas pain and pressure.",
     "generic": "250ml",
-    "pack": "250ml",
-    "id": "p1236"
+    "pack": "250ml"
   },
   {
+    "id": "p1237",
     "slug": "ors-hydration-soluble-blackcurrant-tablets-24s",
     "name": "ORS Hydration Soluble Blackcurrant Tablets 24's",
     "brand": "ORS",
@@ -2138,10 +2139,10 @@
     "image": "images/products/ors-hydration-soluble-blackcurrant-tablets-24s.webp",
     "description": "O.R.S (Oral Rehydration Salts). These are effervescent tablets that contain a combination of electrolytes, glucose, and minerals that help keep users hydrated before, during, and after vomiting & diarrhoea, prolonged exercise, travel, fasting, and hot weather. Many bodily functions depend on electrolytes and optimal performance requires a consistent and adequate supply of these nutrients. O.R.S is based on the WHO formula",
     "generic": "",
-    "pack": "24's",
-    "id": "p1237"
+    "pack": "24's"
   },
   {
+    "id": "p1238",
     "slug": "ors-hydration-soluble-lemon-tablets-24s",
     "name": "ORS Hydration Soluble Lemon Tablets 24's",
     "brand": "ORS",
@@ -2152,10 +2153,10 @@
     "image": "images/products/ors-hydration-soluble-lemon-tablets-24s.webp",
     "description": "",
     "generic": "",
-    "pack": "24's",
-    "id": "p1238"
+    "pack": "24's"
   },
   {
+    "id": "p1239",
     "slug": "ors-hydration-soluble-strawberry-tablets-24s",
     "name": "ORS Hydration Soluble Strawberry Tablets 24's",
     "brand": "ORS",
@@ -2166,7 +2167,216 @@
     "image": "images/products/ors-hydration-soluble-strawberry-tablets-24s.webp",
     "description": "O.R.S (Oral Rehydration Salts). These are effervescent tablets that contain a combination of electrolytes, glucose, and minerals that help keep users hydrated before, during, and after vomiting & diarrhoea, prolonged exercise, travel, fasting, and hot weather. Many bodily functions depend on electrolytes and optimal performance requires a consistent and adequate supply of these nutrients. O.R.S is based on the WHO formula",
     "generic": "",
-    "pack": "24's",
-    "id": "p1239"
+    "pack": "24's"
+  },
+  {
+    "id": "p1300",
+    "slug": "vitamin-c-1000mg-tablets-60s",
+    "name": "Nature's Bounty Vitamin C 1000mg Tablets 60's",
+    "brand": "Nature's Bounty",
+    "category": "Supplements",
+    "price": 1350,
+    "prescription": false,
+    "inStock": true,
+    "image": "images/products/vitamin-c-1000mg-tablets-60s.webp",
+    "description": "High strength Vitamin C for immune support and antioxidant protection. Helps fight fatigue, supports collagen formation and iron absorption. One tablet daily.",
+    "generic": "Vitamin C (Ascorbic Acid)",
+    "pack": "60 Tablets"
+  },
+  {
+    "id": "p1301",
+    "slug": "multivitamin-tablets-30s",
+    "name": "Centrum Multivitamin Tablets 30s",
+    "brand": "Centrum",
+    "category": "Supplements",
+    "price": 1850,
+    "prescription": false,
+    "inStock": true,
+    "image": "images/products/multivitamin-tablets-30s.webp",
+    "description": "Complete daily multivitamin with essential vitamins and minerals to support immunity, energy and overall health. One tablet a day covers key nutrients.",
+    "generic": "Multivitamin & Minerals",
+    "pack": "30 Tablets"
+  },
+  {
+    "id": "p1302",
+    "slug": "iron-tablets-30s",
+    "name": "Feroglobin Iron and Folic Acid Capsules 30s",
+    "brand": "Vitabiotics",
+    "category": "Supplements",
+    "price": 1150,
+    "prescription": false,
+    "inStock": true,
+    "image": "images/products/iron-tablets-30s.webp",
+    "description": "Gentle iron with folic acid and B vitamins to prevent and treat iron deficiency anaemia, boost energy and support healthy blood. Ideal during pregnancy.",
+    "generic": "Iron, Folic Acid & B Vitamins",
+    "pack": "30 Capsules"
+  },
+  {
+    "id": "p1303",
+    "slug": "calcium-vitamin-d3-tablets-30s",
+    "name": "Calgen D Calcium and Vitamin D3 Tablets 30s",
+    "brand": "Calgen D",
+    "category": "Supplements",
+    "price": 950,
+    "prescription": false,
+    "inStock": true,
+    "image": "images/products/calcium-vitamin-d3-tablets-30s.webp",
+    "description": "Calcium carbonate with Vitamin D3 for strong bones and teeth. Supports bone density in adults, the elderly and during pregnancy.",
+    "generic": "Calcium & Vitamin D3",
+    "pack": "30 Tablets"
+  },
+  {
+    "id": "p1304",
+    "slug": "whey-protein-powder-1kg",
+    "name": "Optimum Nutrition Gold Standard 100% Whey 907g",
+    "brand": "Optimum Nutrition",
+    "category": "Supplements",
+    "price": 6500,
+    "prescription": false,
+    "inStock": true,
+    "image": "images/products/whey-protein-powder-1kg.webp",
+    "description": "Premium whey protein blend with 24g protein per serving. Supports muscle growth, recovery and daily protein intake. Available in several flavours.",
+    "generic": "Whey Protein Isolate & Concentrate",
+    "pack": "907g Tub"
+  },
+  {
+    "id": "p1305",
+    "slug": "creatine-monohydrate-300g",
+    "name": "Creatine Monohydrate Powder 300g",
+    "brand": "HXNUTRITION",
+    "category": "Supplements",
+    "price": 3200,
+    "prescription": false,
+    "inStock": true,
+    "image": "images/products/creatine-monohydrate-300g.webp",
+    "description": "Pure micronised creatine monohydrate for strength, power and muscle mass. Mix 3-5g daily with water or your post workout shake.",
+    "generic": "Creatine Monohydrate",
+    "pack": "300g"
+  },
+  {
+    "id": "p1306",
+    "slug": "electrolyte-powder-20s",
+    "name": "Oral Rehydration Salts Electrolyte Sachets 20s",
+    "brand": "ORALYTE",
+    "category": "Supplements",
+    "price": 850,
+    "prescription": false,
+    "inStock": true,
+    "image": "images/products/electrolyte-powder-20s.webp",
+    "description": "Electrolyte and glucose mix for fast rehydration after exercise, diarrhoea or dehydration. Dissolve one sachet in water.",
+    "generic": "ORS Electrolytes & Glucose",
+    "pack": "20 Sachets"
+  },
+  {
+    "id": "p1307",
+    "slug": "vitamin-b-complex-tablets-60s",
+    "name": "Vitamin B Complex Tablets 60s",
+    "brand": "B-H",
+    "category": "Supplements",
+    "price": 1200,
+    "prescription": false,
+    "inStock": true,
+    "image": "images/products/vitamin-b-complex-tablets-60s.webp",
+    "description": "Full B complex with B1, B2, B6 and B12 for energy production, nerve function and healthy skin and hair. Take one tablet daily.",
+    "generic": "Vitamin B Complex",
+    "pack": "60 Tablets"
+  },
+  {
+    "id": "p1308",
+    "slug": "ashwagandha-capsules-60s",
+    "name": "Ashwagandha Root Capsules 60s",
+    "brand": "Naturewise",
+    "category": "Supplements",
+    "price": 1500,
+    "prescription": false,
+    "inStock": true,
+    "image": "images/products/ashwagandha-capsules-60s.webp",
+    "description": "Adaptogenic herb traditionally used to reduce stress, improve sleep quality and support energy and focus. One capsule twice daily.",
+    "generic": "Ashwagandha Extract",
+    "pack": "60 Capsules"
+  },
+  {
+    "id": "p1309",
+    "slug": "turmeric-curcumin-capsules-60s",
+    "name": "Organic Turmeric Curcumin Capsules 60s",
+    "brand": "NatureWise",
+    "category": "Supplements",
+    "price": 1700,
+    "prescription": false,
+    "inStock": true,
+    "image": "images/products/turmeric-curcumin-capsules-60s.webp",
+    "description": "Organic turmeric with high absorption curcumin for natural anti inflammatory support, joint comfort and digestion.",
+    "generic": "Turmeric Curcumin",
+    "pack": "60 Capsules"
+  },
+  {
+    "id": "p1310",
+    "slug": "vitamin-b12-tablets-60s",
+    "name": "Vitamin B12 Tablets 60s",
+    "brand": "B-H",
+    "category": "Supplements",
+    "price": 900,
+    "prescription": false,
+    "inStock": true,
+    "image": "images/products/vitamin-b12-tablets-60s.webp",
+    "description": "Vitamin B12 for energy, red blood cell formation and nervous system health. Ideal for vegetarians and those with low B12 levels.",
+    "generic": "Vitamin B12 (Cyanocobalamin)",
+    "pack": "60 Tablets"
+  },
+  {
+    "id": "p1311",
+    "slug": "glucosamine-chondroitin-tablets-90s",
+    "name": "Glucosamine and Chondroitin Tablets 90s",
+    "brand": "Kirkland",
+    "category": "Supplements",
+    "price": 2600,
+    "prescription": false,
+    "inStock": true,
+    "image": "images/products/glucosamine-chondroitin-tablets-90s.webp",
+    "description": "Glucosamine with chondroitin and MSM to support healthy joints, cartilage and mobility. Take one tablet twice daily with food.",
+    "generic": "Glucosamine, Chondroitin & MSM",
+    "pack": "90 Tablets"
+  },
+  {
+    "id": "p1312",
+    "slug": "collagen-powder-300g",
+    "name": "Collagen Peptides Powder 300g",
+    "brand": "Vital Proteins",
+    "category": "Supplements",
+    "price": 3500,
+    "prescription": false,
+    "inStock": true,
+    "image": "images/products/collagen-powder-300g.webp",
+    "description": "Grass fed bovine collagen peptides for skin elasticity, joint health, hair and nails. Mix a scoop into water, coffee or smoothies.",
+    "generic": "Hydrolysed Collagen Peptides",
+    "pack": "300g"
+  },
+  {
+    "id": "p1313",
+    "slug": "omega-3-fish-oil-capsules-60s",
+    "name": "Vegan Omega 3 DHA EPA Softgels 90s",
+    "brand": "Deva",
+    "category": "Supplements",
+    "price": 2900,
+    "prescription": false,
+    "inStock": true,
+    "image": "images/products/omega-3-fish-oil-capsules-60s.webp",
+    "description": "Plant based omega 3 (DHA and EPA) from algae to support heart, brain and eye health. A great alternative to fish oil.",
+    "generic": "Algae Omega 3 (DHA/EPA)",
+    "pack": "90 Softgels"
+  },
+  {
+    "id": "p1314",
+    "slug": "garlic-capsules-60s",
+    "name": "Garlic Oil Capsules 60s",
+    "brand": "Alpinamed",
+    "category": "Supplements",
+    "price": 1100,
+    "prescription": false,
+    "inStock": true,
+    "image": "images/products/garlic-capsules-60s.webp",
+    "description": "Odourless garlic oil capsules to support healthy blood pressure, cholesterol levels and natural immunity.",
+    "generic": "Garlic Oil",
+    "pack": "60 Capsules"
   }
 ]

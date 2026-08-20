@@ -7,64 +7,11 @@ const img = (name) => BASE + 'images/banners/' + name;
 ---
 
 <Base>
-  <section class="hero" id="hero">
-    <div class="hero-slide active" style={`background-image:url('${img('hero-prices.webp')}')`}>
-      <div class="hero-scrim" aria-hidden="true"></div>
-      <div class="container hero-container">
-        <div class="hero-copy">
-          <span class="hero-eyebrow">Lowest everyday prices</span>
-          <h1>{site.heroTitle}</h1>
-          <p>{site.tagline} Pay with Mpesa till, then get it delivered to {site.delivery.zones[0].label} for KES {site.delivery.zones[0].fee}, or anywhere else in Nairobi for KES {site.delivery.zones[1].fee}.</p>
-          <div class="hero-cta">
-            <a class="btn hero-btn btn-lg" href="#categories">Browse products</a>
-            <a class="btn btn-whatsapp btn-lg" href={'https://wa.me/' + site.whatsapp} target="_blank" rel="noopener">Order on WhatsApp</a>
-          </div>
-          <div class="hero-badges">
-            <span class="hero-badge">Same day delivery</span>
-            <span class="hero-badge">Genuine medicines</span>
-            <span class="hero-badge">Mpesa till payment</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="hero-slide" style={`background-image:url('${img('hero-rx.webp')}')`}>
-      <div class="hero-scrim" aria-hidden="true"></div>
-      <div class="container hero-container">
-        <div class="hero-copy">
-          <span class="hero-eyebrow">Prescription medicines</span>
-          <h1>Verified by a pharmacist, delivered to your door</h1>
-          <p>Upload a photo of your prescription at checkout. Our pharmacist verifies it, then we pack and dispatch the same day.</p>
-          <div class="hero-cta">
-            <a class="btn hero-btn btn-lg" href={BASE + 'prescriptions'}>How it works</a>
-            <a class="btn btn-outline btn-lg" href="#categories" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.6)">Browse Rx medicines</a>
-          </div>
-          <div class="hero-badges">
-            <span class="hero-badge">Pharmacist verified</span>
-            <span class="hero-badge">Upload at checkout</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="hero-slide" style={`background-image:url('${img('hero-delivery.webp')}')`}>
-      <div class="hero-scrim" aria-hidden="true"></div>
-      <div class="container hero-container">
-        <div class="hero-copy">
-          <span class="hero-eyebrow">Same day delivery</span>
-          <h1>Order before 5PM, get it today</h1>
-          <p>Flat delivery fees: {site.delivery.zones[0].label} for KES {site.delivery.zones[0].fee}, rest of Nairobi for KES {site.delivery.zones[1].fee}. Your zone is remembered at checkout.</p>
-          <div class="hero-cta">
-            <a class="btn hero-btn btn-lg" href="#categories">Shop now</a>
-            <a class="btn btn-outline btn-lg" href={BASE + 'delivery'} style="background:transparent;color:#fff;border-color:rgba(255,255,255,.6)">Delivery &amp; fees</a>
-          </div>
-          <div class="hero-badges">
-            <span class="hero-badge">Orders before 5PM</span>
-            <span class="hero-badge">Track your order</span>
-          </div>
-        </div>
-      </div>
-    </div>
+  <section class="hero hero--plain" id="hero">
+    <div class="hero-slide active"><img src={img('hero-banner-1.webp')} alt="" /></div>
+    <div class="hero-slide"><img src={img('hero-banner-2.webp')} alt="" /></div>
+    <div class="hero-slide"><img src={img('hero-banner-3.webp')} alt="" /></div>
+    <div class="hero-slide"><img src={img('hero-banner-4.webp')} alt="" /></div>
 
     <button class="hero-arrow prev" id="hero-prev" aria-label="Previous slide">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
@@ -72,7 +19,6 @@ const img = (name) => BASE + 'images/banners/' + name;
     <button class="hero-arrow next" id="hero-next" aria-label="Next slide">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
     </button>
-    <div class="hero-dots" id="hero-dots" role="tablist" aria-label="Promo slides"></div>
   </section>
 
   <section class="container">
@@ -148,6 +94,75 @@ const img = (name) => BASE + 'images/banners/' + name;
         </a>
       ))}
     </div>
+  </section>
+
+  <section class="container">
+    <div class="hero hero--inner" id="hero-promo">
+      <div class="hero-slide active" style={`background-image:url('${img('hero-prices.webp')}')`}>
+        <div class="hero-scrim" aria-hidden="true"></div>
+        <div class="container hero-container">
+          <div class="hero-copy">
+            <span class="hero-eyebrow">Lowest everyday prices</span>
+            <h1>{site.heroTitle}</h1>
+            <p>{site.tagline} Pay with Mpesa till, then get it delivered to {site.delivery.zones[0].label} for KES {site.delivery.zones[0].fee}, or anywhere else in Nairobi for KES {site.delivery.zones[1].fee}.</p>
+            <div class="hero-cta">
+              <a class="btn hero-btn btn-lg" href="#categories">Browse products</a>
+              <a class="btn btn-whatsapp btn-lg" href={'https://wa.me/' + site.whatsapp} target="_blank" rel="noopener">Order on WhatsApp</a>
+            </div>
+            <div class="hero-badges">
+              <span class="hero-badge">Same day delivery</span>
+              <span class="hero-badge">Genuine medicines</span>
+              <span class="hero-badge">Mpesa till payment</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-slide" style={`background-image:url('${img('hero-rx.webp')}')`}>
+        <div class="hero-scrim" aria-hidden="true"></div>
+        <div class="container hero-container">
+          <div class="hero-copy">
+            <span class="hero-eyebrow">Prescription medicines</span>
+            <h1>Verified by a pharmacist, delivered to your door</h1>
+            <p>Upload a photo of your prescription at checkout. Our pharmacist verifies it, then we pack and dispatch the same day.</p>
+            <div class="hero-cta">
+              <a class="btn hero-btn btn-lg" href={BASE + 'prescriptions'}>How it works</a>
+              <a class="btn btn-outline btn-lg" href="#categories" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.6)">Browse Rx medicines</a>
+            </div>
+            <div class="hero-badges">
+              <span class="hero-badge">Pharmacist verified</span>
+              <span class="hero-badge">Upload at checkout</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-slide" style={`background-image:url('${img('hero-delivery.webp')}')`}>
+        <div class="hero-scrim" aria-hidden="true"></div>
+        <div class="container hero-container">
+          <div class="hero-copy">
+            <span class="hero-eyebrow">Same day delivery</span>
+            <h1>Order before 5PM, get it today</h1>
+            <p>Flat delivery fees: {site.delivery.zones[0].label} for KES {site.delivery.zones[0].fee}, rest of Nairobi for KES {site.delivery.zones[1].fee}. Your zone is remembered at checkout.</p>
+            <div class="hero-cta">
+              <a class="btn hero-btn btn-lg" href="#categories">Shop now</a>
+              <a class="btn btn-outline btn-lg" href={BASE + 'delivery'} style="background:transparent;color:#fff;border-color:rgba(255,255,255,.6)">Delivery &amp; fees</a>
+            </div>
+            <div class="hero-badges">
+              <span class="hero-badge">Orders before 5PM</span>
+              <span class="hero-badge">Track your order</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="hero-arrow prev" id="hero-promo-prev" aria-label="Previous slide">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+      </button>
+      <button class="hero-arrow next" id="hero-promo-next" aria-label="Next slide">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+      </button>
+    </div>
 
     <div class="feature-grid">
       <a class="feature-card" href={BASE + 'prescriptions'} style={`background-image:url('${img('feature-rx.webp')}')`}>
@@ -177,35 +192,26 @@ const img = (name) => BASE + 'images/banners/' + name;
 
   <script>
     /* ---------- hero carousel ---------- */
-    const slides = Array.from(document.querySelectorAll('.hero-slide'));
-    const dotsWrap = document.getElementById('hero-dots');
-    let cur = 0, timer = null;
-    slides.forEach((_, i) => {
-      const d = document.createElement('button');
-      d.className = 'hero-dot' + (i === 0 ? ' active' : '');
-      d.setAttribute('role', 'tab');
-      d.setAttribute('aria-label', 'Slide ' + (i + 1));
-      d.addEventListener('click', () => go(i));
-      dotsWrap.appendChild(d);
-    });
-    const dots = Array.from(dotsWrap.children);
-    function go(i) {
-      slides[cur].classList.remove('active');
-      dots[cur].classList.remove('active');
-      cur = (i + slides.length) % slides.length;
-      slides[cur].classList.add('active');
-      dots[cur].classList.add('active');
+    function initAutoplay(root, prevBtn, nextBtn) {
+      const slides = Array.from(root.querySelectorAll('.hero-slide'));
+      let cur = 0, timer = null;
+      function go(i) {
+        slides[cur].classList.remove('active');
+        cur = (i + slides.length) % slides.length;
+        slides[cur].classList.add('active');
+        restart();
+      }
+      function restart() {
+        clearInterval(timer);
+        timer = setInterval(() => go(cur + 1), 6500);
+      }
+      if (prevBtn) prevBtn.addEventListener('click', () => go(cur - 1));
+      if (nextBtn) nextBtn.addEventListener('click', () => go(cur + 1));
+      root.addEventListener('mouseenter', () => clearInterval(timer));
+      root.addEventListener('mouseleave', restart);
       restart();
     }
-    function restart() {
-      clearInterval(timer);
-      timer = setInterval(() => go(cur + 1), 6500);
-    }
-    document.getElementById('hero-prev').addEventListener('click', () => go(cur - 1));
-    document.getElementById('hero-next').addEventListener('click', () => go(cur + 1));
-    const hero = document.getElementById('hero');
-    hero.addEventListener('mouseenter', () => clearInterval(timer));
-    hero.addEventListener('mouseleave', restart);
-    restart();
+    initAutoplay(document.getElementById('hero'), document.getElementById('hero-prev'), document.getElementById('hero-next'));
+    initAutoplay(document.getElementById('hero-promo'), document.getElementById('hero-promo-prev'), document.getElementById('hero-promo-next'));
   </script>
 </Base>

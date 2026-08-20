@@ -5,6 +5,20 @@ const cartIndexData = cartIndex();
 const catList = categories();
 const title = site.brand + ' | ' + site.tagline;
 const desc = 'Order medicines online in Nairobi with fast delivery. Lowest everyday prices, Mpesa till payment, and genuine products from a PPB licensed pharmacy. South C, South B, Nairobi West KES 100 delivery; rest of Nairobi KES 300.';
+const conditions = [
+  ['Fever & Pain', 'Pain & Fever'],
+  ['Cold & Flu', 'Cold & Flu'],
+  ['Cough & Throat', 'Cough & Throat'],
+  ['Allergies', 'Allergy'],
+  ['Malaria', 'Malaria'],
+  ['Diabetes', 'Diabetes'],
+  ['High blood pressure', 'Hypertension'],
+  ['Asthma', 'Asthma'],
+  ['Arthritis & Joint pain', 'Arthritis'],
+  ['Stomach upsets', 'Stomach & Digestion'],
+  ['Heart health', 'Blood & Heart'],
+  ['Bacterial infections', 'Antibiotics']
+];
 interface Props {
   title?: string;
   description?: string;
@@ -56,34 +70,34 @@ const fullUrl = SITE + path;
     <script type="application/json" id="pz-base" set:html={JSON.stringify(BASE)}></script>
     <script src={BASE + 'scripts/store.js'}></script>
 
-    <div class="topbar">
-      <div class="container topbar-inner">
-        <span>Same day delivery across Nairobi</span>
-        <span class="dot" aria-hidden="true">&bull;</span>
-        <span>Orders before 5PM delivered today</span>
-        <span class="dot" aria-hidden="true">&bull;</span>
-        <span>Lowest everyday prices</span>
-      </div>
-    </div>
-
     <header class="site-header">
       <div class="header-inner container">
         <a class="logo" href={BASE}>
-          <span class="logo-mark">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
-              <rect x="3" y="13.5" width="9" height="5" rx="2.5" fill="currentColor" opacity="0.35"/>
-            </svg>
-          </span>
-          <span>
-            <span class="logo-name">Pharma<span>zole</span></span>
-          </span>
+          <img src={BASE + 'images/Logo/logo.png'} alt="" />
+          <span class="logo-name">Pharma<span>zole</span></span>
         </a>
-        <nav class="main-nav" aria-label="Main navigation">
-          <a href={BASE}>Shop</a>
+        <button class="menu-btn" id="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
+          <svg class="ico-burger" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          <svg class="ico-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+        <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+          <div class="nav-dd" id="nav-dd-cond">
+            <button class="nav-dd-toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="nav-dd-cond-menu">
+              Shop by condition
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="nav-dd-menu" id="nav-dd-cond-menu">
+              {conditions.map(([label, cat]) => (
+                <a href={BASE + 'category/' + slug(cat)}>
+                  <span>{label}</span>
+                  <span class="nav-dd-count">{catList.find((c) => c.name === cat)?.count || 0}</span>
+                </a>
+              ))}
+            </div>
+          </div>
           <div class="nav-dd" id="nav-dd">
             <button class="nav-dd-toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="nav-dd-menu">
-              Categories
+              Shop by category
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
             </button>
             <div class="nav-dd-menu" id="nav-dd-menu">
@@ -95,6 +109,7 @@ const fullUrl = SITE + path;
               ))}
             </div>
           </div>
+          <a href={BASE + 'category/' + slug('Supplements')}>Supplements</a>
           <a href={BASE + 'prescriptions'}>Rx medicines</a>
           <a href={BASE + 'delivery'}>Delivery</a>
           <a href={BASE + 'about'}>About</a>
@@ -192,9 +207,9 @@ const fullUrl = SITE + path;
 
     <script>
       (function () {
-        const dd = document.getElementById('nav-dd');
-        const toggle = dd && dd.querySelector('.nav-dd-toggle');
-        if (dd && toggle) {
+        function setupDropdown(dd) {
+          const toggle = dd && dd.querySelector('.nav-dd-toggle');
+          if (!dd || !toggle) return;
           toggle.addEventListener('click', (e) => {
             e.stopPropagation();
             const open = dd.classList.toggle('open');
@@ -214,6 +229,26 @@ const fullUrl = SITE + path;
             }
           });
         }
+        setupDropdown(document.getElementById('nav-dd'));
+        setupDropdown(document.getElementById('nav-dd-cond'));
+
+        const menuBtn = document.getElementById('menu-btn');
+        const nav = document.getElementById('main-nav');
+        if (menuBtn && nav) {
+          menuBtn.addEventListener('click', () => {
+            const open = nav.classList.toggle('open');
+            menuBtn.classList.toggle('open', open);
+            menuBtn.setAttribute('aria-expanded', String(open));
+          });
+          nav.addEventListener('click', (e) => {
+            if (e.target.closest('a')) {
+              nav.classList.remove('open');
+              menuBtn.classList.remove('open');
+              menuBtn.setAttribute('aria-expanded', 'false');
+            }
+          });
+        }
+
         const sel = document.getElementById('zone-select');
         if (!sel) return;
         const cur = PZ.zone();
