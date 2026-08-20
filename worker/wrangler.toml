@@ -5,7 +5,7 @@ compatibility_date = "2026-01-01"
 [vars]
 SITE_REPO = "AbduljabbarBXR/Pharmazole"
 PRIVATE_REPO = "AbduljabbarBXR/Pharmazole-orders"
-ALLOWED_ORIGINS = "http://localhost:4321,https://abduljabbarbxr.github.io"
+ALLOWED_ORIGINS = "http://localhost:4321,https://pharmazole.netlify.app"
 OWNER_WHATSAPP = "254729499313"
 OWNER_NAME = "Pharmazole"
 TILL_NUMBER = "000000"

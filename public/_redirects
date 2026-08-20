@@ -1,0 +1,3 @@
+# Proxy API calls to the Cloudflare Worker
+# Replace pharmazole-api.YOUR_ACCOUNT.workers.dev with your real worker URL after deploying
+/api/*  https://pharmazole-api.YOUR_ACCOUNT.workers.dev/api/:splat  200
